@@ -1,0 +1,65 @@
+/* === TESTIMONIALS MARQUEE ANIMATION === */
+.testimonial-grid.marquee-ready {
+	display: flex;
+	gap: 24px;
+	overflow: hidden;
+	height: auto;
+}
+
+.testimonials-column {
+	flex: 1 1 0;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	position: relative;
+	overflow: hidden;
+}
+
+.testimonials-column-inner {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	will-change: transform;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-name: none;
+}
+
+@keyframes testimonials-marquee-up {
+	0% { transform: translateY(0); }
+	100% { transform: translateY(calc(-1 * var(--marquee-distance, 400px)));
+	}
+}
+
+@keyframes testimonials-marquee-down {
+	0% { transform: translateY(calc(-1 * var(--marquee-distance, 400px)));
+	}
+	100% { transform: translateY(0); }
+}
+
+.testimonials-column-inner.marquee-up {
+	animation-name: testimonials-marquee-up;
+	animation-duration: var(--marquee-duration, 15s);
+	animation-play-state: running;
+}
+
+.testimonials-column-inner.marquee-down {
+	animation-name: testimonials-marquee-down;
+	animation-duration: var(--marquee-duration, 15s);
+	animation-play-state: running;
+}
+
+/* Responsive: Disable marquee on small screens */
+@media (max-width: 768px) {
+	.testimonial-grid.marquee-ready {
+		display: block;
+		height: auto;
+	}
+	.testimonials-column,
+	.testimonials-column-inner {
+		animation: none !important;
+		height: auto !important;
+		transform: none !important;
+	}
+}
