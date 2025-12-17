@@ -401,3 +401,58 @@ document.addEventListener('DOMContentLoaded', () => {
 //     }, 150);
 //   });
 // });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const openBtn = document.getElementById("openModal");
+  const modal = document.querySelector(".modal-overlay");
+  const closeBtn = document.querySelector(".close-btn");
+
+  const submitBtn = document.getElementById("submit-btn");
+  const successCard = document.getElementById("successCard");
+  const formContainer = document.querySelector(".form-container");
+
+  /* ---------- OPEN MODAL ---------- */
+  openBtn?.addEventListener("click", () => {
+    modal.classList.add("active");
+    document.body.classList.add("no-scroll");
+  });
+
+  /* ---------- CLOSE MODAL (X) ---------- */
+  closeBtn?.addEventListener("click", () => {
+    modal.classList.remove("active");
+    document.body.classList.remove("no-scroll");
+  });
+
+
+  /* ---------- SUBMIT BUTTON ---------- */
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  // close form modal
+  modal.classList.remove("active");
+  document.body.classList.remove("no-scroll");
+
+  // show success overlay
+  document.getElementById("successOverlay").classList.add("active");
+});
+});
+
+document.querySelector(".demo-form").addEventListener("submit", (e) => {
+  const form = e.target;
+
+  if (!form.checkValidity()) {
+    e.preventDefault(); // stop submit
+    form.reportValidity(); // show browser messages
+    return;
+  }
+
+  // ✅ form is valid here
+  e.preventDefault();
+
+  modal.classList.remove("active");
+  document.body.classList.remove("no-scroll");
+
+  document.getElementById("successOverlay").classList.add("active");
+});
+
