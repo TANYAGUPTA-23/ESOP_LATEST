@@ -128,7 +128,7 @@ html, body {
 }
 
 .nav-contact span {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif !important;
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
@@ -640,7 +640,7 @@ html, body {
   position: relative;
   display: inline-block;
 
-    background: linear-gradient(100.18deg, #D5DBE6 51.66%, #e75364 100%);
+  background: linear-gradient(100.18deg, #FFFFFF 51.66%, #E11F35 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -937,7 +937,8 @@ box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.2) inset;
   font-weight: 700;
   margin-bottom: 20px;
   letter-spacing: -1px;
-      background: linear-gradient(100.18deg, #D5DBE6 26.66%, #e75364 100%);
+  background: linear-gradient(91.85deg, #FFFFFF 36.99%, #E11F35 96.56%);
+
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -1570,9 +1571,10 @@ h1 {
   transition: color 0.2s;
 }
 
-.mail-content:first-child {
+.contact-mails .single-mail-item:first-of-type .mail-content {
   font-family: 'Inter', sans-serif;
 }
+
 
 
 .single-mail-item:hover .mail-content {
@@ -1616,7 +1618,7 @@ h1 {
 
 .col-2 { width: 267px; }
 .col-3 { width: 212px; }
-.col-4 { width: 168px; gap: 30px; }
+.col-4 { width: 168px; gap: 20px; }
 
 .social-icons {
   display: flex;

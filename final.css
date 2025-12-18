@@ -1103,7 +1103,7 @@ background-color: rgba(255, 255, 255, 0.15);
 }
 
 .gradient-text1 {
-    background: linear-gradient(100.18deg, #D5DBE6 51.66%, #e75364 100%);
+  background: linear-gradient(100.18deg, #FFFFFF 51.66%, #E11F35 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -3201,6 +3201,17 @@ background-color: rgba(255, 255, 255, 0.15);
     top:0;
     /* z-index: 2; */
 }
+.solution-wrapper {
+  position: relative;
+  overflow: visible;
+}
+
+.solution-content-wrapper1 {
+  width: 125%;
+  /* transform: translateX(calc(-1 * clamp(80px, 10vw, 120px))); */
+}
+
+
 .solution-section .solution-wrapper {
   max-width: 1340px;
   margin: 0 auto;
@@ -3426,6 +3437,7 @@ background-color: rgba(255, 255, 255, 0.15);
     gap: 10px;
     border: 1px solid #FFFFFF66;
     background-color: #1A3D6C;
+    flex: 1.6;
 }
 
 .details-right-content {
@@ -3434,15 +3446,17 @@ background-color: rgba(255, 255, 255, 0.15);
     flex-direction: column;
     gap: 34px;
     padding: 10px;
+    flex: 2;
 }
 
 .content-title {
+    width: fit-content;   
     font-size: 36px;
     font-weight: 700;
     line-height: 44px;
     color: #FFFFFF;
     margin-bottom: 24px;
-    background: linear-gradient(100.18deg, #D5DBE6 51.66%, #e75364 100%);
+     background: linear-gradient(100.18deg, #FFFFFF 51.66%, #E11F35 100%);
         -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -3532,6 +3546,10 @@ background-color: rgba(255, 255, 255, 0.15);
         align-items: center;
         margin: 0 auto;
     }
+    .solution-content-wrapper1 {
+  width: 100%;
+  /* transform: translateX(calc(-1 * clamp(80px, 10vw, 120px))); */
+}
     .details-left-media,
     .details-right-content {
         width: 100%;
@@ -5788,7 +5806,7 @@ body{
   transition: color 0.2s;
 }
 
-.mail-content:first-child {
+.contact-mails .single-mail-item:first-of-type .mail-content {
   font-family: 'Inter', sans-serif;
 }
 
@@ -5834,7 +5852,7 @@ body{
 
 .col-2 { width: 267px; }
 .col-3 { width: 212px; }
-.col-4 { width: 168px; gap: 30px; }
+.col-4 { width: 168px; gap: 20px; }
 
 .social-icons {
   display: flex;

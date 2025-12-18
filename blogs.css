@@ -599,7 +599,7 @@ html, body {
   position: relative;
   display: inline-block;
 
-    background: linear-gradient(100.18deg, #D5DBE6 51.66%, #e75364 100%);
+  background: linear-gradient(100.18deg, #FFFFFF 51.66%, #E11F35 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -1149,7 +1149,7 @@ html, body {
   transition: color 0.2s;
 }
 
-.mail-content:first-child {
+.contact-mails .single-mail-item:first-of-type .mail-content {
   font-family: 'Inter', sans-serif;
 }
 
@@ -1195,7 +1195,7 @@ html, body {
 
 .col-2 { width: 267px; }
 .col-3 { width: 212px; }
-.col-4 { width: 168px; gap: 30px; }
+.col-4 { width: 168px; gap: 20px; }
 
 .social-icons {
   display: flex;
