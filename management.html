@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="management.css" />
   <link href="https://fonts.cdnfonts.com/css/raleway-5" rel="stylesheet">
 </head>
-<body>
+<body id="top">
 
   <!-- ================= NAVBAR ================= -->
   <nav class="navbar">
@@ -689,11 +689,158 @@
                 <div class="copyright-text">&copy; 2025 ESOP Guardian</div>
                 <div class="bottom-links-right">
                     <div class="link-item left-one">All Rights Reserved.</div>
-                    <div class="link-item right-one"><span><img src="./assets/Frame.svg" alt=""></span>Back to Top</div>
+                    <a href="#top" class="link-item right-one">
+  <span><img src="./assets/Frame.svg" alt=""></span>
+  Back to Top
+</a>
+
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- ===== MODAL OVERLAY ===== -->
+<div class="modal-overlay">
+  <div class="modal-container-1">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2>Book a Demo</h2>
+        <span class="close-btn">
+          <img src="./assets/Close Icon.svg" alt="">
+        </span>
+      </div>
+
+      <p class="subtitle">
+        Fill out the form below and our team will get back to you shortly
+      </p>
+
+      <div class="type-selector">
+        <button class="type-btn active" type="button">Individual</button>
+        <button class="type-btn" type="button">Institute</button>
+        <button class="type-btn" type="button">Organisation</button>
+      </div>
+
+      <div class="partnership-section">
+        <label>Visit Partnership</label>
+        <div class="radio-group">
+          <label class="radio-container">
+            <input type="radio" name="visit" checked>
+            <span class="radio-mark"></span> Walk-in
+          </label>
+          <label class="radio-container">
+            <input type="radio" name="visit">
+            <span class="radio-mark"></span> Online
+          </label>
+        </div>
+      </div>
+
+      <!-- ===== FORM ===== -->
+      <form class="demo-form" novalidate>
+
+        <div class="form-row">
+          <input type="text" placeholder="First name" required minlength="2">
+          <input type="text" placeholder="Last name" required minlength="2">
+        </div>
+
+        <div class="form-row">
+          <input type="email" placeholder="Enter email address" required>
+
+          <div class="phone-input">
+            <div class="country-code">
+              <img src="https://flagcdn.com/w20/in.png" alt="India">
+              <span>+91</span>
+              <span class="arrow-down">
+                <img src="./assets/Frame.svg" alt="">
+              </span>
+            </div>
+            <input
+              type="tel"
+              placeholder="Phone number"
+              required
+              pattern="[6-9][0-9]{9}"
+              title="Enter a valid 10-digit Indian mobile number"
+            >
+          </div>
+        </div>
+
+        <div class="form-row">
+          <select required>
+            <option value="" disabled selected>Select Country</option>
+            <option value="india">India</option>
+            <option value="usa">United States</option>
+            <option value="uk">United Kingdom</option>
+            <option value="canada">Canada</option>
+            <option value="australia">Australia</option>
+          </select>
+
+          <select required>
+            <option value="" disabled selected>Select State</option>
+            <option value="up">Uttar Pradesh</option>
+            <option value="mh">Maharashtra</option>
+            <option value="dl">Delhi</option>
+            <option value="ka">Karnataka</option>
+            <option value="tn">Tamil Nadu</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <select required>
+            <option value="" disabled selected>Select Service</option>
+            <option value="esop">ESOP Advisory</option>
+            <option value="valuation">Company Valuation</option>
+            <option value="compliance">Legal & Compliance</option>
+            <option value="funding">Startup Funding</option>
+            <option value="tax">Tax Planning</option>
+          </select>
+
+          <select required>
+            <option value="" disabled selected>Select Service</option>
+            <option value="demo">Product Demo</option>
+            <option value="consultation">1-on-1 Consultation</option>
+            <option value="onboarding">Platform Onboarding</option>
+            <option value="support">Customer Support</option>
+            <option value="training">Training Session</option>
+          </select>
+        </div>
+
+        <textarea placeholder="Tell us how can we help you..." required></textarea>
+
+        <button type="submit" class="submit-btn" id="submit-btn">
+          Book Demo <span><img src="./assets/arrow-right.svg" alt=""></span>
+        </button>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SUCCESS OVERLAY ===== -->
+<div class="success-overlay" id="successOverlay">
+  <div class="modal-container-1">
+    <div class="success-card" id="successCard">
+      <div class="success-emoji">
+        <img src="./assets/4bcb1317adb6f19bee3e0df5abb31f0b5e7c18ec.png" alt="">
+      </div>
+
+      <h1 class="success-title">
+        Thank You, <span class="success-name">Dipanshu!</span>
+      </h1>
+
+      <p class="success-message">
+        Your demo request has been successfully submitted.
+        Our team will reach out shortly.
+      </p>
+
+      <a href="management.html" class="success-btn">
+        Back to Home
+        <span class="success-btn-icon">
+          <img src="./assets/arrow-right.svg" alt="">
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+
 
   <script src="final.js"></script>
 </body>

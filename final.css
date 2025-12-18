@@ -5319,7 +5319,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-
+  text-decoration: none;
   transition:
     background-color 0.3s ease,
     border-color 0.3s ease,
@@ -5884,6 +5884,14 @@ body{
   width: 24px;
   height: 24px;
 }
+.link-item.right-one {
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
 
 @media (max-width: 1366px) {
   .footer-section { padding-block: 60px; }

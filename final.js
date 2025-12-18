@@ -407,10 +407,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const openBtn = document.getElementById("openModal");
   const modal = document.querySelector(".modal-overlay");
   const closeBtn = document.querySelector(".close-btn");
-
-  const submitBtn = document.getElementById("submit-btn");
-  const successCard = document.getElementById("successCard");
-  const formContainer = document.querySelector(".form-container");
+  const form = document.querySelector(".demo-form");
+  const successOverlay = document.getElementById("successOverlay");
 
   /* ---------- OPEN MODAL ---------- */
   openBtn?.addEventListener("click", () => {
@@ -418,41 +416,39 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("no-scroll");
   });
 
-  /* ---------- CLOSE MODAL (X) ---------- */
+  /* ---------- CLOSE MODAL ---------- */
   closeBtn?.addEventListener("click", () => {
     modal.classList.remove("active");
     document.body.classList.remove("no-scroll");
   });
 
+  /* ---------- FORM SUBMIT + VALIDATION ---------- */
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-  /* ---------- SUBMIT BUTTON ---------- */
-submitBtn.addEventListener("click", (e) => {
-  e.preventDefault();
+    // 1️⃣ HTML5 validation
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
 
-  // close form modal
-  modal.classList.remove("active");
-  document.body.classList.remove("no-scroll");
+    // 2️⃣ Extra phone validation
+    const phoneInput = form.querySelector('input[type="tel"]');
+    const phone = phoneInput.value.trim();
 
-  // show success overlay
-  document.getElementById("successOverlay").classList.add("active");
+    if (!/^[6-9][0-9]{9}$/.test(phone)) {
+      alert("Please enter a valid 10-digit mobile number.");
+      phoneInput.focus();
+      return;
+    }
+
+    // ✅ ALL VALID
+    modal.classList.remove("active");
+    document.body.classList.remove("no-scroll");
+    successOverlay.classList.add("active");
+
+    form.reset();
+  });
 });
-});
 
-document.querySelector(".demo-form").addEventListener("submit", (e) => {
-  const form = e.target;
-
-  if (!form.checkValidity()) {
-    e.preventDefault(); // stop submit
-    form.reportValidity(); // show browser messages
-    return;
-  }
-
-  // ✅ form is valid here
-  e.preventDefault();
-
-  modal.classList.remove("active");
-  document.body.classList.remove("no-scroll");
-
-  document.getElementById("successOverlay").classList.add("active");
-});
 
