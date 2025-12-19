@@ -1,14 +1,4 @@
-const videoSection = document.querySelector('.video-section');
-const videoFrame = document.querySelector('.video-frame-outer');
-const overlay = document.querySelector('.overlay-image');
 
-window.addEventListener('scroll', () => {
-  const screenWidth = window.innerWidth;
-    // Reset on mobile/tablet
-    videoFrame.style.transform = 'scale(1.2)';
-    overlay.style.filter = 'brightness(100%)';
-  
-});
 
 
 
