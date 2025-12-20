@@ -941,8 +941,27 @@ box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.2) inset;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  
 }
 
+@media (max-width: 1600px) {
+  .spm-feature-list li {
+    align-items: flex-start;
+  }
+
+  .spm-feature-list li .bold-text {
+    display: inline;
+    white-space: nowrap; /* bold stays on one line */
+  }
+
+  .spm-feature-list li {
+    flex-wrap: wrap;
+  }
+
+  .spm-feature-list li .bold-text + * {
+    display: inline;
+  }
+}
 
 
 /* Description */
@@ -1264,6 +1283,15 @@ h1 {
   pointer-events: none;
 }
 
+.spm-wrapper {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+@media (max-width: 1100px) {
+  .spm-wrapper {
+    gap: 32px;
+  }
+}
 
 .management-section {
   width: 100%;
