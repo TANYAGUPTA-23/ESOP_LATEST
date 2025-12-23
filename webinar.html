@@ -7,6 +7,380 @@
 
   <link rel="stylesheet" href="webinar.css" />
   <link href="https://fonts.cdnfonts.com/css/raleway-5" rel="stylesheet">
+      <style>/* =====================================================
+   ROOT + GLOBAL
+===================================================== */
+:root {
+  --bg-color: #051937;
+  --transition-speed: 0.5s;
+  --item-width-desktop: 483px;
+  --item-width-tablet: 350px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* =====================================================
+   CAROUSEL CONTAINER
+===================================================== */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 72vh;
+  padding: 0 20px 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  perspective: 1500px;
+  overflow: hidden;
+}
+
+/* =====================================================
+   VIEWPORT
+===================================================== */
+.carousel-container > .carousel-viewport {
+  position: relative;
+  width: 100%;
+  height: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =====================================================
+   CAROUSEL ITEM
+===================================================== */
+.carousel-container
+.carousel-viewport
+> .carousel-item {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =====================================================
+   IMAGE WRAPPER
+===================================================== */
+.carousel-container
+.carousel-viewport
+.carousel-item
+> .image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+.carousel-container
+.carousel-viewport
+.carousel-item
+.image-wrapper
+> img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* =====================================================
+   IMAGE OVERLAY (IMAGE ONLY)
+===================================================== */
+.carousel-container
+.carousel-viewport
+.carousel-item
+.image-wrapper
+> .image-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* =====================================================
+   PLAY BUTTON (IMAGE ONLY)
+===================================================== */
+.carousel-container
+.carousel-viewport
+.carousel-item
+.image-wrapper
+> #btnMediaAction {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-container
+.carousel-viewport
+.carousel-item
+.image-wrapper
+#btnMediaAction
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* =====================================================
+   META CONTENT
+===================================================== */
+.carousel-container
+.carousel-viewport
+.carousel-item
+> .item-meta {
+  margin-top: 15px;
+  width: 100%;
+  transition: transform var(--transition-speed) ease;
+}
+
+.carousel-container
+.carousel-viewport
+.carousel-item
+.item-meta
+.item-title {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  display: block;
+}
+
+.carousel-container
+.carousel-viewport
+.carousel-item
+.item-meta
+.item-date {
+  margin-top: 6px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.7);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.carousel-container
+.carousel-viewport
+.carousel-item
+.item-meta
+.item-date
+img {
+  width: 14px;
+  height: 14px;
+}
+
+/* =====================================================
+   POSITION STATES (JS CONTROLLED)
+===================================================== */
+.carousel-container .carousel-item.active {
+  z-index: 20;
+}
+
+.carousel-container .carousel-item.prev,
+.carousel-container .carousel-item.next {
+  z-index: 15;
+}
+
+.carousel-container .carousel-item.far-prev,
+.carousel-container .carousel-item.far-next {
+  z-index: 10;
+}
+
+/* =====================================================
+   CONTROLS
+===================================================== */
+.carousel-container
+> .carousel-controls {
+  position: absolute;
+  bottom: 80px;
+  display: flex;
+  gap: 20px;
+  z-index: 100;
+}
+
+.carousel-container
+.carousel-controls
+.nav-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* =====================================================
+   DESKTOP ≥ 1700px
+===================================================== */
+@media (min-width: 1700px) {
+
+  .carousel-container .carousel-item {
+    width: var(--item-width-desktop);
+  }
+
+  .carousel-container .image-wrapper {
+    height: 306px;
+  }
+
+  .carousel-container .carousel-item.active {
+    transform: translateX(0) scale(2);
+  }
+
+  .carousel-container .carousel-item.prev {
+    transform: translateX(-75%) scale(1.35);
+  }
+
+  .carousel-container .carousel-item.next {
+    transform: translateX(75%) scale(1.35);
+  }
+
+  .carousel-container .carousel-item.far-prev {
+    transform: translateX(-120%) scale(1.1);
+    filter: blur(3px);
+  }
+
+  .carousel-container .carousel-item.far-next {
+    transform: translateX(120%) scale(1.1);
+    filter: blur(3px);
+  }
+}
+
+/* =====================================================
+   TABLET RANGE (900px – 1699px)
+===================================================== */
+@media (min-width: 900px) and (max-width: 1699px) {
+
+  .carousel-container {
+    height: 64vh;
+    padding-bottom: 160px;
+  }
+
+  .carousel-container .carousel-item {
+    width: var(--item-width-tablet);
+  }
+
+  .carousel-container .image-wrapper {
+    height: 220px;
+  }
+
+  .carousel-container .carousel-item.active {
+    transform: translateX(0) scale(1.2);
+  }
+
+  .carousel-container .carousel-item.prev {
+    transform: translateX(-85%) scale(0.9);
+    opacity: 0.7;
+  }
+
+  .carousel-container .carousel-item.next {
+    transform: translateX(85%) scale(0.9);
+    opacity: 0.7;
+  }
+
+  .carousel-container .carousel-item.far-prev,
+  .carousel-container .carousel-item.far-next {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* =====================================================
+   BELOW 900px
+===================================================== */
+@media (max-width: 899px) {
+
+  .carousel-container {
+    height: 64vh;
+    padding-bottom: 160px;
+  }
+
+  .carousel-container .carousel-controls {
+    bottom: 50px;
+  }
+
+  .carousel-container .carousel-item {
+    width: 90%;
+    padding: 0 10px;
+  }
+
+  .carousel-container .image-wrapper {
+    height: 250px;
+  }
+
+  .carousel-container .carousel-item:not(.active) {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(120%);
+  }
+
+  .carousel-container .item-meta {
+    text-align: center;
+  }
+
+  .carousel-container #btnMediaAction {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* =====================================================
+   VIDEO MODAL (FULLY ISOLATED)
+===================================================== */
+#videoModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#videoModal > .modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+}
+
+#videoModal iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+#videoModal .close-modal {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+}
+</style>
 </head>
 <body id="top">
     
@@ -88,7 +462,87 @@
 
     </div>
   </div>
+<div class="carousel-container">
+    <div class="carousel-viewport" id="carouselViewport">
+        <div class="carousel-item" data-video="./assets/carousel.mp4">
+            <div class="image-wrapper">
+                <img src="./assets/Frame 874.png" alt="">
+                <div class="image-overlay"></div>
+                <button id="btnMediaAction"><img src="./assets/play.png" alt=""></button>
+            </div>
+            <div class="item-meta">
+                <span class="item-title">Webinar on "Unfolding ESOP Valuation and Taxation Aspects"</span>
+                <span class="item-date"><img src="./assets/fi_12887972.svg" alt="">November 4, 2025</span>
+            </div>
+        </div>
+        <div class="carousel-item" data-video="https://youtu.be/4WjtQjPQGIs?si=qU-GZbljsub_Qfk_">
+            <div class="image-wrapper">
+                <img src="./assets/ce59202272f487dc95cb3f63d5455b1c0b682574.jpg" alt="">
+                <div class="image-overlay"></div>
+                <button id="btnMediaAction"><img src="./assets/play.png" alt=""></button>
+            </div>
+            <div class="item-meta">
+                <span class="item-title">223rd Webinar on "ESOPs Under the Spotlight"</span>
+                <span class="item-date"><img src="./assets/fi_12887972.svg" alt="">November 4, 2025</span>
+            </div>
+        </div>
+        <div class="carousel-item" data-video="https://youtu.be/4WjtQjPQGIs?si=qU-GZbljsub_Qfk_">
+            <div class="image-wrapper">
+                <img src="./assets/ee38d27e5942191db992306bc0cdd3b47d77008a.jpg" alt="">
+                <div class="image-overlay"></div>
+                <button id="btnMediaAction"><img src="./assets/play.png" alt=""></button>
+            </div>
+            <div class="item-meta">
+                <span class="item-title">Masterclass: Navigating Global Compliance for Startups</span>
+                <span class="item-date"><img src="./assets/fi_12887972.svg" alt="">November 4, 2025</span>
+            </div>
+        </div>
+        <div class="carousel-item" data-video="https://youtu.be/4WjtQjPQGIs?si=qU-GZbljsub_Qfk_">
+            <div class="image-wrapper">
+                <img src="./assets/ce59202272f487dc95cb3f63d5455b1c0b682574.jpg" alt="">
+                <div class="image-overlay"></div>
+                <button id="btnMediaAction"><img src="./assets/play.png" alt=""></button>
+            </div>
+            <div class="item-meta">
+                <span class="item-title">Panel Discussion: The Future of Remote Workforce</span>
+                <span class="item-date"><img src="./assets/fi_12887972.svg" alt="">November 4, 2025</span>
+            </div>
+        </div>
+        <div class="carousel-item" data-video="https://youtu.be/V-_O7nl0Ii0">
+            <div class="image-wrapper">
+                <img src="./assets/03d8ce3a9761ecbfe9f94a4e7483eb42e404cd8d.jpg" alt="">
+                <div class="image-overlay"></div>
+                <button id="btnMediaAction"><img src="./assets/play.png" alt=""></button>
+            </div>
+            <div class="item-meta">
+                <span class="item-title">Workshop: Building Scalable Cap-Tables for Series A</span>
+                <span class="item-date"><img src="./assets/fi_12887972.svg" alt="">November 4, 2025</span>
+            </div>
+        </div>
+    </div>
 
+    <div class="carousel-controls">
+        <button class="nav-btn" onclick="moveCarousel(-1)"><img src="./assets/Frame (6).svg" alt=""></button>
+        <button class="nav-btn" onclick="moveCarousel(1)"><img src="./assets/Frame (7).svg" alt=""></button>
+    </div>
+                            <svg class="bg-shape" viewBox="0 0 1200 4" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="thinGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#D8E7F2" stop-opacity="0" />
+                            <stop offset="50%" stop-color="#D8E7F2" stop-opacity="0.8" />
+                            <stop offset="100%" stop-color="#D8E7F2" stop-opacity="0" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="1200" height="4" fill="url(#thinGlow)" />
+                </svg>
+</div>
+
+<div id="videoModal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <iframe id="videoPlayer" src="" allowfullscreen></iframe>
+    </div>
+</div>
 
   <section class="questions-section">
         <div class="questions-section__wrapper">
@@ -606,5 +1060,49 @@
 </div>
 
     <script src="final.js"></script>
+<script>
+    const items = document.querySelectorAll('.carousel-item');
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        items.forEach((item, i) => {
+            item.classList.remove('active', 'prev', 'next', 'far-prev', 'far-next');
+            let position = i - currentIndex;
+            const total = items.length;
+
+            if (position < -2) position += total;
+            if (position > 2) position -= total;
+
+            if (position === 0) item.classList.add('active');
+            else if (position === -1) item.classList.add('prev');
+            else if (position === 1) item.classList.add('next');
+            else if (position === -2) item.classList.add('far-prev');
+            else if (position === 2) item.classList.add('far-next');
+        });
+    }
+
+    function moveCarousel(direction) {
+        currentIndex = (currentIndex + direction + items.length) % items.length;
+        updateCarousel();
+    }
+
+    items.forEach(item => {
+        /* Renamed variable and querySelector for btnMediaAction */
+        const btnMediaAction = item.querySelector('#btnMediaAction');
+        btnMediaAction.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.getElementById('videoPlayer').src = item.getAttribute('data-video') + "?autoplay=1";
+            document.getElementById('videoModal').style.display = 'flex';
+        });
+    });
+
+    function closeModal() {
+        document.getElementById('videoModal').style.display = 'none';
+        document.getElementById('videoPlayer').src = "";
+    }
+
+    window.onclick = (e) => { if (e.target == document.getElementById('videoModal')) closeModal(); }
+    updateCarousel();
+</script>
 </body>
 </html>

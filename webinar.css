@@ -568,7 +568,7 @@ html, body {
   color: #FFFFFF;
   display: inline-block;
   z-index: 1;
-  max-width: 1150px;
+  /* max-width: 1150px; */
 }
 
 /* === SOFT BLACK VIGNETTE (OPTIONAL) === */
@@ -1950,9 +1950,9 @@ a {
 
 .radio-group {
     display: flex;
-    gap: 5px;
+    gap: 20px;
     margin-bottom: 25px;
-    flex-direction: column;
+    /* flex-direction: column; */
 }
 
 .radio-container {
@@ -2268,3 +2268,7 @@ input::placeholder, textarea::placeholder {
 /* .nav-link.active {
   color: rgba(225, 31, 53, 1);
 } */
+
+
+
+

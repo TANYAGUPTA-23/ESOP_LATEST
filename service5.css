@@ -2184,12 +2184,13 @@ textarea {
     max-width: 580px;
 }
 .service-hero-gradient-text-3{
-    max-width: 430px;
+    max-width: 330px;
 }
 .service-hero-gradient-text-4{
     max-width: 540px;
 }
-
+.service-hero-gradient-text-4{
+text-align: center;}
 
 /* ===============================
    SUBTITLE
@@ -2213,6 +2214,9 @@ textarea {
 }
 .service-hero-subtitle-4{
     max-width: 380px;
+}
+.service-hero-subtitle-4{
+    text-align: center;
 }
 /* ===============================
    RESPONSIVE
@@ -2304,6 +2308,7 @@ textarea {
   position: relative;
   background: #041E42;
   overflow: hidden;
+      width: 100%;
 }
 
 /* Bottom fade + blur */
@@ -2761,7 +2766,7 @@ width: 100%;
 /* Subtitle */
 .service-why-subtitle {
   color: rgba(255, 255, 255, 1);
-      max-width: 350px;
+      max-width: 270px;
   line-height: 1.6;
 }
 
@@ -3012,7 +3017,7 @@ width: 100%;
 }
 
 .esop-partner-section .sub-text{
-    max-width: 900px;
+    max-width: 750px;
     text-align: center;
 }
 
@@ -3027,7 +3032,7 @@ width: 100%;
 }
 
 .esop-partner-section .section-header .gradient-text{
-    max-width: 650px;
+    max-width: 700px;
 }
 
 @media(min-width: 600px) and (max-width: 1400px){
@@ -3054,11 +3059,21 @@ width: 100%;
    MAIN CARD
 ================================ */
 
+.four_grid{
+
+  padding: 0 20px;
+  margin-bottom: 0;
+}
+
 .service-why-section-2.service-why-grid {
   width: 100%;
   max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
+  position: relative;
+  margin: 0 auto;
+  
+  padding-bottom: 80px;
 }
 
 .service-why-section-2{
@@ -3248,6 +3263,7 @@ width: 100%;
     grid-template-columns: 1fr;
   }
 
+
   .service-why-title {
     font-size: 2rem;
   }
@@ -3349,3 +3365,7 @@ width: 100%;
   max-width: 1280px;
   width: 100%;
 }
+@media (max-width: 992px) {
+  .service-why-section-1 .service-why-grid .service-why-card:last-child{
+    max-width: 100%;
+  }}
