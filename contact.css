@@ -2293,8 +2293,11 @@ input::placeholder, textarea::placeholder {
     margin-bottom: 10px;
     font-size: 14px;
 }
-
 .radio-group {
+    display: flex
+;
+    gap: 20px;}
+.radio-group-2 {
     display: flex;
     gap: 5px;
     margin-bottom: 25px;

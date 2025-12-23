@@ -1490,11 +1490,6 @@ textarea {
 .hero-image {
     position: relative;
     max-height: 600px;
-    background: linear-gradient(0deg, #10131C, #10131C),
-linear-gradient(180deg, rgba(0, 0, 0, 0) 76%, rgba(0, 0, 0, 0.8) 100%);
-box-shadow: 0px -1px 1px 0px rgba(207, 231, 255, 0.1) inset;
-  aspect-ratio: 1280 / 600; /* 🔥 */
-box-shadow: 0px 2px 1px 0px rgba(207, 231, 255, 0.2) inset;
 border-radius: 24px;
 
 }
@@ -1505,6 +1500,18 @@ border-radius: 24px;
     object-fit: cover;
     border-radius: 24px;
     object-position: center -150px;
+
+    background: linear-gradient(0deg, #10131C, #10131C),
+linear-gradient(180deg, rgba(0, 0, 0, 0) 76%, rgba(0, 0, 0, 0.8) 100%);
+box-shadow: 0px -1px 1px 0px rgba(207, 231, 255, 0.1) inset;
+
+box-shadow: 0px 2px 1px 0px rgba(207, 231, 255, 0.2) inset;
+
+    background: linear-gradient(0deg, #10131C, #10131C),
+linear-gradient(180deg, rgba(0, 0, 0, 0) 76%, rgba(0, 0, 0, 0.8) 100%);
+box-shadow: 0px -1px 1px 0px rgba(207, 231, 255, 0.1) inset;
+  aspect-ratio: 1280 / 600; /* 🔥 */
+box-shadow: 0px 2px 1px 0px rgba(207, 231, 255, 0.2) inset;
 }
 
 .hero-overlay {

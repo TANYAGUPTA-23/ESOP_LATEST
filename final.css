@@ -1081,7 +1081,7 @@ background-color: rgba(255, 255, 255, 0.15);
 }
 
 .below-container {
-  max-width: 1216px;
+  /* max-width: 1216px; */
   margin: 0 auto;
   padding: 0 16px;
 }
@@ -1107,53 +1107,60 @@ background-color: rgba(255, 255, 255, 0.15);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-}
-
-/* ------------------------- */
+}/* ------------------------- */
 /* INFINITE LOGO CAROUSEL */
 /* ------------------------- */
+
 .logo-gallery-wrapper {
   position: relative;
   width: 100%;
-  height: 100px;
+  height: 120px;
   overflow: hidden;
 
-  /* fade edges */
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
 }
 
 .logo-track {
   display: flex;
-  width: 200%;
+  width: max-content; /* ✅ FIX */
   animation: scroll 10s linear infinite;
-  position: relative;
-  z-index: 0;
 }
 
 .logo-group {
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  width: 50%;
+  gap: 48px; /* ✅ spacing control */
   flex-shrink: 0;
-  gap: 40px;
 }
 
+/* LOGO CARD */
 .logo-item {
   flex: 0 0 auto;
-  width: 180px;
-  height: 80px;
+  width: 360px;
+  height: 120px;
 }
 
 .logo-item img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  background: #fff;
+  border-radius: 16px;
   opacity: 0.8;
   transition: opacity 0.3s, transform 0.3s;
-  background-color: white;
-  border-radius: 16px;
 }
 
 .logo-item img:hover {
@@ -1161,37 +1168,64 @@ background-color: rgba(255, 255, 255, 0.15);
   transform: scale(1.05);
 }
 
+/* ANIMATION */
 @keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-/* ------------------------- */
-/* RESPONSIVE STYLES */
-/* ------------------------- */
+/* ========================= */
+/* RESPONSIVE BREAKPOINTS */
+/* ========================= */
+
+@media (max-width: 1600px) {
+  .logo-item { width: 300px; height: 110px; }
+  .logo-gallery-wrapper { height: 110px; }
+}
+
+@media (max-width: 1440px) {
+  .logo-item { width: 260px; height: 100px; }
+  .logo-gallery-wrapper { height: 100px; }
+}
+
+@media (max-width: 1280px) {
+  .logo-item { width: 200px; height: 90px; }
+  .logo-gallery-wrapper { height: 90px; }
+  .logo-track { animation-duration: 14s; }
+}
+
 @media (max-width: 1024px) {
-  .below-container h1 { font-size: 40px; }
-  .logo-item { width: 140px; height: 70px; }
-  .logo-gallery-wrapper, .logo-overlay { height: 90px; }
+  .logo-item { width: 180px; height: 80px; }
+  .logo-gallery-wrapper { height: 85px; }
+  .logo-track { animation-duration: 18s; }
+}
+
+@media (max-width: 900px) {
+  .logo-item { width: 140px; height: 65px; }
+  .logo-gallery-wrapper { height: 80px; }
+  .logo-group { gap: 28px; }
+  .logo-track { animation-duration: 22s; }
 }
 
 @media (max-width: 768px) {
-  h1 { font-size: 32px; }
-  .below-hero-section .subtitle { font-size: 14px; }
-  .below-hero-section { padding: 50px 0; }
-  .logo-item { width: 110px; height: 60px; }
-  .logo-group { gap: 20px; }
-  .logo-gallery-wrapper, .logo-overlay { height: 80px; }
-  .logo-track { animation: scroll 20s linear infinite; }
+  .logo-item { width: 120px; height: 60px; }
+  .logo-group { gap: 24px; }
+  .logo-track { animation-duration: 26s; }
 }
 
 @media (max-width: 480px) {
-  h1 { font-size: 28px; }
-  .logo-item { width: 90px; height: 50px; }
-  .logo-group { gap: 16px; }
-  .logo-gallery-wrapper, .logo-overlay { height: 70px; }
-  .below-hero-section { padding: 40px 0; top: 50px;}
+  .logo-item { width: 100px; height: 55px; }
+  .logo-group { gap: 20px; }
+  .logo-gallery-wrapper { height: 70px; }
+  .logo-track { animation-duration: 32s; }
 }
+.logo-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 10s linear infinite;
+  gap: 28px; /* ✅ THIS FIXES THE JOIN */
+}
+
 
 .impact-section {
   overflow: visible; /* required for sticky to work properly */
@@ -2106,7 +2140,8 @@ background-color: rgba(255, 255, 255, 0.15);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    max-width: 475px;
+    max-width:  412px;
+    margin-bottom: 0;
     /* margin: 0 auto; */
 }
 
