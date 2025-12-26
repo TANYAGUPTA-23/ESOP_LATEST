@@ -987,7 +987,7 @@ box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.2) inset;
   align-items: center;
   gap: 12px;
   margin-bottom: 12px;
-  font-size: 15px;
+  font-size: 16px;
   color: #cbd5e1;
 }
 
@@ -1740,8 +1740,8 @@ h1 {
 
 @media (max-width: 768px) {
     .questions-header-title {
-        font-size: 32px;
-        line-height: 40px;
+        font-size: 32px !important;
+        line-height: 40px !important;
     }
 
     .solution-section .header-title {
@@ -2246,6 +2246,7 @@ textarea {
     background: #2E5180;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    font-family: "Inter", sans-serif;
 }
 
 .country-code {
@@ -2274,7 +2275,7 @@ textarea {
     cursor: pointer;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 6px;
 }
 

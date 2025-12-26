@@ -1549,8 +1549,8 @@ a {
 
 @media (max-width: 768px) {
     .questions-header-title {
-        font-size: 32px;
-        line-height: 40px;
+        font-size: 32px !important;
+        line-height: 40px !important;
     }
 
     .solution-section .header-title {
@@ -2095,6 +2095,7 @@ input::placeholder, textarea::placeholder {
     background: #2E5180;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    font-family: "Inter", sans-serif;
 }
 
 .country-code {
@@ -2123,7 +2124,7 @@ input::placeholder, textarea::placeholder {
     cursor: pointer;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 6px;
 }
 

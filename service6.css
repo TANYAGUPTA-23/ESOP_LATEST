@@ -1349,8 +1349,8 @@ html, body {
 
 @media (max-width: 768px) {
     .questions-header-title {
-        font-size: 32px;
-        line-height: 40px;
+        font-size: 32px !important;
+        line-height: 40px !important;
     }
 
     .solution-section .header-title {
@@ -1855,6 +1855,7 @@ textarea {
     background: #2E5180;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    font-family: "Inter", sans-serif;
 }
 
 .country-code {
@@ -1883,7 +1884,7 @@ textarea {
     cursor: pointer;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 6px;
 }
 
@@ -2599,6 +2600,7 @@ width: 100%;
 /* 4-column grid */
 .partner-grid-4 {
   display: grid;
+  padding-top: 6px;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
@@ -2901,7 +2903,7 @@ width: 100%;
   align-items: center;
   gap: 12px;
   margin-bottom: 12px;
-  font-size: 15px;
+  font-size: 16px;
   color: #cbd5e1;
 }
 
@@ -2940,8 +2942,9 @@ width: 100%;
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-size: 15px;
+  font-size: 16px;
   color: #cbd5e1;
+   line-height: 24px;
 }
 
 .service-why-section-1 .service-why-grid  .service-why-card:last-child {
@@ -3291,7 +3294,7 @@ width: 100%;
   align-items: center;
   gap: 12px;
   margin-bottom: 12px;
-  font-size: 15px;
+  font-size: 16px;
   color: #cbd5e1;
 }
 
@@ -3330,8 +3333,9 @@ width: 100%;
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-size: 15px;
+  font-size: 16px;
   color: #cbd5e1;
+   line-height: 24px;
 }
 
 .service-why-section-1 .service-why-grid  .service-why-card:last-child {

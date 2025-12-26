@@ -785,8 +785,8 @@ html, body {
 
 @media (max-width: 768px) {
     .questions-header-title {
-        font-size: 32px;
-        line-height: 40px;
+        font-size: 32px !important;
+        line-height: 40px !important;
     }
 
     .solution-section .header-title {
@@ -1293,6 +1293,7 @@ textarea {
     background: #2E5180;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    font-family: "Inter", sans-serif;
 }
 
 .country-code {
@@ -1321,7 +1322,7 @@ textarea {
     cursor: pointer;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 6px;
 }
 
@@ -1499,7 +1500,6 @@ border-radius: 24px;
     height: 100%;
     object-fit: cover;
     border-radius: 24px;
-    object-position: center -150px;
 
     background: linear-gradient(0deg, #10131C, #10131C),
 linear-gradient(180deg, rgba(0, 0, 0, 0) 76%, rgba(0, 0, 0, 0.8) 100%);
@@ -1512,6 +1512,11 @@ linear-gradient(180deg, rgba(0, 0, 0, 0) 76%, rgba(0, 0, 0, 0.8) 100%);
 box-shadow: 0px -1px 1px 0px rgba(207, 231, 255, 0.1) inset;
   aspect-ratio: 1280 / 600; /* 🔥 */
 box-shadow: 0px 2px 1px 0px rgba(207, 231, 255, 0.2) inset;
+}
+
+@media(min-width: 600px){
+.hero-image img {
+    object-position: center -150px;}
 }
 
 .hero-overlay {

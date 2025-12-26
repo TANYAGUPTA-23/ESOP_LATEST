@@ -1549,8 +1549,8 @@ a {
 
 @media (max-width: 768px) {
     .questions-header-title {
-        font-size: 32px;
-        line-height: 40px;
+        font-size: 32px !important;
+        line-height: 40px !important;
     }
 
     .solution-section .header-title {
@@ -2133,6 +2133,7 @@ select{
     background: #2E5180;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    font-family: "Inter", sans-serif;
 }
 
 .country-code {
@@ -2352,6 +2353,7 @@ input, select, textarea {
     color: white;
     font-size: 14px;
     font-weight: 400;
+    font-family: 'Raleway';
 }
 select{
     width: 100%;
@@ -2444,6 +2446,7 @@ input::placeholder, textarea::placeholder {
     background: #2E5180;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    font-family: "Inter", sans-serif;
 }
 
 .country-code {
@@ -2472,7 +2475,7 @@ input::placeholder, textarea::placeholder {
     cursor: pointer;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 6px;
 }
 
