@@ -5520,10 +5520,16 @@ body{
   padding: 100px 320px 0px;
   background: #041E42;
   text-align: center;
-  overflow: hidden;
+  overflow-x: hidden;
+overflow-y: visible;
+
   position: sticky;
   top: 0;
   z-index: 9;
+}
+
+.management-section {
+  min-height: fit-content;
 }
 
 .management-section .upper-wrapper {
@@ -6060,6 +6066,8 @@ body{
 .certified-section {
   padding: 80px 20px;
   text-align: center;
+    padding-top: 48px;
+  padding-bottom: 24px;
 }
 
 /* ===== TITLE ===== */
@@ -6140,14 +6148,9 @@ body{
 
 /* Mobile */
 @media (max-width: 600px) {
-  .management-section{
-    height: 100vh;
-  }
-  .management-section{
-    height: 100vh;
-  }
   .certified-section {
-    padding: 60px 16px;
+        padding-top: 32px;
+    padding-bottom: 16px;
   }
 
   .certified-title {
@@ -6179,13 +6182,6 @@ body{
   display: none;
 }
 
-
-
-  .cert-card {
-    width: 100%;
-    max-width: 320px;
-    justify-content: center;
-  }
 }
 
 
