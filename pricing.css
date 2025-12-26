@@ -1441,6 +1441,9 @@ a {
 
 /* Mobile */
 @media (max-width: 600px) {
+  .management-section{
+    height: 100vh;
+  }
   .certified-section {
     padding: 60px 16px;
   }
