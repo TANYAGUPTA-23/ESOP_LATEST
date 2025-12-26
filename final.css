@@ -882,6 +882,14 @@ background-color: rgba(255, 255, 255, 0.15);
   padding: 0 12px;
   margin-bottom: 0;
 }
+.left-side h1.highlight {
+
+  font-size: 28px;
+
+  line-height: 1.2;
+}
+
+
 
 /* animation container */
 .animated-words {
@@ -1090,10 +1098,13 @@ background-color: rgba(255, 255, 255, 0.15);
 
 
 /* Typography */
-.below-container h1 {
+.below-container h3 {
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 24px;
+      max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.2;
 }
 
 .below-hero-section .subtitle {
@@ -1669,6 +1680,12 @@ background-color: rgba(255, 255, 255, 0.15);
     0 0 15px rgba(255, 255, 255, 0.05);
       border-bottom: none;
       background-color: #2E5180;
+}
+
+@media(max-width: 768px){
+  .stat-card {
+    padding: 25px 35px;
+  }
 }
 
 /* Left-right fade as card moves downward */
@@ -2315,8 +2332,8 @@ background-color: rgba(255, 255, 255, 0.15);
 
     }
     .title {
-        font-size: 40px;
-        line-height: 40px;
+        font-size: 28px;
+        line-height: 1.2;
     }
     .video-section .subtitle {
         font-size: 14px;
@@ -3444,6 +3461,12 @@ background-color: rgba(255, 255, 255, 0.15);
   transition: all 0.3s ease;
 }
 
+@media(max-width:768px){
+  .tab-button {
+  padding: 2px 2px;
+  font-size: 12px;}
+}
+
 /* Hover effect */
 .stakeholder-tab:hover,
 .tab-button:hover {
@@ -4301,8 +4324,8 @@ background-color: rgba(255, 255, 255, 0.15);
   }
 
   .comparison-header-title {
-    font-size: 40px;
-    line-height: 38px;
+    font-size: 28px;
+    line-height: 1.2;
   }
 
   .comparison-header-subtitle {
@@ -6010,24 +6033,6 @@ body{
   .links-list a { font-size: 13px; line-height: 18px; }
   .footer-bottom-bar div { font-size: 12px; line-height: 24px; }
 }
-
-@media (max-width: 768px) {
-    .questions-header-title {
-        font-size: 32px !important;
-        line-height: 40px !important;
-    }
-
-    .solution-section .header-title {
-        font-size: 32px;
-        line-height: 40px;
-    }
-    
-    .integration-section .header-title {
-        font-size: 32px;
-        line-height: 40px;
-    }
-}
-
 @media (max-width: 1024px) {
     .solution-section .questions-header-title {
         font-size: 40px;
@@ -6039,10 +6044,32 @@ body{
     }
     
     .integration-section .header-title {
-        font-size: 32px;
+        font-size: 40px;
         line-height: 40px;
     }
 }
+
+@media (max-width: 768px) {
+    .questions-header-title {
+        font-size: 28px !important;
+        line-height: 40px !important;
+    }
+
+    .solution-section .header-title {
+        font-size: 28px;
+        line-height: 40px;
+    }
+    
+    .integration-section .header-title {
+        font-size: 28px;
+        line-height: 40px;
+    }
+    .below-container h3 {
+      font-size: 28px;
+    }
+}
+
+
 
 .two-links{
   display: flex;
@@ -6674,4 +6701,15 @@ textarea {
 
 .nav-link.active {
   color: rgba(225, 31, 53, 1);
+}
+
+@media (max-width: 460px) {
+
+
+
+.gradient-text1 {
+  font-size: 28px;
+
+  /* line-height: 1.2 !important; */
+}
 }
