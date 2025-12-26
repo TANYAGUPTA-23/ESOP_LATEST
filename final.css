@@ -6141,7 +6141,7 @@ body{
 /* Mobile */
 @media (max-width: 600px) {
   .management-section{
-    height: max-content;
+    height: 100vh;
   }
   .certified-section {
     padding: 60px 16px;
