@@ -1451,15 +1451,21 @@ a {
   }
 
 .certified-cards {
-  justify-content: flex-start;
+  display: flex;
+  flex-direction: row;
   flex-wrap: nowrap;
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
-  padding: 0 16px;
+  -webkit-overflow-scrolling: touch;
+  gap: 16px;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+  padding-bottom: 16px;
 }
 
-.certified-cards > * {
+.cert-card {
   flex: 0 0 80%;
   scroll-snap-align: center;
 }
