@@ -2671,6 +2671,7 @@ background-color: rgba(255, 255, 255, 0.15);
 
 .benefits-section {
   background: #041E42;
+      background: #041E42 !important;
   padding-top: 100px;
   padding-bottom: 100px;
   position: relative;
@@ -3247,6 +3248,7 @@ background-color: rgba(255, 255, 255, 0.15);
 
 .solution-section {
     background: #041E42;
+    background-color: #041E42 !important;
     padding-top: 100px;
     padding-bottom: 100px;
     position: sticky;
@@ -4086,6 +4088,7 @@ background-color: rgba(255, 255, 255, 0.15);
 
 .comparison {
   background: #041E42;
+  background-color: #041E42 !important;
   padding: 100px 0px;
   display: flex;
   justify-content: center;
@@ -4989,7 +4992,7 @@ body{
 
 .testimonal-section {
     padding: 100px 20px;
-    background: #041E42;
+    background: #041E42 !important;
     width: 100%;
     position: relative;
   z-index: 6;
