@@ -1056,7 +1056,7 @@ box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.2) inset;
 
 .spm-glass-frame img {
   width: 100%;
-  max-width: 450px;
+  max-width: 444px;
   border-radius: 24px;
   object-fit: cover;
   display: block;
@@ -1064,13 +1064,14 @@ box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.2) inset;
   filter: grayscale(100%) contrast(1.1);
     position: absolute;
   bottom: 2px;
+  left: 2px;
 }
 
 /* ================= ROLE STRIP INSIDE IMAGE ================= */
 .spm-glass-frame .spm-role {
   position: absolute;
   bottom: 2px;
-  width: 100%;
+  width: 99.1%;
   padding: 24px;
   border-radius: 14px;
   
@@ -1081,7 +1082,7 @@ border-radius: 20px;
   font-weight: 700;
   color: #ffffff;
   text-align: center;
-
+  left: 2px;
   z-index: 6; /* above image, below border */
 }
 
