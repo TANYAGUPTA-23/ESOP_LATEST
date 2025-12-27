@@ -445,7 +445,9 @@ html, body {
     position: relative;
     z-index: 2;
 }
-
+.hero-section .container{
+    max-width: 1550px;
+}
 
 .hero-section video {
   position: absolute;
@@ -568,6 +570,7 @@ html, body {
   display: inline-block;
   z-index: 1;
   /* max-width: 1150px; */
+      max-width: 1255px;
 }
 
 /* === SOFT BLACK VIGNETTE (OPTIONAL) === */
@@ -964,7 +967,7 @@ background-color: rgba(255, 255, 255, 0.15);
 .below_hero {
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
   /* overflow: hidden; */
   box-sizing: border-box;
@@ -6774,4 +6777,325 @@ textarea {
   /* line-height: 1.2 !important; */
 }
 }
+
+.below_hero {
+    width: 100%;
+    padding-top: 60px; /* Space under subtitle */
+    position: relative;
+}
+
+.equity-interactive-layout {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.equity-main-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Panel Styles */
+.equity-info-panel {
+    width: 360px;
+    padding: 24px;
+        background: linear-gradient(180deg, #1A3D6C 0%, rgba(26, 61, 108, 0) 100%);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    flex-shrink: 0;
+}
+
+.panel-left { text-align: right;
+    bottom: 100px;
+    position: absolute; }
+.panel-right{ text-align: left;    right: 0;
+    bottom: 100px;
+    position: absolute;}
+.panel-heading { font-size: 1.3rem; margin-bottom: 8px; font-weight: 600; color: #fff;     background: linear-gradient(100.18deg, #FFFFFF 51.66%, #E11F35 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;}
+.panel-body { color: #a0aec0; font-size: 0.9rem; line-height: 1.5; }
+
+/* The Semi-Circle Viewport */
+.orbit-center-viewport {
+    position: absolute;
+    /* 700px diameter / 2 = 350px. 
+       Pushing it down by half its height hides the bottom half */
+    bottom: -400px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 700px;
+    pointer-events: none; /* Allows clicking elements behind if needed */
+}
+
+.orbit-path-dotted {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3.5px dotted rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    animation: rotateOrbitSystem 40s linear infinite;
+}
+
+/* Upright Node Logic */
+.orbit-node-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 48px;
+    height: 48px;
+    margin: -24px;
+    pointer-events: auto;
+}
+
+.node-inner {
+    width: 100%;
+    height: 100%;
+    background: #051125;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: counterRotateNodes 40s linear infinite;
+}
+
+.node-inner img{
+    height: 20px;
+    width: 20px;
+}
+
+/* Circular Distribution */
+.orbit-node-item {
+    --angle: 0deg;
+    --radius: 350px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 48px;
+    height: 48px;
+    margin: -24px;
+
+    transform:
+        rotate(var(--angle))
+        translate(var(--radius))
+        rotate(calc(-1 * var(--angle)));
+}
+
+
+.n-0   { --angle: 0deg; }
+.n-45  { --angle: 45deg; }
+.n-90  { --angle: 90deg; }
+.n-135 { --angle: 135deg; }
+.n-180 { --angle: 180deg; }
+.n-225 { --angle: 225deg; }
+.n-270 { --angle: 270deg; }
+.n-315 { --angle: 315deg; }
+
+
+/* Center Image Swap */
+.orbit-core-identity {
+    position: absolute;
+    top: 27%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px; /* As per your code */
+    height: 200px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.core-image-stack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.fade-img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    animation: coreFadeCycle 3s infinite; /* 1s per image for 3 images */
+}
+
+.f-1 { animation-delay: 0s; }
+.f-2 { animation-delay: 1s; }
+.f-3 { animation-delay: 2s; }
+
+/* Animations */
+@keyframes rotateOrbitSystem {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes counterRotateNodes {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+@keyframes coreFadeCycle {
+    0%, 33.33% { opacity: 0; transform: scale(0.98); }
+    38%, 61% { opacity: 1; transform: scale(1); }
+    66%, 100% { opacity: 0; transform: scale(1.02); }
+}
+
+@keyframes counterRotateOrbit {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(-360deg); }
+}
+
+/* Responsiveness */
+
+
+.below_hero{
+    margin-top: 350px;
+    display: flex;
+    align-items: flex-end;
+    padding-top: 0;
+}
+
+/* Hide side panels below 900px */
+@media (max-width: 1460px) {
+
+    /* Remove left & right content */
+    .equity-info-panel {
+        display: none;
+    }
+
+    /* Center the semi-circle properly */
+    .below_hero {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .equity-main-grid {
+        justify-content: center;
+    }
+
+    /* Reset semicircle positioning for small screens */
+    .orbit-center-viewport {
+        position: relative;
+        bottom: 0;
+        left: auto;
+        transform: none;
+        margin: 0 auto;
+    }
+    .orbit-core-identity {
+        top: 50%;
+    }
+    .below_hero{
+        margin-top: 0;
+
+    }
+    .equity-interactive-layout {
+        height: max-content;
+        padding-bottom: 60px;
+    }
+    .orbit-center-viewport {
+    width: 520px;
+    height: 520px;
+}
+.orbit-path-dotted {
+    width: 520px;
+    height: 520px;
+}
+.orbit-node-item {
+    --radius: 260px;
+}
+.orbit-node-item {
+    width: 40px;
+    height: 40px;
+    margin: -20px;
+}
+.orbit-core-identity {
+    width: 160px;
+    height: 160px;
+}
+
+}
+@media (max-width: 800px) {
+
+    .orbit-center-viewport {
+        width: 420px;
+        height: 420px;
+    }
+
+    .orbit-path-dotted {
+        width: 420px;
+        height: 420px;
+    }
+
+    .orbit-node-item {
+        --radius: 210px;
+        width: 36px;
+        height: 36px;
+        margin: -18px;
+    }
+
+    .orbit-core-identity {
+        width: 140px;
+        height: 140px;
+    }
+}
+@media (max-width: 650px) {
+
+    .orbit-center-viewport {
+        width: 340px;
+        height: 340px;
+    }
+
+    .orbit-path-dotted {
+        width: 340px;
+        height: 340px;
+    }
+
+    .orbit-node-item {
+        --radius: 170px;
+        width: 32px;
+        height: 32px;
+        margin: -16px;
+    }
+
+    .orbit-core-identity {
+        width: 120px;
+        height: 120px;
+    }
+}
+@media (max-width: 500px) {
+
+    .orbit-center-viewport {
+        width: 260px;
+        height: 260px;
+    }
+
+    .orbit-path-dotted {
+        width: 260px;
+        height: 260px;
+    }
+
+    .orbit-node-item {
+        --radius: 130px;
+        width: 26px;
+        height: 26px;
+        margin: -13px;
+    }
+
+    .orbit-core-identity {
+        width: 90px;
+        height: 90px;
+    }
+        .equity-interactive-layout 
+        {}
+}
+
 
