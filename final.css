@@ -1078,7 +1078,7 @@ background-color: rgba(255, 255, 255, 0.15);
 
 .below-hero-section {
   
-  position: sticky;
+  position: relative;
   top: 0;
   left: 0;
   background-color: #041E42 !important;
@@ -2366,7 +2366,7 @@ background-color: rgba(255, 255, 255, 0.15);
   background: #041E42 !important;
   padding-top: 100px;
   padding-bottom: 100px;
-    position: sticky;
+    position: relative;
   top: 0;
   left: 0;
   z-index: 0;
@@ -3268,7 +3268,7 @@ background-color: rgba(255, 255, 255, 0.15);
     background-color: #041E42 !important;
     padding-top: 100px;
     padding-bottom: 100px;
-    position: sticky;
+    position: relative;
     top:0;
     /* z-index: 2; */
 }
@@ -4116,7 +4116,7 @@ background-color: rgba(255, 255, 255, 0.15);
   display: flex;
   justify-content: center;
   color: #D5DBE6;
-  position: sticky;
+  position: relative;
   z-index: 4;
   top:0;
 }
@@ -4677,7 +4677,7 @@ a {
   min-height: 722px;
   display: flex;
   justify-content: center;
-  position: sticky;
+  position: relative;
   top:0;
   z-index: 5;
 }
@@ -5227,7 +5227,7 @@ body{
      causing overflow on medium screens. */
   padding: 100px 20px;
   overflow-x: hidden;
-  position: sticky;
+  position: relative;
   top:0;
     background-color: #041E42 !important;
     z-index: 7;
@@ -5543,10 +5543,13 @@ body{
   padding: 100px 320px 0px;
   background: #041E42;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   position: sticky;
   top: 0;
   z-index: 9;
+    will-change: transform;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .management-section .upper-wrapper {
@@ -5556,6 +5559,7 @@ body{
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  overflow: hidden;
 }
 
 .management-section .upper-heading-container {
@@ -5791,7 +5795,12 @@ body{
   /* border-top-left-radius: 32px;
   border-top-right-radius: 32px;
   box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.4); */
-  z-index: 10;
+  z-index: 11;
+    will-change: transform;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+    /* margin-top: 1px;  */
+
 }
 
 .footer-section {
@@ -5800,9 +5809,11 @@ body{
   padding-inline: clamp(20px, 6vw, 352px);
   --footer-gap: 32px; /* default gap between footer columns */
   background: #041E42;
-  overflow: hidden;
+    overflow: visible;
   color: #FFFFFF;
+    contain: layout paint;
 }
+
 
 .footer-wrapper {
   /* max-width: 1216px; */
@@ -6087,6 +6098,22 @@ body{
 .certified-section {
   padding: 80px 20px;
   text-align: center;
+  background-color: #041E42 !important;
+  z-index: 10;
+  position: relative;
+  margin-top: 1px;
+}
+
+.certified-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: min(1672px, 95%);   /* 👈 control width */
+  height: 1px;
+  background-color:  rgba(255, 255, 255, 0.1);;
 }
 
 /* ===== TITLE ===== */
@@ -6167,12 +6194,6 @@ body{
 
 /* Mobile */
 @media (max-width: 600px) {
-  .management-section{
-    height: 100vh;
-  }
-  .management-section{
-    height: 100vh;
-  }
   .certified-section {
     padding: 60px 16px;
   }
