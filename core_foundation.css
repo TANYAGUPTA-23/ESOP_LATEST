@@ -2281,7 +2281,7 @@ textarea {
   }
 
 .service-why-grid > .service-why-card:last-child {
-    max-width: 100%;
+    max-width: 100% !important;
 }
 }
 
@@ -2334,6 +2334,7 @@ textarea {
 
 .partner-section{
   padding: 80px 0px;
+width: 100%
 }
 
 @media (max-width: 600px) {
@@ -2358,6 +2359,7 @@ textarea {
   position: relative;
   background: #041E42;
   overflow: hidden;
+width: 100%;
 }
 
 /* Bottom fade + blur */

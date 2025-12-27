@@ -2274,7 +2274,7 @@ textarea {
   }
 
 .service-why-grid > .service-why-card:last-child {
-    max-width: 100%;
+    max-width: 100% !important;
 }
 }
 
@@ -2327,6 +2327,7 @@ textarea {
 
 .partner-section{
   padding: 80px 0px;
+width: 100%
 }
 
 @media (max-width: 600px) {
@@ -2351,6 +2352,7 @@ textarea {
   position: relative;
   background: #041E42;
   overflow: hidden;
+width: 100%;
 }
 
 /* Bottom fade + blur */
@@ -2649,6 +2651,7 @@ width: 100%;
   padding-top: 6px;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+width: 100%
 }
 
 /* Card */
@@ -2908,12 +2911,12 @@ width: 100%;
   margin: 0 auto;
       padding: 80px 0;
 }
-.feature-showcase-grid > .feature-card-wrapper:nth-of-type(5) {
+/* .feature-showcase-grid > .feature-card-wrapper:nth-of-type(5) {
     grid-column: 1 / -1;
     justify-self: center;
     max-width: 585px;
     width: 100%;
-  }
+  } */
   
 }
 
@@ -3143,7 +3146,7 @@ width: 100%;
   } */
 
 .service-why-grid > .service-why-card:last-child {
-    max-width: 100%;
+    max-width: 100% !important;
 }
 }
 
@@ -3154,4 +3157,11 @@ width: 100%;
     justify-self: center;
     max-width: 585px;
     width: 100%;
+}
+
+@media (max-width: 992px) {
+
+.service-why-grid > .service-why-card:last-of-type {
+    max-width: 100% !important;
+}
 }

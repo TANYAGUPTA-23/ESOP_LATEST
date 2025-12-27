@@ -2273,7 +2273,8 @@ transform: rotate(135deg);}
 @media (max-width: 680px) {
   .articles-section {
     padding: 50px 20px;
-    top: 50px;
+    /* top: 50px; */
+    padding-top: 0;
   }
   .article-header__title {
     font-size: 36px;

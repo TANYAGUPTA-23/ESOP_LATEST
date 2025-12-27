@@ -2487,6 +2487,7 @@ textarea {
   position: relative;
   background: #041E42;
   overflow: hidden;
+width: 100%;
 }
 
 /* Bottom fade + blur */
