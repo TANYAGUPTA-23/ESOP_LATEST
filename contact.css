@@ -2033,7 +2033,7 @@ a {
   border: none;
   background: rgba(66, 105, 157, 1);
   box-shadow: 0px 1px 1px 0px rgba(207, 231, 255, 0.2) inset;
-
+  font-family: 'Raleway';
   color: #94a3b8;
   cursor: pointer;
   transition: 0.3s;
@@ -2177,7 +2177,7 @@ select{
     background: #2E5180;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    font-family: "Inter", sans-serif;
+    font-family: "Inter";
 }
 
 .country-code {
@@ -2490,7 +2490,7 @@ input::placeholder, textarea::placeholder {
     background: #2E5180;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    font-family: "Inter", sans-serif;
+    font-family: "Inter";
 }
 
 .country-code {

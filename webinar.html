@@ -244,27 +244,49 @@ img {
   }
 
   .carousel-container .carousel-item.active {
-    transform: translateX(0) scale(2);
+    transform: translateX(0) scale(2.3);
   }
 
   .carousel-container .carousel-item.prev {
-    transform: translateX(-75%) scale(1.35);
+    transform: translateX(-85%) translateY(-20%) scale(1.55);
   }
 
   .carousel-container .carousel-item.next {
-    transform: translateX(75%) scale(1.35);
+    transform: translateX(86%) translateY(-20%) scale(1.55);
   }
 
   .carousel-container .carousel-item.far-prev {
-    transform: translateX(-120%) scale(1.1);
+    transform: translateX(-140%) translateY(-20%) scale(1.1);
     filter: blur(3px);
   }
 
   .carousel-container .carousel-item.far-next {
-    transform: translateX(120%) scale(1.1);
+    transform: translateX(140%) translateY(-20%) scale(1.1);
     filter: blur(3px);
   }
 }
+@media (min-width: 1600px) and (max-width: 1899px) {
+  .carousel-container .carousel-item.active {
+    transform: scale(2.1);
+  }
+
+  .carousel-container .carousel-item.prev {
+    transform: translateX(-75%) translateY(-18%) scale(1.45);
+  }
+
+  .carousel-container .carousel-item.next {
+    transform: translateX(75%) translateY(-18%) scale(1.45);
+  }
+
+  .carousel-container .carousel-item.far-prev {
+    transform: translateX(-120%) translateY(-18%) scale(1.05);
+  }
+
+  .carousel-container .carousel-item.far-next {
+    transform: translateX(120%) translateY(-18%) scale(1.05);
+  }
+}
+
 
 /* =====================================================
    TABLET RANGE (900px – 1699px)
@@ -498,7 +520,7 @@ img {
         </div>
         <div class="carousel-item" data-video="https://youtu.be/4WjtQjPQGIs?si=qU-GZbljsub_Qfk_">
             <div class="image-wrapper">
-                <img src="./assets/ce59202272f487dc95cb3f63d5455b1c0b682574.jpg" alt="">
+                <img src="./assets/de5b4a5dd06b749c623dbf09e60348763c859881.jpg" alt="">
                 <div class="image-overlay"></div>
                 <button id="btnMediaAction"><img src="./assets/play.png" alt=""></button>
             </div>
