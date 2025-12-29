@@ -1052,7 +1052,7 @@ box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.2) inset;
   min-width: 320px;
 }
 
-.spm-glass-Frame{
+.spm-glass-frame{
   padding: 15px;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
@@ -1061,7 +1061,7 @@ box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.2) inset;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
-.spm-glass-Frameimg {
+.spm-glass-frame img {
   width: 100%;
   max-width: 650px;
   border-radius: 12px;
@@ -1233,7 +1233,7 @@ h1 {
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
-.glass-Frameimg {
+.glass-Frame img {
     display: block;
     width: 100%;
     max-width: 550px;

@@ -1009,7 +1009,7 @@ box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.2) inset;
   min-width: 320px;
 }
 
-.spm-glass-Frame{
+.spm-glass-frame{
   position: relative;
   width: 100%;
   max-width: 450px;
@@ -1054,7 +1054,7 @@ box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.2) inset;
 
 
 
-.spm-glass-Frameimg {
+.spm-glass-frame img {
   width: 99%;
   max-width: 444px;
   border-radius: 24px;
@@ -1068,7 +1068,7 @@ box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.2) inset;
 }
 
 /* ================= ROLE STRIP INSIDE IMAGE ================= */
-.spm-glass-Frame.spm-role {
+.spm-glass-frame .spm-role {
   position: absolute;
   bottom: 2px;
   width: 99.1%;
@@ -1247,7 +1247,7 @@ h1 {
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
-.glass-Frameimg {
+.glass-Frame img {
     display: block;
     width: 100%;
     max-width: 550px;
