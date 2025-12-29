@@ -99,7 +99,7 @@
     /* =====================================================
    PLAY BUTTON (IMAGE ONLY)
 ===================================================== */
-    .carousel-container .carousel-viewport .carousel-item .image-wrapper>#btnMediaAction {
+    .carousel-container .carousel-viewport .carousel-item .image-wrapper>.btnMediaAction {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -115,7 +115,7 @@
       justify-content: center;
     }
 
-    .carousel-container .carousel-viewport .carousel-item .image-wrapper #btnMediaAction img {
+    .carousel-container .carousel-viewport .carousel-item .image-wrapper .btnMediaAction img {
       width: 100%;
       height: 100%;
       object-fit: contain;
@@ -322,7 +322,7 @@
         text-align: center;
       }
 
-      .carousel-container #btnMediaAction {
+      .carousel-container .btnMediaAction {
         width: 50px;
         height: 50px;
       }
@@ -475,7 +475,7 @@
         <div class="image-wrapper">
           <img src="./assets/Frame2147235880.svg" alt="">
           <div class="image-overlay"></div>
-          <button id="btnMediaAction"><img src="./assets/play.png" alt=""></button>
+          <button class="btnMediaAction"><img src="./assets/play.png" alt=""></button>
         </div>
         <div class="item-meta">
           <span class="item-title">Webinar on "Unfolding ESOP Valuation and Taxation Aspects"</span>
@@ -486,7 +486,7 @@
         <div class="image-wrapper">
           <img src="./assets/ce59202272f487dc95cb3f63d5455b1c0b682574.jpg" alt="">
           <div class="image-overlay"></div>
-          <button id="btnMediaAction"><img src="./assets/play.png" alt=""></button>
+          <button class="btnMediaAction"><img src="./assets/play.png" alt=""></button>
         </div>
         <div class="item-meta">
           <span class="item-title">223rd Webinar on "ESOPs Under the Spotlight"</span>
@@ -497,7 +497,7 @@
         <div class="image-wrapper">
           <img src="./assets/ee38d27e5942191db992306bc0cdd3b47d77008a.jpg" alt="">
           <div class="image-overlay"></div>
-          <button id="btnMediaAction"><img src="./assets/play.png" alt=""></button>
+          <button class="btnMediaAction"><img src="./assets/play.png" alt=""></button>
         </div>
         <div class="item-meta">
           <span class="item-title">Masterclass: Navigating Global Compliance for Startups</span>
@@ -508,7 +508,7 @@
         <div class="image-wrapper">
           <img src="./assets/de5b4a5dd06b749c623dbf09e60348763c859881.jpg" alt="">
           <div class="image-overlay"></div>
-          <button id="btnMediaAction"><img src="./assets/play.png" alt=""></button>
+          <button class="btnMediaAction"><img src="./assets/play.png" alt=""></button>
         </div>
         <div class="item-meta">
           <span class="item-title">Panel Discussion: The Future of Remote Workforce</span>
@@ -519,7 +519,7 @@
         <div class="image-wrapper">
           <img src="./assets/03d8ce3a9761ecbfe9f94a4e7483eb42e404cd8d.jpg" alt="">
           <div class="image-overlay"></div>
-          <button id="btnMediaAction"><img src="./assets/play.png" alt=""></button>
+          <button class="btnMediaAction"><img src="./assets/play.png" alt=""></button>
         </div>
         <div class="item-meta">
           <span class="item-title">Workshop: Building Scalable Cap-Tables for Series A</span>
@@ -540,7 +540,13 @@
   <div id="videoModal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModal()">&times;</span>
-      <iFrameid="videoPlayer" src="" allowfullscreen></iframe>
+          <iframe
+      id="videoPlayer"
+      src="about:blank"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
     </div>
   </div>
 
@@ -1060,7 +1066,7 @@
 
     items.forEach(item => {
       /* Renamed variable and querySelector for btnMediaAction */
-      const btnMediaAction = item.querySelector('#btnMediaAction');
+      const btnMediaAction = item.querySelector('.btnMediaAction');
       btnMediaAction.addEventListener('click', (e) => {
         e.stopPropagation();
         document.getElementById('videoPlayer').src = item.getAttribute('data-video') + "?autoplay=1";
@@ -1070,7 +1076,8 @@
 
     function closeModal() {
       document.getElementById('videoModal').style.display = 'none';
-      document.getElementById('videoPlayer').src = "";
+      document.getElementById('videoPlayer').src = "about:blank";
+
     }
 
     window.onclick = (e) => { if (e.target == document.getElementById('videoModal')) closeModal(); }
