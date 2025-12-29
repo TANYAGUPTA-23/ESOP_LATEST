@@ -2177,7 +2177,7 @@ select{
     background: #2E5180;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    font-family: "Inter";
+    font-family: "Raleway";
 }
 
 .country-code {
@@ -2490,7 +2490,7 @@ input::placeholder, textarea::placeholder {
     background: #2E5180;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    font-family: "Inter";
+    font-family: "Raleway";
 }
 
 .country-code {
