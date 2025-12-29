@@ -1,410 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 
   <link rel="stylesheet" href="webinar.css" />
   <link href="https://fonts.cdnfonts.com/css/raleway-5" rel="stylesheet">
-      <style>/* =====================================================
+  <style>
+    /* =====================================================
    ROOT + GLOBAL
 ===================================================== */
-:root {
-  --bg-color: #051937;
-  --transition-speed: 0.5s;
-  --item-width-desktop: 483px;
-  --item-width-tablet: 350px;
-}
+    :root {
+      --bg-color: #051937;
+      --transition-speed: 0.5s;
+      --item-width-desktop: 483px;
+      --item-width-tablet: 350px;
+    }
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--bg-color);
-  color: #fff;
-  overflow-x: hidden;
-}
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: #fff;
+      overflow-x: hidden;
+    }
 
-/* =====================================================
+    /* =====================================================
    CAROUSEL CONTAINER
 ===================================================== */
-.carousel-container {
-  position: relative;
-  width: 100%;
-  height: 72vh;
-  padding: 0 20px 260px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  perspective: 1500px;
-  overflow: hidden;
-}
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      height: 72vh;
+      padding: 0 20px 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      perspective: 1500px;
+      overflow: hidden;
+    }
 
-/* =====================================================
+    /* =====================================================
    VIEWPORT
 ===================================================== */
-.carousel-container > .carousel-viewport {
-  position: relative;
-  width: 100%;
-  height: 550px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    .carousel-container>.carousel-viewport {
+      position: relative;
+      width: 100%;
+      height: 550px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-/* =====================================================
+    /* =====================================================
    CAROUSEL ITEM
 ===================================================== */
-.carousel-container
-.carousel-viewport
-> .carousel-item {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
-}
+    .carousel-container .carousel-viewport>.carousel-item {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-/* =====================================================
+    /* =====================================================
    IMAGE WRAPPER
 ===================================================== */
-.carousel-container
-.carousel-viewport
-.carousel-item
-> .image-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-}
+    .carousel-container .carousel-viewport .carousel-item>.image-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    }
 
-.carousel-container
-.carousel-viewport
-.carousel-item
-.image-wrapper
-> img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+    .carousel-container .carousel-viewport .carousel-item .image-wrapper>img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-/* =====================================================
+    /* =====================================================
    IMAGE OVERLAY (IMAGE ONLY)
 ===================================================== */
-.carousel-container
-.carousel-viewport
-.carousel-item
-.image-wrapper
-> .image-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.25);
-  z-index: 5;
-  pointer-events: none;
-}
+    .carousel-container .carousel-viewport .carousel-item .image-wrapper>.image-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.25);
+      z-index: 5;
+      pointer-events: none;
+    }
 
-/* =====================================================
+    /* =====================================================
    PLAY BUTTON (IMAGE ONLY)
 ===================================================== */
-.carousel-container
-.carousel-viewport
-.carousel-item
-.image-wrapper
-> #btnMediaAction {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60px;
-  height: 60px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    .carousel-container .carousel-viewport .carousel-item .image-wrapper>#btnMediaAction {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.carousel-container
-.carousel-viewport
-.carousel-item
-.image-wrapper
-#btnMediaAction
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
+    .carousel-container .carousel-viewport .carousel-item .image-wrapper #btnMediaAction img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
 
-/* =====================================================
+    /* =====================================================
    META CONTENT
 ===================================================== */
-.carousel-container
-.carousel-viewport
-.carousel-item
-> .item-meta {
-  margin-top: 15px;
-  width: 100%;
-  transition: transform var(--transition-speed) ease;
-}
+    .carousel-container .carousel-viewport .carousel-item>.item-meta {
+      margin-top: 15px;
+      width: 100%;
+      transition: transform var(--transition-speed) ease;
+    }
 
-.carousel-container
-.carousel-viewport
-.carousel-item
-.item-meta
-.item-title {
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.4;
-  display: block;
-}
+    .carousel-container .carousel-viewport .carousel-item .item-meta .item-title {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.4;
+      display: block;
+    }
 
-.carousel-container
-.carousel-viewport
-.carousel-item
-.item-meta
-.item-date {
-  margin-top: 6px;
-  font-size: 11px;
-  color: rgba(255,255,255,0.7);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
+    .carousel-container .carousel-viewport .carousel-item .item-meta .item-date {
+      margin-top: 6px;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.7);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-.carousel-container
-.carousel-viewport
-.carousel-item
-.item-meta
-.item-date
-img {
-  width: 14px;
-  height: 14px;
-}
+    .carousel-container .carousel-viewport .carousel-item .item-meta .item-date img {
+      width: 14px;
+      height: 14px;
+    }
 
-/* =====================================================
+    /* =====================================================
    POSITION STATES (JS CONTROLLED)
 ===================================================== */
-.carousel-container .carousel-item.active {
-  z-index: 20;
-}
+    .carousel-container .carousel-item.active {
+      z-index: 20;
+    }
 
-.carousel-container .carousel-item.prev,
-.carousel-container .carousel-item.next {
-  z-index: 15;
-}
+    .carousel-container .carousel-item.prev,
+    .carousel-container .carousel-item.next {
+      z-index: 15;
+    }
 
-.carousel-container .carousel-item.far-prev,
-.carousel-container .carousel-item.far-next {
-  z-index: 10;
-}
+    .carousel-container .carousel-item.far-prev,
+    .carousel-container .carousel-item.far-next {
+      z-index: 10;
+    }
 
-/* =====================================================
+    /* =====================================================
    CONTROLS
 ===================================================== */
-.carousel-container
-> .carousel-controls {
-  position: absolute;
-  bottom: 80px;
-  display: flex;
-  gap: 20px;
-  z-index: 100;
-}
+    .carousel-container>.carousel-controls {
+      position: absolute;
+      bottom: 80px;
+      display: flex;
+      gap: 20px;
+      z-index: 100;
+    }
 
-.carousel-container
-.carousel-controls
-.nav-btn {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
+    .carousel-container .carousel-controls .nav-btn {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
 
-/* =====================================================
+    /* =====================================================
    DESKTOP ≥ 1700px
 ===================================================== */
-@media (min-width: 1700px) {
+    @media (min-width: 1700px) {
 
-  .carousel-container .carousel-item {
-    width: var(--item-width-desktop);
-  }
+      .carousel-container .carousel-item {
+        width: var(--item-width-desktop);
+      }
 
-  .carousel-container .image-wrapper {
-    height: 306px;
-  }
+      .carousel-container .image-wrapper {
+        height: 306px;
+      }
 
-  .carousel-container .carousel-item.active {
-    transform: translateX(0) scale(2.3);
-  }
+      .carousel-container .carousel-item.active {
+        transform: translateX(0) scale(2.3);
+      }
 
-  .carousel-container .carousel-item.prev {
-    transform: translateX(-85%) translateY(-20%) scale(1.55);
-  }
+      .carousel-container .carousel-item.prev {
+        transform: translateX(-85%) translateY(-20%) scale(1.55);
+      }
 
-  .carousel-container .carousel-item.next {
-    transform: translateX(86%) translateY(-20%) scale(1.55);
-  }
+      .carousel-container .carousel-item.next {
+        transform: translateX(86%) translateY(-20%) scale(1.55);
+      }
 
-  .carousel-container .carousel-item.far-prev {
-    transform: translateX(-140%) translateY(-20%) scale(1.1);
-    filter: blur(3px);
-  }
+      .carousel-container .carousel-item.far-prev {
+        transform: translateX(-140%) translateY(-20%) scale(1.1);
+        filter: blur(3px);
+      }
 
-  .carousel-container .carousel-item.far-next {
-    transform: translateX(140%) translateY(-20%) scale(1.1);
-    filter: blur(3px);
-  }
-}
-@media (min-width: 1600px) and (max-width: 1899px) {
-  .carousel-container .carousel-item.active {
-    transform: scale(2.1);
-  }
+      .carousel-container .carousel-item.far-next {
+        transform: translateX(140%) translateY(-20%) scale(1.1);
+        filter: blur(3px);
+      }
+    }
 
-  .carousel-container .carousel-item.prev {
-    transform: translateX(-75%) translateY(-18%) scale(1.45);
-  }
+    @media (min-width: 1600px) and (max-width: 1899px) {
+      .carousel-container .carousel-item.active {
+        transform: scale(2.1);
+      }
 
-  .carousel-container .carousel-item.next {
-    transform: translateX(75%) translateY(-18%) scale(1.45);
-  }
+      .carousel-container .carousel-item.prev {
+        transform: translateX(-75%) translateY(-18%) scale(1.45);
+      }
 
-  .carousel-container .carousel-item.far-prev {
-    transform: translateX(-120%) translateY(-18%) scale(1.05);
-  }
+      .carousel-container .carousel-item.next {
+        transform: translateX(75%) translateY(-18%) scale(1.45);
+      }
 
-  .carousel-container .carousel-item.far-next {
-    transform: translateX(120%) translateY(-18%) scale(1.05);
-  }
-}
+      .carousel-container .carousel-item.far-prev {
+        transform: translateX(-120%) translateY(-18%) scale(1.05);
+      }
+
+      .carousel-container .carousel-item.far-next {
+        transform: translateX(120%) translateY(-18%) scale(1.05);
+      }
+    }
 
 
-/* =====================================================
+    /* =====================================================
    TABLET RANGE (900px – 1699px)
 ===================================================== */
-@media (min-width: 900px) and (max-width: 1699px) {
+    @media (min-width: 900px) and (max-width: 1699px) {
 
-  .carousel-container {
-    height: 64vh;
-    padding-bottom: 160px;
-  }
+      .carousel-container {
+        height: 64vh;
+        padding-bottom: 160px;
+      }
 
-  .carousel-container .carousel-item {
-    width: var(--item-width-tablet);
-  }
+      .carousel-container .carousel-item {
+        width: var(--item-width-tablet);
+      }
 
-  .carousel-container .image-wrapper {
-    height: 220px;
-  }
+      .carousel-container .image-wrapper {
+        height: 220px;
+      }
 
-  .carousel-container .carousel-item.active {
-    transform: translateX(0) scale(1.2);
-  }
+      .carousel-container .carousel-item.active {
+        transform: translateX(0) scale(1.2);
+      }
 
-  .carousel-container .carousel-item.prev {
-    transform: translateX(-85%) scale(0.9);
-    opacity: 0.7;
-  }
+      .carousel-container .carousel-item.prev {
+        transform: translateX(-85%) scale(0.9);
+        opacity: 0.7;
+      }
 
-  .carousel-container .carousel-item.next {
-    transform: translateX(85%) scale(0.9);
-    opacity: 0.7;
-  }
+      .carousel-container .carousel-item.next {
+        transform: translateX(85%) scale(0.9);
+        opacity: 0.7;
+      }
 
-  .carousel-container .carousel-item.far-prev,
-  .carousel-container .carousel-item.far-next {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
+      .carousel-container .carousel-item.far-prev,
+      .carousel-container .carousel-item.far-next {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
 
-/* =====================================================
+    /* =====================================================
    BELOW 900px
 ===================================================== */
-@media (max-width: 899px) {
+    @media (max-width: 899px) {
 
-  .carousel-container {
-    height: 64vh;
-    padding-bottom: 160px;
-  }
+      .carousel-container {
+        height: 64vh;
+        padding-bottom: 160px;
+      }
 
-  .carousel-container .carousel-controls {
-    bottom: 50px;
-  }
+      .carousel-container .carousel-controls {
+        bottom: 50px;
+      }
 
-  .carousel-container .carousel-item {
-    width: 90%;
-    padding: 0 10px;
-  }
+      .carousel-container .carousel-item {
+        width: 90%;
+        padding: 0 10px;
+      }
 
-  .carousel-container .image-wrapper {
-    height: 250px;
-  }
+      .carousel-container .image-wrapper {
+        height: 250px;
+      }
 
-  .carousel-container .carousel-item:not(.active) {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(120%);
-  }
+      .carousel-container .carousel-item:not(.active) {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(120%);
+      }
 
-  .carousel-container .item-meta {
-    text-align: center;
-  }
+      .carousel-container .item-meta {
+        text-align: center;
+      }
 
-  .carousel-container #btnMediaAction {
-    width: 50px;
-    height: 50px;
-  }
-}
+      .carousel-container #btnMediaAction {
+        width: 50px;
+        height: 50px;
+      }
+    }
 
-/* =====================================================
+    /* =====================================================
    VIDEO MODAL (FULLY ISOLATED)
 ===================================================== */
-#videoModal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.95);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
+    #videoModal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
 
-#videoModal > .modal-content {
-  position: relative;
-  width: 90%;
-  max-width: 900px;
-  aspect-ratio: 16 / 9;
-}
+    #videoModal>.modal-content {
+      position: relative;
+      width: 90%;
+      max-width: 900px;
+      aspect-ratio: 16 / 9;
+    }
 
-#videoModal iFrame{
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 10px;
-}
+    #videoModal iFrame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 10px;
+    }
 
-#videoModal .close-modal {
-  position: absolute;
-  top: -50px;
-  right: 0;
-  font-size: 40px;
-  color: #fff;
-  cursor: pointer;
-}
-</style>
+    #videoModal .close-modal {
+      position: absolute;
+      top: -50px;
+      right: 0;
+      font-size: 40px;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
 </head>
+
 <body id="top">
-    
+  <!-- Global SVG definitions (define once) -->
+  <!-- Global SVG definitions (define once) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+
+      <!-- Edge fade glow -->
+      <linearGradient id="edgeFadeGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#D8E7F2" stop-opacity="0" />
+        <stop offset="10%" stop-color="#D8E7F2" stop-opacity="0.6" />
+        <stop offset="90%" stop-color="#D8E7F2" stop-opacity="0.6" />
+        <stop offset="100%" stop-color="#D8E7F2" stop-opacity="0" />
+      </linearGradient>
+
+      <!-- Thin glow -->
+      <linearGradient id="thinGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#D8E7F2" stop-opacity="0" />
+        <stop offset="50%" stop-color="#D8E7F2" stop-opacity="0.8" />
+        <stop offset="100%" stop-color="#D8E7F2" stop-opacity="0" />
+      </linearGradient>
+
+    </defs>
+  </svg>
+
   <!-- ================= NAVBAR ================= -->
   <nav class="navbar">
     <div class="navbar-wrapper">
@@ -438,7 +423,7 @@ img {
 
         <!-- Hamburger -->
         <button id="hamburger-btn" class="hamburger-menu" aria-label="Toggle navigation menu">
-          <div class="hamburger-icon"></div>
+          <span class="hamburger-icon"></span>
         </button>
       </div>
 
@@ -464,9 +449,9 @@ img {
         </span>
       </a>
     </div>
-  </div>        
-  
-    <div class="hero-section">
+  </div>
+
+  <div class="hero-section">
     <div class="container">
 
       <div class="top-ad-banner all-banners">
@@ -478,652 +463,619 @@ img {
         Free Webinar: Demystifying ESOPs for Startups & SMEs
       </h1>
 
-      <p class="subtitle">Learn how to plan, design and manage employee-stock schemes — with compliance, cap-tables and real-world case studies.
+      <p class="subtitle">Learn how to plan, design and manage employee-stock schemes — with compliance, cap-tables and
+        real-world case studies.
       </p>
 
     </div>
   </div>
-<div class="carousel-container">
+  <div class="carousel-container">
     <div class="carousel-viewport" id="carouselViewport">
-        <div class="carousel-item" data-video="./assets/carousel.mp4">
-            <div class="image-wrapper">
-                <img src="./assets/Frame2147235880.svg" alt="">
-                <div class="image-overlay"></div>
-                <button id="btnMediaAction"><img src="./assets/play.png" alt=""></button>
-            </div>
-            <div class="item-meta">
-                <span class="item-title">Webinar on "Unfolding ESOP Valuation and Taxation Aspects"</span>
-                <span class="item-date"><img src="./assets/fi_12887972.svg" alt="">November 4, 2025</span>
-            </div>
+      <div class="carousel-item" data-video="./assets/carousel.mp4">
+        <div class="image-wrapper">
+          <img src="./assets/Frame2147235880.svg" alt="">
+          <div class="image-overlay"></div>
+          <button id="btnMediaAction"><img src="./assets/play.png" alt=""></button>
         </div>
-        <div class="carousel-item" data-video="https://youtu.be/4WjtQjPQGIs?si=qU-GZbljsub_Qfk_">
-            <div class="image-wrapper">
-                <img src="./assets/ce59202272f487dc95cb3f63d5455b1c0b682574.jpg" alt="">
-                <div class="image-overlay"></div>
-                <button id="btnMediaAction"><img src="./assets/play.png" alt=""></button>
-            </div>
-            <div class="item-meta">
-                <span class="item-title">223rd Webinar on "ESOPs Under the Spotlight"</span>
-                <span class="item-date"><img src="./assets/fi_12887972.svg" alt="">November 4, 2025</span>
-            </div>
+        <div class="item-meta">
+          <span class="item-title">Webinar on "Unfolding ESOP Valuation and Taxation Aspects"</span>
+          <span class="item-date"><img src="./assets/fi_12887972.svg" alt="">November 4, 2025</span>
         </div>
-        <div class="carousel-item" data-video="https://youtu.be/4WjtQjPQGIs?si=qU-GZbljsub_Qfk_">
-            <div class="image-wrapper">
-                <img src="./assets/ee38d27e5942191db992306bc0cdd3b47d77008a.jpg" alt="">
-                <div class="image-overlay"></div>
-                <button id="btnMediaAction"><img src="./assets/play.png" alt=""></button>
-            </div>
-            <div class="item-meta">
-                <span class="item-title">Masterclass: Navigating Global Compliance for Startups</span>
-                <span class="item-date"><img src="./assets/fi_12887972.svg" alt="">November 4, 2025</span>
-            </div>
+      </div>
+      <div class="carousel-item" data-video="https://youtu.be/4WjtQjPQGIs?si=qU-GZbljsub_Qfk_">
+        <div class="image-wrapper">
+          <img src="./assets/ce59202272f487dc95cb3f63d5455b1c0b682574.jpg" alt="">
+          <div class="image-overlay"></div>
+          <button id="btnMediaAction"><img src="./assets/play.png" alt=""></button>
         </div>
-        <div class="carousel-item" data-video="https://youtu.be/4WjtQjPQGIs?si=qU-GZbljsub_Qfk_">
-            <div class="image-wrapper">
-                <img src="./assets/de5b4a5dd06b749c623dbf09e60348763c859881.jpg" alt="">
-                <div class="image-overlay"></div>
-                <button id="btnMediaAction"><img src="./assets/play.png" alt=""></button>
-            </div>
-            <div class="item-meta">
-                <span class="item-title">Panel Discussion: The Future of Remote Workforce</span>
-                <span class="item-date"><img src="./assets/fi_12887972.svg" alt="">November 4, 2025</span>
-            </div>
+        <div class="item-meta">
+          <span class="item-title">223rd Webinar on "ESOPs Under the Spotlight"</span>
+          <span class="item-date"><img src="./assets/fi_12887972.svg" alt="">November 4, 2025</span>
         </div>
-        <div class="carousel-item" data-video="https://youtu.be/V-_O7nl0Ii0">
-            <div class="image-wrapper">
-                <img src="./assets/03d8ce3a9761ecbfe9f94a4e7483eb42e404cd8d.jpg" alt="">
-                <div class="image-overlay"></div>
-                <button id="btnMediaAction"><img src="./assets/play.png" alt=""></button>
-            </div>
-            <div class="item-meta">
-                <span class="item-title">Workshop: Building Scalable Cap-Tables for Series A</span>
-                <span class="item-date"><img src="./assets/fi_12887972.svg" alt="">November 4, 2025</span>
-            </div>
+      </div>
+      <div class="carousel-item" data-video="https://youtu.be/4WjtQjPQGIs?si=qU-GZbljsub_Qfk_">
+        <div class="image-wrapper">
+          <img src="./assets/ee38d27e5942191db992306bc0cdd3b47d77008a.jpg" alt="">
+          <div class="image-overlay"></div>
+          <button id="btnMediaAction"><img src="./assets/play.png" alt=""></button>
         </div>
+        <div class="item-meta">
+          <span class="item-title">Masterclass: Navigating Global Compliance for Startups</span>
+          <span class="item-date"><img src="./assets/fi_12887972.svg" alt="">November 4, 2025</span>
+        </div>
+      </div>
+      <div class="carousel-item" data-video="https://youtu.be/4WjtQjPQGIs?si=qU-GZbljsub_Qfk_">
+        <div class="image-wrapper">
+          <img src="./assets/de5b4a5dd06b749c623dbf09e60348763c859881.jpg" alt="">
+          <div class="image-overlay"></div>
+          <button id="btnMediaAction"><img src="./assets/play.png" alt=""></button>
+        </div>
+        <div class="item-meta">
+          <span class="item-title">Panel Discussion: The Future of Remote Workforce</span>
+          <span class="item-date"><img src="./assets/fi_12887972.svg" alt="">November 4, 2025</span>
+        </div>
+      </div>
+      <div class="carousel-item" data-video="https://youtu.be/V-_O7nl0Ii0">
+        <div class="image-wrapper">
+          <img src="./assets/03d8ce3a9761ecbfe9f94a4e7483eb42e404cd8d.jpg" alt="">
+          <div class="image-overlay"></div>
+          <button id="btnMediaAction"><img src="./assets/play.png" alt=""></button>
+        </div>
+        <div class="item-meta">
+          <span class="item-title">Workshop: Building Scalable Cap-Tables for Series A</span>
+          <span class="item-date"><img src="./assets/fi_12887972.svg" alt="">November 4, 2025</span>
+        </div>
+      </div>
     </div>
 
     <div class="carousel-controls">
-        <button class="nav-btn" onclick="moveCarousel(-1)"><img src="./assets/Frame(6).svg" alt=""></button>
-        <button class="nav-btn" onclick="moveCarousel(1)"><img src="./assets/Frame(7).svg" alt=""></button>
+      <button class="nav-btn" onclick="moveCarousel(-1)"><img src="./assets/Frame(6).svg" alt=""></button>
+      <button class="nav-btn" onclick="moveCarousel(1)"><img src="./assets/Frame(7).svg" alt=""></button>
     </div>
-                            <svg class="bg-shape" viewBox="0 0 1200 4" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="thinGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#D8E7F2" stop-opacity="0" />
-                            <stop offset="50%" stop-color="#D8E7F2" stop-opacity="0.8" />
-                            <stop offset="100%" stop-color="#D8E7F2" stop-opacity="0" />
-                        </linearGradient>
-                    </defs>
+                <svg class="bg-shape" viewBox="0 0 1200 4" xmlns="http://www.w3.org/2000/svg">
                     <rect width="1200" height="4" fill="url(#thinGlow)" />
                 </svg>
-</div>
+  </div>
 
-<div id="videoModal">
+  <div id="videoModal">
     <div class="modal-content">
-        <span class="close-modal" onclick="closeModal()">&times;</span>
-        <iFrameid="videoPlayer" src="" allowfullscreen></iframe>
-    </div>
-</div>
-
-  <section class="questions-section">
-        <div class="questions-section__wrapper">
-            <header class="questions-header">
-                <div class="questions-header-tag-container header-tag-container">
-                    <span class="questions-header-tag-text">FAQ'S</span>
-                </div>
-                <h3 class="questions-header-title">
-                    Frequently Asked Questions
-                </h1>
-                <p class="questions-header-subtitle">
-                    Everything you need to know about ESOP Guardian and ESOP management. Can't find the answer you're
-                    looking for? Feel free to reach out to our team.</p>
-                </p>
-            </header>
-
-            <div class="questions-section__accordion" id="accordion">
-
-                <div class="accordion-item is-open">
-                    <div class="accordion-item__container">
-                        <div class="accordion-item__header" role="button" aria-expanded="true" tabindex="0">
-                            <span class="header__question-text">What is an ESOP and how does it work?</span>
-                            <span class="header__icon icon--minus">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 13H5v-2h14v2z" />
-                                </svg>
-                            </span>
-                        </div>
-                        <div class="accordion-item__content" style="max-height: 300px;">
-                            <p class="content__text">An Employee Stock Option Plan (ESOP) allows employees to gain
-                                ownership in the company through stock options. After a vesting period, employees can
-                                buy shares at a set price, aligning their interests with the company's growth and aiding
-                                in talent retention.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <div class="accordion-item__container">
-                        <div class="accordion-item__header" role="button" aria-expanded="false" tabindex="0">
-                            <span class="header__question-text">How quickly can I set up an ESOP scheme with ESOP
-                                Guardian?</span>
-                            <span class="header__icon icon--plus">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                </svg>
-                            </span>
-                        </div>
-                        <div class="accordion-item__content">
-                            <p class="content__text">Our streamlined platform is designed for fast and seamless
-                                onboarding. Depending on the complexity of your company's structure, setup can typically
-                                be completed within a few days to a week, much faster than traditional methods.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <div class="accordion-item__container">
-                        <div class="accordion-item__header" role="button" aria-expanded="false" tabindex="0">
-                            <span class="header__question-text">Is ESOP Guardian compliant with Indian
-                                regulations?</span>
-                            <span class="header__icon icon--plus">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                </svg>
-                            </span>
-                        </div>
-                        <div class="accordion-item__content">
-                            <p class="content__text">Yes, absolutely. ESOP Guardian is meticulously designed to comply
-                                with the Companies Act, 2013, and all relevant SEBI/RBI guidelines for ESOPs in India.
-                                We provide automated compliance checks and reporting to keep you worry-free.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <div class="accordion-item__container">
-                        <div class="accordion-item__header" role="button" aria-expanded="false" tabindex="0">
-                            <span class="header__question-text">What is the cost of using ESOP Guardian?</span>
-                            <span class="header__icon icon--plus">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                </svg>
-                            </span>
-                        </div>
-                        <div class="accordion-item__content">
-                            <p class="content__text">Our pricing is based on your company's stage and number of
-                                employees. We offer transparent, tiered pricing models designed to scale with your
-                                growth, eliminating the high costs and hidden fees associated with manual management.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <div class="accordion-item__container">
-                        <div class="accordion-item__header" role="button" aria-expanded="false" tabindex="0">
-                            <span class="header__question-text">Can employees track their ESOPs on the platform?</span>
-                            <span class="header__icon icon--plus">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                </svg>
-                            </span>
-                        </div>
-                        <div class="accordion-item__content">
-                            <p class="content__text">Yes, we provide a dedicated employee portal where team members can
-                                view their grants, vesting schedules, exercise details, and track the real-time value of
-                                their equity, fostering trust and transparency.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <div class="accordion-item__container">
-                        <div class="accordion-item__header" role="button" aria-expanded="false" tabindex="0">
-                            <span class="header__question-text">How does ESOP taxation work in India? </span>
-                            <span class="header__icon icon--plus">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                </svg>
-                            </span>
-                        </div>
-                        <div class="accordion-item__content">
-                            <p class="content__text">Yes, we provide a dedicated employee portal where team members can
-                                view their grants, vesting schedules, exercise details, and track the real-time value of
-                                their equity, fostering trust and transparency.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <div class="accordion-item__container">
-                        <div class="accordion-item__header" role="button" aria-expanded="false" tabindex="0">
-                            <span class="header__question-text">What happens to my ESOPs if I leave the company?</span>
-                            <span class="header__icon icon--plus">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                </svg>
-                            </span>
-                        </div>
-                        <div class="accordion-item__content">
-                            <p class="content__text">Yes, we provide a dedicated employee portal where team members can
-                                view their grants, vesting schedules, exercise details, and track the real-time value of
-                                their equity, fostering trust and transparency.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-                <svg class="bg-shape" viewBox="0 0 1200 4" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="thinGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#D8E7F2" stop-opacity="0" />
-                    <stop offset="50%" stop-color="#D8E7F2" stop-opacity="0.8" />
-                    <stop offset="100%" stop-color="#D8E7F2" stop-opacity="0" />
-                </linearGradient>
-            </defs>
-            <rect width="1200" height="4" fill="url(#thinGlow)" />
-        </svg>
-    </section>
-        <section class="management-section">
-        <div class="upper-wrapper">
-            <header class="questions-header">
-                <div class="upper-heading-container">
-                    <div class="stroke stroke-left"></div>
-                    <p class="middle-text">Reach out anytime</p>
-                    <div class="stroke stroke-right"></div>
-                </div>
-                <h3 class="questions-header-title">
-                    Optimize Your Equity Management
-                </h1>
-                <p class="questions-header-subtitle">
-                    An all-inclusive platform designed to streamline and enhance the entire process of equity
-                    management, ensuring a seamless experience for users.</p>
-            </header>
-        </div>
-
-        <a href="#" class="call-to-action-button all-btns"><span>Get Started Today</span> <img
-                src="./assets/arrow-right.svg" alt=""></a>
-
-        <div class="below-image-container">
-            <img src="./assets/Frame12.png"
-                alt="Accelorator Dashboard showing funding, investors, and performance metrics" class="dashboard-image">
-        </div>
-                <svg class="bg-shape" viewBox="0 0 1200 4" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="thinGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#D8E7F2" stop-opacity="0" />
-                    <stop offset="50%" stop-color="#D8E7F2" stop-opacity="0.8" />
-                    <stop offset="100%" stop-color="#D8E7F2" stop-opacity="0" />
-                </linearGradient>
-            </defs>
-            <rect width="1200" height="4" fill="url(#thinGlow)" />
-        </svg>
-
-
-
-    </section>
-            <section class="certified-section">
-  <h2 class="certified-title">
-    Certified & Trusted
-  </h2>
-
-  <div class="certified-cards">
-    <div class="cert-card">
-      <div class="icon-circle  bubble-div">
-        <!-- Shield Icon(SVG – scalable & crisp) -->
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M12 2L4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z"
-            stroke="white" stroke-width="1.5" />
-        </svg>
-      </div>
-      <span>ISO Certified</span>
-    </div>
-
-    <div class="cert-card">
-      <div class="icon-circle  bubble-div">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M12 2L4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z"
-            stroke="white" stroke-width="1.5" />
-        </svg>
-      </div>
-      <span>SOC 2 Compliant</span>
-    </div>
-
-    <div class="cert-card">
-      <div class="icon-circle bubble-div">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M12 2L4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z"
-            stroke="white" stroke-width="1.5" />
-        </svg>
-      </div>
-      <span>SOC 2 Compliant</span>
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <iFrameid="videoPlayer" src="" allowfullscreen></iframe>
     </div>
   </div>
-</section>
 
-    <footer class="footer-section">
-
-        <div class="footer-wrapper">
-            <div class="footer-top-content">
-
-                <div class="footer-column-main">
-                    <a href="#" class="logo-container">
-                        <img src="./assets/logo1.svg" alt="">
-                    </a>
-                    <p class="company-description">Manage your ESOPs with Ease</p>
-
-                    <div class="contact-mails">
-                        <a href="mailto:info@truekyc.com" class="single-mail-item">
-                            <img src="./assets/phone.svg" alt="">
-
-                            <span class="mail-content">91-9821174156</span>
-                        </a>
-                        <a href="mailto:info@truekyc.com" class="single-mail-item">
-                            <svg class="mail-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M22 7.53516V17.0002C22 17.7654 21.7077 18.5017 21.1827 19.0584C20.6578 19.6152 19.9399 19.9503 19.176 19.9952L19 20.0002H5C4.23479 20.0002 3.49849 19.7078 2.94174 19.1829C2.38499 18.6579 2.04989 17.9401 2.005 17.1762L2 17.0002V7.53516L11.445 13.8322L11.561 13.8982C11.6977 13.965 11.8478 13.9997 12 13.9997C12.1522 13.9997 12.3023 13.965 12.439 13.8982L12.555 13.8322L22 7.53516Z"
-                                    fill="white" fill-opacity="0.7" />
-                                <path
-                                    d="M19 4C20.08 4 21.027 4.57 21.555 5.427L12 11.797L2.44501 5.427C2.6958 5.01982 3.0403 4.6785 3.44978 4.43149C3.85926 4.18448 4.32186 4.03894 4.79901 4.007L5.00001 4H19Z"
-                                    fill="white" fill-opacity="0.7" />
-                            </svg>
-
-                            <span class="mail-content">info@truekyc.com</span></a>
-                    </div>
-                </div>
-
-                <div class="footer-column-links col-2">
-                    <h4 class="link-heading">Offerings</h4>
-                    <ul class="links-list">
-                        <li><a href="#">Advanced ESOP Management Platform</a></li>
-                        <li><a href="#">Accounting Module (IND AS 102)</a></li>
-                        <li><a href="#">Cap Table Management</a></li>
-                        <li><a href="#">ESOP Valuation Services</a></li>
-                        <li><a href="#">Online Valuation Calculator</a></li>
-                        <li><a href="#">ESOP Benchmarking Solutions</a></li>
-                        <li><a href="#">Equity Tax & Capital Gain Calculator</a></li>
-                        <li><a href="#">ESOP Trust Formation & Trustee Services</a></li>
-                        <li><a href="#">IPO ESOP Transaction Program</a></li>
-                    </ul>
-                </div>
-<div class="two-links">
-                <div class="footer-column-links col-3">
-                    <h4 class="link-heading">Knowledge Hub</h4>
-                    <ul class="links-list">
-                        <li><a href="#">Blogs</a></li>
-                        <li><a href="#">Articles</a></li>
-                        <li><a href="#">Webinar</a></li>
-                        <li><a href="#">Regulatory Update</a></li>
-                        <li><a href="#">Case Studies</a></li>
-                    </ul>
-
-                </div>
-                                                <div class="footer-column-links col-5">
-                    <h4 class="link-heading">Download</h4>
-                    <ul class="links-list">
-                        <li><a href="#"><img src="./assets/Frame(1).svg" alt="">Scheme Generator</a></li>
-                        <li><a href="#"><img src="./assets/Frame(1).svg" alt="">Brochure</a></li>
-                    </ul>
-                </div></div>
-<div class="two-links">
-                <div class="footer-column-links col-5 ">
-                    <h4 class="link-heading">Company</h4>
-                    <ul class="links-list">
-                        <li><a href="#">About US</a></li>
-                        <li><a href="#">Contact US</a></li>
-                        <li><a href="#">Our Team</a></li>
-                        <li><a href="#">Product Updates</a></li>
-                        <li><a href="#">ESOP Benchmarking Solutions</a></li>
-                    </ul>
-
-                </div>
-                                                 <div class="footer-column-links col-5">
-                    <h4 class="link-heading">Compare</h4>
-                    <ul class="links-list">
-                        <li><a href="#">Self-Hosted</a></li>
-                        <li><a href="#">Cloud-Hosted</a></li>
-                    </ul>
-                </div></div>
-                <div class="two-links">
-                <div class="footer-column-links col-6">
-                    <h4 class="link-heading">Compliance & Security</h4>
-                    <ul class="links-list">
-                        <li><a href="#">Trust Center</a></li>
-                        <li><a href="#">Security & Privacy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Data Protection</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                    </ul>
-
-                </div>
-                                    <div class="footer-column-links col-4">
-                    <h4 class="link-heading">Connect</h4>
-                    <div class="social-icons">
-                        <img src="./assets/Youtube.svg" alt="">
-                        <a href="#" class="icon-link" aria-label="LinkedIn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M19.0002 2.99902C19.5307 2.99902 20.0394 3.20974 20.4145 3.58481C20.7895 3.95988 21.0002 4.46859 21.0002 4.99902V18.999C21.0002 19.5295 20.7895 20.0382 20.4145 20.4132C20.0394 20.7883 19.5307 20.999 19.0002 20.999H5.00024C4.46981 20.999 3.9611 20.7883 3.58603 20.4132C3.21096 20.0382 3.00024 19.5295 3.00024 18.999V4.99902C3.00024 4.46859 3.21096 3.95988 3.58603 3.58481C3.9611 3.20974 4.46981 2.99902 5.00024 2.99902H19.0002ZM18.5002 18.499V13.199C18.5002 12.3344 18.1568 11.5052 17.5454 10.8939C16.934 10.2825 16.1048 9.93902 15.2402 9.93902C14.3902 9.93902 13.4002 10.459 12.9202 11.239V10.129H10.1302V18.499H12.9202V13.569C12.9202 12.799 13.5402 12.169 14.3102 12.169C14.6815 12.169 15.0376 12.3165 15.3002 12.5791C15.5627 12.8416 15.7102 13.1977 15.7102 13.569V18.499H18.5002ZM6.88024 8.55902C7.32581 8.55902 7.75312 8.38202 8.06818 8.06696C8.38324 7.7519 8.56024 7.32459 8.56024 6.87902C8.56024 5.94902 7.81024 5.18902 6.88024 5.18902C6.43203 5.18902 6.00217 5.36708 5.68523 5.68401C5.3683 6.00095 5.19024 6.43081 5.19024 6.87902C5.19024 7.80902 5.95024 8.55902 6.88024 8.55902ZM8.27024 18.499V10.129H5.50024V18.499H8.27024Z"
-                                    fill="white" fill-opacity="0.7" />
-                            </svg>
-                        </a>
-                        <a href="#"><img src="./assets/Email.svg" alt=""></a>
-                    </div>
-                    </div>
-                </div>
-
-                
-            </div>
-
-            <div class="footer-bottom-bar">
-                <div class="copyright-text">&copy; 2025 ESOP Guardian</div>
-                <div class="bottom-links-right">
-                    <div class="link-item left-one">All Rights Reserved.</div>
-                    <a href="#top" class="link-item right-one">
-  <span><img src="./assets/Frame.svg" alt=""></span>
-  Back to Top
-</a>
-
-                </div>
-            </div>
+  <section class="questions-section">
+    <div class="questions-section__wrapper">
+      <header class="questions-header">
+        <div class="questions-header-tag-container header-tag-container">
+          <span class="questions-header-tag-text">FAQ'S</span>
         </div>
-    </footer>
-<!-- ===== MODAL OVERLAY ===== -->
-<div class="modal-overlay">
-  <div class="modal-container-1">
-    <div class="modal-container">
-      <div class="modal-header">
-        <h2>Book a Demo</h2>
-        <span class="close-btn">
-          <img src="./assets/CloseIcon.svg" alt="">
-        </span>
-      </div>
+        <h3 class="questions-header-title">
+          Frequently Asked Questions
+          </h1>
+          <p class="questions-header-subtitle">
+            Everything you need to know about ESOP Guardian and ESOP management. Can't find the answer you're
+            looking for? Feel free to reach out to our team.</p>
+          </p>
+      </header>
 
-      <p class="subtitle">
-        Fill out the form below and our team will get back to you shortly
-      </p>
+      <div class="questions-section__accordion" id="accordion">
 
-      <div class="type-selector">
-        <button class="type-btn active" type="button">Individual</button>
-        <button class="type-btn" type="button">Institute</button>
-        <button class="type-btn" type="button">Organisation</button>
-      </div>
-
-      <div class="partnership-section">
-        <label>Visit Partnership</label>
-        <div class="radio-group">
-          <label class="radio-container">
-            <input type="radio" name="visit" checked>
-            <span class="radio-mark"></span> Walk-in
-          </label>
-          <label class="radio-container">
-            <input type="radio" name="visit">
-            <span class="radio-mark"></span> Online
-          </label>
-        </div>
-      </div>
-
-      <!-- ===== FORM ===== -->
-      <form class="demo-form" novalidate>
-
-        <div class="form-row">
-          <input type="text" placeholder="First name" required minlength="2">
-          <input type="text" placeholder="Last name" required minlength="2">
-        </div>
-
-        <div class="form-row">
-          <input type="email" placeholder="Enter email address" required>
-
-          <div class="phone-input">
-            <div class="country-code">
-              <img src="https://flagcdn.com/w20/in.png" alt="India">
-              <span>+91</span>
-              <span class="arrow-down">
-                <img src="./assets/Frame.svg" alt="">
+        <div class="accordion-item is-open">
+          <div class="accordion-item__container">
+            <div class="accordion-item__header" role="button" aria-expanded="true" tabindex="0">
+              <span class="header__question-text">What is an ESOP and how does it work?</span>
+              <span class="header__icon icon--minus">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 13H5v-2h14v2z" />
+                </svg>
               </span>
             </div>
-            <input
-              type="tel"
-              placeholder="Phone number"
-              required
-              pattern="[6-9][0-9]{9}"
-              title="Enter a valid 10-digit Indian mobile number"
-            >
+            <div class="accordion-item__content" style="max-height: 300px;">
+              <p class="content__text">An Employee Stock Option Plan (ESOP) allows employees to gain
+                ownership in the company through stock options. After a vesting period, employees can
+                buy shares at a set price, aligning their interests with the company's growth and aiding
+                in talent retention.</p>
+            </div>
           </div>
         </div>
 
-        <div class="form-row">
-          <select required>
-            <option value="" disabled selected>Select Country</option>
-            <option value="india">India</option>
-            <option value="usa">United States</option>
-            <option value="uk">United Kingdom</option>
-            <option value="canada">Canada</option>
-            <option value="australia">Australia</option>
-          </select>
-
-          <select required>
-            <option value="" disabled selected>Select State</option>
-            <option value="up">Uttar Pradesh</option>
-            <option value="mh">Maharashtra</option>
-            <option value="dl">Delhi</option>
-            <option value="ka">Karnataka</option>
-            <option value="tn">Tamil Nadu</option>
-          </select>
+        <div class="accordion-item">
+          <div class="accordion-item__container">
+            <div class="accordion-item__header" role="button" aria-expanded="false" tabindex="0">
+              <span class="header__question-text">How quickly can I set up an ESOP scheme with ESOP
+                Guardian?</span>
+              <span class="header__icon icon--plus">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                </svg>
+              </span>
+            </div>
+            <div class="accordion-item__content">
+              <p class="content__text">Our streamlined platform is designed for fast and seamless
+                onboarding. Depending on the complexity of your company's structure, setup can typically
+                be completed within a few days to a week, much faster than traditional methods.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="form-row">
-          <select required>
-            <option value="" disabled selected>Select Service</option>
-            <option value="esop">ESOP Advisory</option>
-            <option value="valuation">Company Valuation</option>
-            <option value="compliance">Legal & Compliance</option>
-            <option value="funding">Startup Funding</option>
-            <option value="tax">Tax Planning</option>
-          </select>
-
-          <select required>
-            <option value="" disabled selected>Select Service</option>
-            <option value="demo">Product Demo</option>
-            <option value="consultation">1-on-1 Consultation</option>
-            <option value="onboarding">Platform Onboarding</option>
-            <option value="support">Customer Support</option>
-            <option value="training">Training Session</option>
-          </select>
+        <div class="accordion-item">
+          <div class="accordion-item__container">
+            <div class="accordion-item__header" role="button" aria-expanded="false" tabindex="0">
+              <span class="header__question-text">Is ESOP Guardian compliant with Indian
+                regulations?</span>
+              <span class="header__icon icon--plus">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                </svg>
+              </span>
+            </div>
+            <div class="accordion-item__content">
+              <p class="content__text">Yes, absolutely. ESOP Guardian is meticulously designed to comply
+                with the Companies Act, 2013, and all relevant SEBI/RBI guidelines for ESOPs in India.
+                We provide automated compliance checks and reporting to keep you worry-free.</p>
+            </div>
+          </div>
         </div>
 
-        <textarea placeholder="Tell us how can we help you..." required></textarea>
+        <div class="accordion-item">
+          <div class="accordion-item__container">
+            <div class="accordion-item__header" role="button" aria-expanded="false" tabindex="0">
+              <span class="header__question-text">What is the cost of using ESOP Guardian?</span>
+              <span class="header__icon icon--plus">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                </svg>
+              </span>
+            </div>
+            <div class="accordion-item__content">
+              <p class="content__text">Our pricing is based on your company's stage and number of
+                employees. We offer transparent, tiered pricing models designed to scale with your
+                growth, eliminating the high costs and hidden fees associated with manual management.
+              </p>
+            </div>
+          </div>
+        </div>
 
-        <button type="submit" class="submit-btn" id="submit-btn">
-          Book Demo <span><img src="./assets/arrow-right.svg" alt=""></span>
-        </button>
+        <div class="accordion-item">
+          <div class="accordion-item__container">
+            <div class="accordion-item__header" role="button" aria-expanded="false" tabindex="0">
+              <span class="header__question-text">Can employees track their ESOPs on the platform?</span>
+              <span class="header__icon icon--plus">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                </svg>
+              </span>
+            </div>
+            <div class="accordion-item__content">
+              <p class="content__text">Yes, we provide a dedicated employee portal where team members can
+                view their grants, vesting schedules, exercise details, and track the real-time value of
+                their equity, fostering trust and transparency.</p>
+            </div>
+          </div>
+        </div>
 
-      </form>
+        <div class="accordion-item">
+          <div class="accordion-item__container">
+            <div class="accordion-item__header" role="button" aria-expanded="false" tabindex="0">
+              <span class="header__question-text">How does ESOP taxation work in India? </span>
+              <span class="header__icon icon--plus">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                </svg>
+              </span>
+            </div>
+            <div class="accordion-item__content">
+              <p class="content__text">Yes, we provide a dedicated employee portal where team members can
+                view their grants, vesting schedules, exercise details, and track the real-time value of
+                their equity, fostering trust and transparency.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-item__container">
+            <div class="accordion-item__header" role="button" aria-expanded="false" tabindex="0">
+              <span class="header__question-text">What happens to my ESOPs if I leave the company?</span>
+              <span class="header__icon icon--plus">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                </svg>
+              </span>
+            </div>
+            <div class="accordion-item__content">
+              <p class="content__text">Yes, we provide a dedicated employee portal where team members can
+                view their grants, vesting schedules, exercise details, and track the real-time value of
+                their equity, fostering trust and transparency.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+                <svg class="bg-shape" viewBox="0 0 1200 4" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="1200" height="4" fill="url(#thinGlow)" />
+                </svg>
+  </section>
+  <section class="management-section">
+    <div class="upper-wrapper">
+      <header class="questions-header">
+        <div class="upper-heading-container">
+          <div class="stroke stroke-left"></div>
+          <p class="middle-text">Reach out anytime</p>
+          <div class="stroke stroke-right"></div>
+        </div>
+        <h3 class="questions-header-title">
+          Optimize Your Equity Management
+          </h1>
+          <p class="questions-header-subtitle">
+            An all-inclusive platform designed to streamline and enhance the entire process of equity
+            management, ensuring a seamless experience for users.</p>
+      </header>
+    </div>
 
-<!-- ===== SUCCESS OVERLAY ===== -->
-<div class="success-overlay" id="successOverlay">
-  <div class="modal-container-1">
-    <div class="success-card" id="successCard">
-      <div class="success-emoji">
-        <img src="./assets/4bcb1317adb6f19bee3e0df5abb31f0b5e7c18ec.png" alt="">
+    <a href="#" class="call-to-action-button all-btns"><span>Get Started Today</span> <img
+        src="./assets/arrow-right.svg" alt=""></a>
+
+    <div class="below-image-container">
+      <img src="./assets/Frame12.png" alt="Accelorator Dashboard showing funding, investors, and performance metrics"
+        class="dashboard-image">
+    </div>
+                <svg class="bg-shape" viewBox="0 0 1200 4" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="1200" height="4" fill="url(#thinGlow)" />
+                </svg>
+
+
+
+  </section>
+  <section class="certified-section">
+    <h2 class="certified-title">
+      Certified & Trusted
+    </h2>
+
+    <div class="certified-cards">
+      <div class="cert-card">
+        <div class="icon-circle  bubble-div">
+          <!-- Shield Icon(SVG – scalable & crisp) -->
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z" stroke="white" stroke-width="1.5" />
+          </svg>
+        </div>
+        <span>ISO Certified</span>
       </div>
 
-      <h1 class="success-title">
-        Thank You, <span class="success-name">Dipanshu!</span>
-      </h1>
+      <div class="cert-card">
+        <div class="icon-circle  bubble-div">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z" stroke="white" stroke-width="1.5" />
+          </svg>
+        </div>
+        <span>SOC 2 Compliant</span>
+      </div>
 
-      <p class="success-message">
-        Your demo request has been successfully submitted.
-        Our team will reach out shortly.
-      </p>
+      <div class="cert-card">
+        <div class="icon-circle bubble-div">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z" stroke="white" stroke-width="1.5" />
+          </svg>
+        </div>
+        <span>SOC 2 Compliant</span>
+      </div>
+    </div>
+  </section>
 
-      <a href="webinar.html" class="success-btn">
-        Back to Home
-        <span class="success-btn-icon">
-          <img src="./assets/arrow-right.svg" alt="">
-        </span>
-      </a>
+  <footer class="footer-section">
+
+    <div class="footer-wrapper">
+      <div class="footer-top-content">
+
+        <div class="footer-column-main">
+          <a href="#" class="logo-container">
+            <img src="./assets/logo1.svg" alt="">
+          </a>
+          <p class="company-description">Manage your ESOPs with Ease</p>
+
+          <div class="contact-mails">
+            <a href="mailto:info@truekyc.com" class="single-mail-item">
+              <img src="./assets/phone.svg" alt="">
+
+              <span class="mail-content">91-9821174156</span>
+            </a>
+            <a href="mailto:info@truekyc.com" class="single-mail-item">
+              <svg class="mail-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M22 7.53516V17.0002C22 17.7654 21.7077 18.5017 21.1827 19.0584C20.6578 19.6152 19.9399 19.9503 19.176 19.9952L19 20.0002H5C4.23479 20.0002 3.49849 19.7078 2.94174 19.1829C2.38499 18.6579 2.04989 17.9401 2.005 17.1762L2 17.0002V7.53516L11.445 13.8322L11.561 13.8982C11.6977 13.965 11.8478 13.9997 12 13.9997C12.1522 13.9997 12.3023 13.965 12.439 13.8982L12.555 13.8322L22 7.53516Z"
+                  fill="white" fill-opacity="0.7" />
+                <path
+                  d="M19 4C20.08 4 21.027 4.57 21.555 5.427L12 11.797L2.44501 5.427C2.6958 5.01982 3.0403 4.6785 3.44978 4.43149C3.85926 4.18448 4.32186 4.03894 4.79901 4.007L5.00001 4H19Z"
+                  fill="white" fill-opacity="0.7" />
+              </svg>
+
+              <span class="mail-content">info@truekyc.com</span></a>
+          </div>
+        </div>
+
+        <div class="footer-column-links col-2">
+          <h4 class="link-heading">Offerings</h4>
+          <ul class="links-list">
+            <li><a href="#">Advanced ESOP Management Platform</a></li>
+            <li><a href="#">Accounting Module (IND AS 102)</a></li>
+            <li><a href="#">Cap Table Management</a></li>
+            <li><a href="#">ESOP Valuation Services</a></li>
+            <li><a href="#">Online Valuation Calculator</a></li>
+            <li><a href="#">ESOP Benchmarking Solutions</a></li>
+            <li><a href="#">Equity Tax & Capital Gain Calculator</a></li>
+            <li><a href="#">ESOP Trust Formation & Trustee Services</a></li>
+            <li><a href="#">IPO ESOP Transaction Program</a></li>
+          </ul>
+        </div>
+        <div class="two-links">
+          <div class="footer-column-links col-3">
+            <h4 class="link-heading">Knowledge Hub</h4>
+            <ul class="links-list">
+              <li><a href="#">Blogs</a></li>
+              <li><a href="#">Articles</a></li>
+              <li><a href="#">Webinar</a></li>
+              <li><a href="#">Regulatory Update</a></li>
+              <li><a href="#">Case Studies</a></li>
+            </ul>
+
+          </div>
+          <div class="footer-column-links col-5">
+            <h4 class="link-heading">Download</h4>
+            <ul class="links-list">
+              <li><a href="#"><img src="./assets/Frame(1).svg" alt="">Scheme Generator</a></li>
+              <li><a href="#"><img src="./assets/Frame(1).svg" alt="">Brochure</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="two-links">
+          <div class="footer-column-links col-5 ">
+            <h4 class="link-heading">Company</h4>
+            <ul class="links-list">
+              <li><a href="#">About US</a></li>
+              <li><a href="#">Contact US</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Product Updates</a></li>
+              <li><a href="#">ESOP Benchmarking Solutions</a></li>
+            </ul>
+
+          </div>
+          <div class="footer-column-links col-5">
+            <h4 class="link-heading">Compare</h4>
+            <ul class="links-list">
+              <li><a href="#">Self-Hosted</a></li>
+              <li><a href="#">Cloud-Hosted</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="two-links">
+          <div class="footer-column-links col-6">
+            <h4 class="link-heading">Compliance & Security</h4>
+            <ul class="links-list">
+              <li><a href="#">Trust Center</a></li>
+              <li><a href="#">Security & Privacy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Data Protection</a></li>
+              <li><a href="#">Cookie Policy</a></li>
+            </ul>
+
+          </div>
+          <div class="footer-column-links col-4">
+            <h4 class="link-heading">Connect</h4>
+            <div class="social-icons">
+              <img src="./assets/Youtube.svg" alt="">
+              <a href="#" class="icon-link" aria-label="LinkedIn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M19.0002 2.99902C19.5307 2.99902 20.0394 3.20974 20.4145 3.58481C20.7895 3.95988 21.0002 4.46859 21.0002 4.99902V18.999C21.0002 19.5295 20.7895 20.0382 20.4145 20.4132C20.0394 20.7883 19.5307 20.999 19.0002 20.999H5.00024C4.46981 20.999 3.9611 20.7883 3.58603 20.4132C3.21096 20.0382 3.00024 19.5295 3.00024 18.999V4.99902C3.00024 4.46859 3.21096 3.95988 3.58603 3.58481C3.9611 3.20974 4.46981 2.99902 5.00024 2.99902H19.0002ZM18.5002 18.499V13.199C18.5002 12.3344 18.1568 11.5052 17.5454 10.8939C16.934 10.2825 16.1048 9.93902 15.2402 9.93902C14.3902 9.93902 13.4002 10.459 12.9202 11.239V10.129H10.1302V18.499H12.9202V13.569C12.9202 12.799 13.5402 12.169 14.3102 12.169C14.6815 12.169 15.0376 12.3165 15.3002 12.5791C15.5627 12.8416 15.7102 13.1977 15.7102 13.569V18.499H18.5002ZM6.88024 8.55902C7.32581 8.55902 7.75312 8.38202 8.06818 8.06696C8.38324 7.7519 8.56024 7.32459 8.56024 6.87902C8.56024 5.94902 7.81024 5.18902 6.88024 5.18902C6.43203 5.18902 6.00217 5.36708 5.68523 5.68401C5.3683 6.00095 5.19024 6.43081 5.19024 6.87902C5.19024 7.80902 5.95024 8.55902 6.88024 8.55902ZM8.27024 18.499V10.129H5.50024V18.499H8.27024Z"
+                    fill="white" fill-opacity="0.7" />
+                </svg>
+              </a>
+              <a href="#"><img src="./assets/Email.svg" alt=""></a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div class="copyright-text">&copy; 2025 ESOP Guardian</div>
+        <div class="bottom-links-right">
+          <div class="link-item left-one">All Rights Reserved.</div>
+          <a href="#top" class="link-item right-one">
+            <span><img src="./assets/Frame.svg" alt=""></span>
+            Back to Top
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== MODAL OVERLAY ===== -->
+  <div class="modal-overlay">
+    <div class="modal-container-1">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h2>Book a Demo</h2>
+          <span class="close-btn">
+            <img src="./assets/CloseIcon.svg" alt="">
+          </span>
+        </div>
+
+        <p class="subtitle">
+          Fill out the form below and our team will get back to you shortly
+        </p>
+
+        <div class="type-selector">
+          <button class="type-btn active" type="button">Individual</button>
+          <button class="type-btn" type="button">Institute</button>
+          <button class="type-btn" type="button">Organisation</button>
+        </div>
+
+        <div class="partnership-section">
+          <label>Visit Partnership</label>
+          <div class="radio-group">
+            <label class="radio-container">
+              <input type="radio" name="visit" checked>
+              <span class="radio-mark"></span> Walk-in
+            </label>
+            <label class="radio-container">
+              <input type="radio" name="visit">
+              <span class="radio-mark"></span> Online
+            </label>
+          </div>
+        </div>
+
+        <!-- ===== FORM ===== -->
+        <form class="demo-form" novalidate>
+
+          <div class="form-row">
+            <input type="text" placeholder="First name" required minlength="2">
+            <input type="text" placeholder="Last name" required minlength="2">
+          </div>
+
+          <div class="form-row">
+            <input type="email" placeholder="Enter email address" required>
+
+            <div class="phone-input">
+              <div class="country-code">
+                <img src="https://flagcdn.com/w20/in.png" alt="India">
+                <span>+91</span>
+                <span class="arrow-down">
+                  <img src="./assets/Frame.svg" alt="">
+                </span>
+              </div>
+              <input type="tel" placeholder="Phone number" required pattern="[6-9][0-9]{9}"
+                title="Enter a valid 10-digit Indian mobile number">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <select required>
+              <option value="" disabled selected>Select Country</option>
+              <option value="india">India</option>
+              <option value="usa">United States</option>
+              <option value="uk">United Kingdom</option>
+              <option value="canada">Canada</option>
+              <option value="australia">Australia</option>
+            </select>
+
+            <select required>
+              <option value="" disabled selected>Select State</option>
+              <option value="up">Uttar Pradesh</option>
+              <option value="mh">Maharashtra</option>
+              <option value="dl">Delhi</option>
+              <option value="ka">Karnataka</option>
+              <option value="tn">Tamil Nadu</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <select required>
+              <option value="" disabled selected>Select Service</option>
+              <option value="esop">ESOP Advisory</option>
+              <option value="valuation">Company Valuation</option>
+              <option value="compliance">Legal & Compliance</option>
+              <option value="funding">Startup Funding</option>
+              <option value="tax">Tax Planning</option>
+            </select>
+
+            <select required>
+              <option value="" disabled selected>Select Service</option>
+              <option value="demo">Product Demo</option>
+              <option value="consultation">1-on-1 Consultation</option>
+              <option value="onboarding">Platform Onboarding</option>
+              <option value="support">Customer Support</option>
+              <option value="training">Training Session</option>
+            </select>
+          </div>
+
+          <textarea placeholder="Tell us how can we help you..." required></textarea>
+
+          <button type="submit" class="submit-btn" id="submit-btn">
+            Book Demo <span><img src="./assets/arrow-right.svg" alt=""></span>
+          </button>
+
+        </form>
+      </div>
     </div>
   </div>
-</div>
 
-    <script src="final.js"></script>
-<script>
+  <!-- ===== SUCCESS OVERLAY ===== -->
+  <div class="success-overlay" id="successOverlay">
+    <div class="modal-container-1">
+      <div class="success-card" id="successCard">
+        <div class="success-emoji">
+          <img src="./assets/4bcb1317adb6f19bee3e0df5abb31f0b5e7c18ec.png" alt="">
+        </div>
+
+        <h1 class="success-title">
+          Thank You, <span class="success-name">Dipanshu!</span>
+        </h1>
+
+        <p class="success-message">
+          Your demo request has been successfully submitted.
+          Our team will reach out shortly.
+        </p>
+
+        <a href="webinar.html" class="success-btn">
+          Back to Home
+          <span class="success-btn-icon">
+            <img src="./assets/arrow-right.svg" alt="">
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="final.js"></script>
+  <script>
     const items = document.querySelectorAll('.carousel-item');
     let currentIndex = 0;
 
     function updateCarousel() {
-        items.forEach((item, i) => {
-            item.classList.remove('active', 'prev', 'next', 'far-prev', 'far-next');
-            let position = i - currentIndex;
-            const total = items.length;
+      items.forEach((item, i) => {
+        item.classList.remove('active', 'prev', 'next', 'far-prev', 'far-next');
+        let position = i - currentIndex;
+        const total = items.length;
 
-            if (position < -2) position += total;
-            if (position > 2) position -= total;
+        if (position < -2) position += total;
+        if (position > 2) position -= total;
 
-            if (position === 0) item.classList.add('active');
-            else if (position === -1) item.classList.add('prev');
-            else if (position === 1) item.classList.add('next');
-            else if (position === -2) item.classList.add('far-prev');
-            else if (position === 2) item.classList.add('far-next');
-        });
+        if (position === 0) item.classList.add('active');
+        else if (position === -1) item.classList.add('prev');
+        else if (position === 1) item.classList.add('next');
+        else if (position === -2) item.classList.add('far-prev');
+        else if (position === 2) item.classList.add('far-next');
+      });
     }
 
     function moveCarousel(direction) {
-        currentIndex = (currentIndex + direction + items.length) % items.length;
-        updateCarousel();
+      currentIndex = (currentIndex + direction + items.length) % items.length;
+      updateCarousel();
     }
 
     items.forEach(item => {
-        /* Renamed variable and querySelector for btnMediaAction */
-        const btnMediaAction = item.querySelector('#btnMediaAction');
-        btnMediaAction.addEventListener('click', (e) => {
-            e.stopPropagation();
-            document.getElementById('videoPlayer').src = item.getAttribute('data-video') + "?autoplay=1";
-            document.getElementById('videoModal').style.display = 'flex';
-        });
+      /* Renamed variable and querySelector for btnMediaAction */
+      const btnMediaAction = item.querySelector('#btnMediaAction');
+      btnMediaAction.addEventListener('click', (e) => {
+        e.stopPropagation();
+        document.getElementById('videoPlayer').src = item.getAttribute('data-video') + "?autoplay=1";
+        document.getElementById('videoModal').style.display = 'flex';
+      });
     });
 
     function closeModal() {
-        document.getElementById('videoModal').style.display = 'none';
-        document.getElementById('videoPlayer').src = "";
+      document.getElementById('videoModal').style.display = 'none';
+      document.getElementById('videoPlayer').src = "";
     }
 
     window.onclick = (e) => { if (e.target == document.getElementById('videoModal')) closeModal(); }
     updateCarousel();
-</script>
+  </script>
 </body>
+
 </html>
