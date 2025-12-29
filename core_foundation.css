@@ -1,12 +1,11 @@
 
 
+ @import url('https://fonts.cdnfonts.com/css/raleway-5');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-@import url('https://fonts.cdnfonts.com/css/raleway-5');
 
 body {
   width: 100%;
@@ -164,7 +163,7 @@ html, body {
   font-size: 14px;
   line-height: 20px;
   color: #ffffff;
-  letter-spacing: 0%;
+   letter-spacing: 0;
 }
 
 .nav-button img {
@@ -1648,12 +1647,7 @@ html, body {
   }
 
 
-.article-wrapper {
-    .questions-header{
-      display: flex;
-              flex-direction: column;
-         align-items: flex-start;
-    }}
+ 
 }
 
 .questions-header-subtitle {
