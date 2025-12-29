@@ -1009,7 +1009,7 @@ box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.2) inset;
   min-width: 320px;
 }
 
-.spm-glass-frame {
+.spm-glass-Frame{
   position: relative;
   width: 100%;
   max-width: 450px;
@@ -1054,7 +1054,7 @@ box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.2) inset;
 
 
 
-.spm-glass-frame img {
+.spm-glass-Frameimg {
   width: 99%;
   max-width: 444px;
   border-radius: 24px;
@@ -1068,7 +1068,7 @@ box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.2) inset;
 }
 
 /* ================= ROLE STRIP INSIDE IMAGE ================= */
-.spm-glass-frame .spm-role {
+.spm-glass-Frame.spm-role {
   position: absolute;
   bottom: 2px;
   width: 99.1%;
@@ -1237,7 +1237,7 @@ h1 {
     min-width: 320px;
 }
 
-.glass-frame {
+.glass-Frame{
     position: relative;
     padding: 15px;
     background: rgba(255, 255, 255, 0.03); /* Glass color */
@@ -1247,7 +1247,7 @@ h1 {
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
-.glass-frame img {
+.glass-Frameimg {
     display: block;
     width: 100%;
     max-width: 550px;
@@ -2046,7 +2046,7 @@ h1 {
   z-index: 0;
 }
 
-/* === ICON (FROM SVG FILE) === */
+/* === Icon(FROM SVG FILE) === */
 .bubble-div::before {
   display: block;
   margin-right: 8px;

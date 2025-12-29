@@ -2108,7 +2108,7 @@ background-color: rgba(255, 255, 255, 0.15);
 
 
 
-/* === ICON (FROM SVG FILE) === */
+/* === Icon(FROM SVG FILE) === */
 .demo-div::before {
   content: url("./assets/hero.svg");
   display: block;
@@ -2224,7 +2224,7 @@ background-color: rgba(255, 255, 255, 0.15);
 }
 
 .video-wrapper img,
-.video-wrapper iframe {
+.video-wrapper iFrame{
     position: absolute;
     top: 0;
     left: 0;
@@ -2237,7 +2237,7 @@ background-color: rgba(255, 255, 255, 0.15);
       border-radius: 24px;
 }
 
-.video-iframe {
+.video-iFrame{
     display: none;
 }
 
@@ -2314,7 +2314,7 @@ background-color: rgba(255, 255, 255, 0.15);
         line-height: 50px;
     }
 .video-wrapper img,
-.video-wrapper iframe {
+.video-wrapper iFrame{
     position: absolute;
     top: 0;
     left: 0;
@@ -2355,7 +2355,7 @@ background-color: rgba(255, 255, 255, 0.15);
     padding-right: 10px;
   }
   .video-wrapper img,
-.video-wrapper iframe {
+.video-wrapper iFrame{
     position: absolute;
     top: 0;
     left: 0;
@@ -3782,7 +3782,7 @@ background-color: rgba(255, 255, 255, 0.15);
 
 @media (max-width: 650px) {
 
-  /* Make image container a frame */
+  /* Make image container a Frame*/
   .details-left-media {
     position: relative;
     overflow: hidden;
@@ -6327,7 +6327,7 @@ body{
   z-index: 0;
 }
 
-/* === ICON (FROM SVG FILE) === */
+/* === Icon(FROM SVG FILE) === */
 .bubble-div::before {
   display: block;
   margin-right: 8px;

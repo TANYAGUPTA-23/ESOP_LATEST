@@ -1586,7 +1586,7 @@ html, body {
   z-index: 0;
 }
 
-/* === ICON (FROM SVG FILE) === */
+/* === Icon(FROM SVG FILE) === */
 .bubble-div::before {
   display: block;
   margin-right: 8px;

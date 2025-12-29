@@ -1010,7 +1010,7 @@ box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.2) inset;
   min-width: 320px;
 }
 
-.spm-glass-frame {
+.spm-glass-Frame{
   padding: 15px;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
@@ -1019,7 +1019,7 @@ box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.2) inset;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
-.spm-glass-frame img {
+.spm-glass-Frameimg {
   width: 100%;
   max-width: 650px;
   border-radius: 12px;
@@ -1174,7 +1174,7 @@ h1 {
     min-width: 320px;
 }
 
-.glass-frame {
+.glass-Frame{
     position: relative;
     padding: 15px;
     background: rgba(255, 255, 255, 0.03); /* Glass color */
@@ -1184,7 +1184,7 @@ h1 {
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
-.glass-frame img {
+.glass-Frameimg {
     display: block;
     width: 100%;
     max-width: 550px;
@@ -1983,7 +1983,7 @@ h1 {
   z-index: 0;
 }
 
-/* === ICON (FROM SVG FILE) === */
+/* === Icon(FROM SVG FILE) === */
 .bubble-div::before {
   display: block;
   margin-right: 8px;
