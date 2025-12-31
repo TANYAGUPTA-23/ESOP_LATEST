@@ -4,369 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Document</title>
-    <link rel="stylesheet" href="common.css">
-
+  <title>Document</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="hero_common.css">
   <link rel="stylesheet" href="webinar.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* =====================================================
-   ROOT + GLOBAL
-===================================================== */
-    :root {
-      --bg-color: #051937;
-      --transition-speed: 0.5s;
-      --item-width-desktop: 483px;
-      --item-width-tablet: 350px;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: var(--bg-color);
-      color: #fff;
-      overflow-x: hidden;
-    }
-
-    /* =====================================================
-   CAROUSEL CONTAINER
-===================================================== */
-    .carousel-container {
-      position: relative;
-      width: 100%;
-      height: 72vh;
-      padding: 0 20px 260px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      perspective: 1500px;
-      overflow: hidden;
-    }
-
-    /* =====================================================
-   VIEWPORT
-===================================================== */
-    .carousel-container>.carousel-viewport {
-      position: relative;
-      width: 100%;
-      height: 550px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    /* =====================================================
-   CAROUSEL ITEM
-===================================================== */
-    .carousel-container .carousel-viewport>.carousel-item {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      box-sizing: border-box;
-      transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* =====================================================
-   IMAGE WRAPPER
-===================================================== */
-    .carousel-container .carousel-viewport .carousel-item>.image-wrapper {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-    }
-
-    .carousel-container .carousel-viewport .carousel-item .image-wrapper>img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* =====================================================
-   IMAGE OVERLAY (IMAGE ONLY)
-===================================================== */
-    .carousel-container .carousel-viewport .carousel-item .image-wrapper>.image-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.25);
-      z-index: 5;
-      pointer-events: none;
-    }
-
-    /* =====================================================
-   PLAY BUTTON (IMAGE ONLY)
-===================================================== */
-    .carousel-container .carousel-viewport .carousel-item .image-wrapper>.btnMediaAction {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 60px;
-      height: 60px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .carousel-container .carousel-viewport .carousel-item .image-wrapper .btnMediaAction img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    /* =====================================================
-   META CONTENT
-===================================================== */
-    .carousel-container .carousel-viewport .carousel-item>.item-meta {
-      margin-top: 15px;
-      width: 100%;
-      transition: transform var(--transition-speed) ease;
-    }
-
-    .carousel-container .carousel-viewport .carousel-item .item-meta .item-title {
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 1.4;
-      display: block;
-    }
-
-    .carousel-container .carousel-viewport .carousel-item .item-meta .item-date {
-      margin-top: 6px;
-      font-size: 11px;
-      color: rgba(255, 255, 255, 0.7);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .carousel-container .carousel-viewport .carousel-item .item-meta .item-date img {
-      width: 14px;
-      height: 14px;
-    }
-
-    /* =====================================================
-   POSITION STATES (JS CONTROLLED)
-===================================================== */
-    .carousel-container .carousel-item.active {
-      z-index: 20;
-    }
-
-    .carousel-container .carousel-item.prev,
-    .carousel-container .carousel-item.next {
-      z-index: 15;
-    }
-
-    .carousel-container .carousel-item.far-prev,
-    .carousel-container .carousel-item.far-next {
-      z-index: 10;
-    }
-
-    /* =====================================================
-   CONTROLS
-===================================================== */
-    .carousel-container>.carousel-controls {
-      position: absolute;
-      bottom: 80px;
-      display: flex;
-      gap: 20px;
-      z-index: 100;
-    }
-
-    .carousel-container .carousel-controls .nav-btn {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-
-    /* =====================================================
-   DESKTOP ≥ 1700px
-===================================================== */
-    @media (min-width: 1700px) {
-
-      .carousel-container .carousel-item {
-        width: var(--item-width-desktop);
-      }
-
-      .carousel-container .image-wrapper {
-        height: 306px;
-      }
-
-      .carousel-container .carousel-item.active {
-        transform: translateX(0) scale(2.3);
-      }
-
-      .carousel-container .carousel-item.prev {
-        transform: translateX(-85%) translateY(-20%) scale(1.55);
-      }
-
-      .carousel-container .carousel-item.next {
-        transform: translateX(86%) translateY(-20%) scale(1.55);
-      }
-
-      .carousel-container .carousel-item.far-prev {
-        transform: translateX(-140%) translateY(-20%) scale(1.1);
-        filter: blur(3px);
-      }
-
-      .carousel-container .carousel-item.far-next {
-        transform: translateX(140%) translateY(-20%) scale(1.1);
-        filter: blur(3px);
-      }
-    }
-
-    @media (min-width: 1600px) and (max-width: 1899px) {
-      .carousel-container .carousel-item.active {
-        transform: scale(2.1);
-      }
-
-      .carousel-container .carousel-item.prev {
-        transform: translateX(-75%) translateY(-18%) scale(1.45);
-      }
-
-      .carousel-container .carousel-item.next {
-        transform: translateX(75%) translateY(-18%) scale(1.45);
-      }
-
-      .carousel-container .carousel-item.far-prev {
-        transform: translateX(-120%) translateY(-18%) scale(1.05);
-      }
-
-      .carousel-container .carousel-item.far-next {
-        transform: translateX(120%) translateY(-18%) scale(1.05);
-      }
-    }
-
-
-    /* =====================================================
-   TABLET RANGE (900px – 1699px)
-===================================================== */
-    @media (min-width: 900px) and (max-width: 1699px) {
-
-      .carousel-container {
-        height: 64vh;
-        padding-bottom: 160px;
-      }
-
-      .carousel-container .carousel-item {
-        width: var(--item-width-tablet);
-      }
-
-      .carousel-container .image-wrapper {
-        height: 220px;
-      }
-
-      .carousel-container .carousel-item.active {
-        transform: translateX(0) scale(1.2);
-      }
-
-      .carousel-container .carousel-item.prev {
-        transform: translateX(-85%) scale(0.9);
-        opacity: 0.7;
-      }
-
-      .carousel-container .carousel-item.next {
-        transform: translateX(85%) scale(0.9);
-        opacity: 0.7;
-      }
-
-      .carousel-container .carousel-item.far-prev,
-      .carousel-container .carousel-item.far-next {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
-
-    /* =====================================================
-   BELOW 900px
-===================================================== */
-    @media (max-width: 899px) {
-
-      .carousel-container {
-        height: 64vh;
-        padding-bottom: 160px;
-      }
-
-      .carousel-container .carousel-controls {
-        bottom: 50px;
-      }
-
-      .carousel-container .carousel-item {
-        width: 90%;
-        padding: 0 10px;
-      }
-
-      .carousel-container .image-wrapper {
-        height: 250px;
-      }
-
-      .carousel-container .carousel-item:not(.active) {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateX(120%);
-      }
-
-      .carousel-container .item-meta {
-        text-align: center;
-      }
-
-      .carousel-container .btnMediaAction {
-        width: 50px;
-        height: 50px;
-      }
-    }
-
-    /* =====================================================
-   VIDEO MODAL (FULLY ISOLATED)
-===================================================== */
-    #videoModal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.95);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    #videoModal>.modal-content {
-      position: relative;
-      width: 90%;
-      max-width: 900px;
-      aspect-ratio: 16 / 9;
-    }
-
-    #videoModal iFrame {
-      width: 100%;
-      height: 100%;
-      border: none;
-      border-radius: 10px;
-    }
-
-    #videoModal .close-modal {
-      position: absolute;
-      top: -50px;
-      right: 0;
-      font-size: 40px;
-      color: #fff;
-      cursor: pointer;
-    }
-  </style>
 </head>
 
 <body id="top">
@@ -535,21 +179,16 @@
       <button class="nav-btn" onclick="moveCarousel(-1)"><img src="./assets/Frame(6).svg" alt=""></button>
       <button class="nav-btn" onclick="moveCarousel(1)"><img src="./assets/Frame(7).svg" alt=""></button>
     </div>
-                <svg class="bg-shape" viewBox="0 0 1200 4" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="1200" height="4" fill="url(#thinGlow)" />
-                </svg>
+    <svg class="bg-shape" viewBox="0 0 1200 4" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="4" fill="url(#thinGlow)" />
+    </svg>
   </div>
 
   <div id="videoModal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModal()">&times;</span>
-          <iframe
-      id="videoPlayer"
-      src="about:blank"
-      frameborder="0"
-      allow="autoplay; encrypted-media"
-      allowfullscreen>
-    </iframe>
+      <iframe id="videoPlayer" src="about:blank" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+      </iframe>
     </div>
   </div>
 
@@ -561,11 +200,11 @@
         </div>
         <h3 class="questions-header-title">
           Frequently Asked Questions
-          </h3>
-          <p class="questions-header-subtitle">
-            Everything you need to know about ESOP Guardian and ESOP management. Can't find the answer you're
-            looking for? Feel free to reach out to our team.
-          </p>
+        </h3>
+        <p class="questions-header-subtitle">
+          Everything you need to know about ESOP Guardian and ESOP management. Can't find the answer you're
+          looking for? Feel free to reach out to our team.
+        </p>
       </header>
 
       <div class="questions-section__accordion" id="accordion">
@@ -701,9 +340,9 @@
         </div>
       </div>
     </div>
-                <svg class="bg-shape" viewBox="0 0 1200 4" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="1200" height="4" fill="url(#thinGlow)" />
-                </svg>
+    <svg class="bg-shape" viewBox="0 0 1200 4" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="4" fill="url(#thinGlow)" />
+    </svg>
   </section>
   <section class="management-section">
     <div class="upper-wrapper">
@@ -715,10 +354,10 @@
         </div>
         <h3 class="questions-header-title">
           Optimize Your Equity Management
-          </h3>
-          <p class="questions-header-subtitle">
-            An all-inclusive platform designed to streamline and enhance the entire process of equity
-            management, ensuring a seamless experience for users.</p>
+        </h3>
+        <p class="questions-header-subtitle">
+          An all-inclusive platform designed to streamline and enhance the entire process of equity
+          management, ensuring a seamless experience for users.</p>
       </header>
     </div>
 
@@ -729,9 +368,9 @@
       <img src="./assets/Frame12.png" alt="Accelorator Dashboard showing funding, investors, and performance metrics"
         class="dashboard-image">
     </div>
-                <svg class="bg-shape" viewBox="0 0 1200 4" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="1200" height="4" fill="url(#thinGlow)" />
-                </svg>
+    <svg class="bg-shape" viewBox="0 0 1200 4" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="4" fill="url(#thinGlow)" />
+    </svg>
 
 
 

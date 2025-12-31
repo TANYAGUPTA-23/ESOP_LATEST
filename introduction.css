@@ -13,42 +13,6 @@
   overflow: hidden;
 }
 
-.hero-section::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 220px;
-  background: linear-gradient(180deg, rgba(4, 30, 66, 0) 0%, #041E42 100%);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.hero-section>* {
-  position: relative;
-  z-index: 2;
-}
-
-@media (max-height: 900px) {
-  .hero-section {
-    background-position: center 0px;
-  }
-}
-
-@media (max-height: 700px) {
-  .hero-section {
-    background-position: center 0px;
-  }
-}
-
-@media (max-width: 600px) {
-  .hero-section {
-    background-position: center 0px;
-  }
-}
 
 .hero-section::before {
   content: "";
@@ -58,6 +22,12 @@
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   z-index: 1;
+}
+
+@media(max-width: 600px){
+  .hero-section {
+    align-items: center;
+  }
 }
 
 .container {
@@ -70,87 +40,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.hero-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
-.hero-section>*:not(video) {
-  position: relative;
-  z-index: 2;
-}
-
-@property --c1 {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #dddddd;
-}
-
-@property --c2 {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #555555;
-}
-
-@property --c3 {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #333333;
-}
-
-.top-ad-banner {
-  font-family: "Raleway", sans-serif;
-  display: inline-flex;
-  align-items: center;
-  margin-top: 40px;
-  margin-bottom: 24px;
-  padding: 8px 15px;
-  border-radius: 9999px;
-  font-size: 14px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
-  position: relative;
-  z-index: 1;
-  backdrop-filter: blur(3px);
-  overflow: hidden;
-}
-
-.all-banners::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 2px;
-  background: linear-gradient(to bottom right, var(--c1) 0%, var(--c3) 30%, transparent 40%, transparent 60%, var(--c2) 70%, var(--c3) 100%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-  transition: --c1 300ms ease, --c2 300ms ease, --c3 300ms ease;
-  z-index: -1;
-  opacity: 0.9;
-}
-
-.all-banners:hover::before {
-  --c1: #525252;
-  --c2: #878787;
-  --c3: #414141;
-}
-
-.all-banners:active::before {
-  --c1: #525252;
-  --c2: #414141;
-  --c3: #414141;
-}
-
-.top-ad-banner img {
-  margin-right: 8px;
-  color: #E11F35;
 }
 
 .headline {
@@ -166,22 +55,6 @@
   max-width: 1150px;
 }
 
-.headline::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  border-radius: 24px;
-  mix-blend-mode: multiply;
-  filter: blur(15px);
-}
-
-.headline span,
-.headline {
-  position: relative;
-  z-index: 2;
-}
 
 .gradient-text1 {
   position: relative;
@@ -201,155 +74,74 @@
   line-height: 24px;
   max-width: 710px;
 }
-
-@media (max-width: 1400px) {
-  .headline {
-    font-size: 68px;
-  }
-
+@media (max-height: 900px) {
   .hero-section {
-    padding: 60px 0 60px 0;
-    align-items: flex-start;
-  }
-
-  .spm-section:first-of-type {
-    padding-top: 0;
+    background-position: center 0px;
   }
 }
 
-@media (max-width: 992px) {
+@media (max-height: 700px) {
   .hero-section {
-    padding: 60px 0 60px 0;
-    align-items: flex-start;
-  }
-
-  .headline {
-    font-size: 60px;
-    margin-bottom: 20px;
-  }
-
-  .hero-section .subtitle {
-    font-size: 18px;
-    margin-bottom: 40px;
-  }
-
-  .animated-words {
-    line-height: 90px;
-    height: 90px;
+    background-position: center 0px;
   }
 }
 
 @media (max-width: 600px) {
   .hero-section {
-    padding: 60px 0 60px 0;
-    align-items: center;
+    background-position: center 0px;
   }
+}
 
-  .gradient-text {
-    width: 150px;
-    height: auto;
+@media (max-width: 1400px) {
+  .headline {
+    font-size: 68px;
+    line-height: 84px;
   }
+}
 
+/* ≤ 1024px (Tablets / small laptops) */
+@media (max-width: 1024px) {
+  .headline {
+    font-size: 60px;
+    line-height: 72px;
+    margin-bottom: 20px;
+  }
+}
+
+/* ≤ 768px (Tablets / large phones) */
+@media (max-width: 768px) {
+  .headline {
+    font-size: 48px;
+    line-height: 60px;
+    letter-spacing: -1.5px;
+  }
+}
+
+/* ≤ 600px (Mobile) */
+@media (max-width: 600px) {
   .headline {
     font-size: 40px;
     line-height: 1.2;
     letter-spacing: -1px;
   }
-
-  .hero-section .subtitle {
-    font-size: 16px;
-    padding: 0 10px;
-    margin-bottom: 30px;
-  }
-
-  .top-ad-banner {
-    font-size: 12px;
-    padding: 6px 12px;
-    white-space: nowrap;
-    margin-top: 20px;
-    margin-bottom: 30px;
-  }
 }
 
+/* ≤ 480px (Small mobile) */
 @media (max-width: 480px) {
-  .hero-section {
-    padding: 80px 0 50px 0;
-  }
-
-  .gradient-text {
-    width: 120px;
-    height: 60px;
-  }
-
   .headline {
     font-size: 32px;
-    line-height: 1.2;
+    line-height: 1.15;
     letter-spacing: -0.5px;
-    padding: 0 10px;
     text-align: center;
-  }
-
-  .hero-section .subtitle {
-    font-size: 15px;
-    padding: 0 15px;
-  }
-
-  .top-ad-banner {
-    font-size: 11px;
-    margin-bottom: 25px;
-  }
-}
-
-@media (max-width: 460px) {
-  .container {
     padding: 0 10px;
   }
-
-  .hero-section {
-    padding: 70px 0 40px 0;
-  }
-
-  .headline {
-    font-size: 28px;
-    line-height: 1.2;
-    padding: 0 12px;
-    margin-bottom: 0;
-  }
-
-  .animated-words {
-    line-height: 60px;
-    height: 60px;
-    overflow: hidden;
-  }
-
-  .hero-section .subtitle {
-    font-size: 14px;
-  }
-
-  .cta-button {
-    width: auto;
-    font-size: 14px;
-    padding: 12px 16px;
-  }
 }
 
+/* ≤ 395px (Very small screens) */
 @media (max-width: 395px) {
   .headline {
     font-size: 24px;
     line-height: 1.1;
-  }
-
-  .hero-section .subtitle {
-    font-size: 13px;
-  }
-
-  .cta-button {
-    font-size: 13px;
-    padding: 10px 14px;
-  }
-
-  .top-ad-banner {
-    font-size: 10px;
   }
 }
 
