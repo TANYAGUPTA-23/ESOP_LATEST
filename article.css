@@ -351,3 +351,11 @@ p {
   color: #D5DBE6;
   white-space: nowrap;
 }
+.left-blogs-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.left-blogs {
+    cursor: pointer;
+}

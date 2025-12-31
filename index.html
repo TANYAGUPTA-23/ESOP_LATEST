@@ -48,51 +48,113 @@
 
     <nav class="navbar">
         <div class="navbar-wrapper">
-            <!-- Left Logo -->
+
+            <!-- Logo -->
             <div class="nav-left">
-                <img src="./assets/logo1.svg" alt="Esop Guardian Logo" />
+                <a href="index.html">
+                    <img src="./assets/logo1.svg" alt="Esop Guardian Logo" />
+                </a>
             </div>
 
             <!-- Center Links -->
             <div class="nav-center">
-                <a href="index.html" class="about-link">
-                    About Us
-                    <img src="./assets/Frame.svg" alt="">
-                </a>
-                <a href="management.html" class="about-link">
-                    Management
-                    <img src="./assets/Frame.svg" alt="">
-                </a>
-                <a href="services.html" class="about-link">
-                    Services
-                    <img src="./assets/Frame.svg" alt="">
-                </a>
-                <a href="#" class="about-link">
-                    Knowledge Hub
-                    <img src="./assets/Frame.svg" alt="">
-                </a>
 
-                <a href="contact.html">Contact Us</a>
+                <!-- ABOUT -->
+                <div class="nav-item dropdown" tabindex="0">
+                    <a class="about-link">
+                        About Us <img src="./assets/Frame.svg" alt="">
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="introduction.html">Introduction</a>
+                        <a href="team.html">Team</a>
+                        <a href="client.html">Clientele</a>
+                        <a href="partner.html">Partner with us</a>
+                    </div>
+                </div>
+
+                <!-- MANAGEMENT -->
+                <div class="nav-item dropdown" tabindex="0">
+                    <a class="about-link">
+                        Management <img src="./assets/Frame.svg" alt="">
+                    </a>
+
+                    <div class="dropdown-menu management-menu">
+
+                        <div class="offerings-wrapper">
+                            <h4 class="menu-title">Offerings</h4>
+
+                            <div class="menu-list">
+                                <a href="core_foundation.html">Stock Plan Management</a>
+                                <a href="Accounting_Excellence.html">Accounting Module (IND AS 102)</a>
+                                <a href="Tax_&_Gain_Calculator.html">Equity Tax & Capital Gain Calculator</a>
+                                <a href="Tax_Intelligence.html">Cap Table Management</a>
+                                <a href="Ultimate_Flexibility.html">Fully Customizable Processes</a>
+                                <a href="Security&Compliance.html">Compliance & Reporting</a>
+
+                            </div>
+                        </div>
+
+                        <a href="pricing.html" class="pricing-link">Pricing</a>
+
+                    </div>
+                </div>
+
+
+
+                <!-- SERVICES -->
+                <div class="nav-item dropdown" tabindex="0">
+                    <a class="about-link">
+                        Services <img src="./assets/Frame.svg" alt="">
+                    </a>
+                    <div class="dropdown-menu large">
+                        <a href="service1.html">Strategic Planning and Modelling Services</a>
+                        <a href="service2.html">ESOP Valuations & Accounting</a>
+                        <a href="service3.html">Regulatory & Legal Advisory Support</a>
+                        <a href="service4.html">ESOP Implementation & Rollout Support</a>
+                        <a href="service5.html">ESOP Trust Services</a>
+                        <a href="service6.html">ESOP Liquidity Planning</a>
+                        <a href="service7.html">ESOPs for Global Teams</a>
+                    </div>
+                </div>
+
+                <!-- KNOWLEDGE HUB -->
+                <div class="nav-item dropdown" tabindex="0">
+                    <a class="about-link">
+                        Knowledge Hub <img src="./assets/Frame.svg" alt="">
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="blogs.html">Blogs</a>
+                        <a href="articles.html">Articles</a>
+                        <a href="webinar.html">Webinar</a>
+                        <a href="updates.html">Regulatory Update</a>
+                    </div>
+                </div>
+
+                <!-- CONTACT -->
+                <a href="contact.html" class="contact-link">Contact Us</a>
             </div>
 
-            <!-- Right Section -->
+            <!-- Right -->
             <div class="nav-right">
                 <div class="nav-contact">
-                    <img src="./assets/phone.svg" alt="Phone" />
+                    <img src="./assets/phone.svg" alt="">
                     <span>+91 9821174156</span>
                 </div>
                 <button class="nav-button all-btns" id="openModal">
                     <span>Book a Demo</span>
-                    <img src="./assets/arrow-right.svg" alt="Arrow" />
+                    <img src="./assets/arrow-right.svg" alt="Arrow">
                 </button>
 
-                <!-- Hamburger Button -->
+                <!-- Hamburger -->
                 <button id="hamburger-btn" class="hamburger-menu" aria-label="Toggle navigation menu">
                     <span class="hamburger-icon"></span>
                 </button>
             </div>
+
         </div>
     </nav>
+
+
 
     <!-- Mobile Overlay -->
     <div id="mobile-overlay" class="mobile-overlay"></div>
@@ -100,7 +162,7 @@
     <!-- Mobile Menu Drawer -->
     <div id="mobile-nav" class="mobile-menu">
         <div class="mobile-links">
-            <a href="/index.html" class="active">About Us</a>
+            <a href="introduction.html" class="active">About Us</a>
             <a href="management.html">Management</a>
             <a href="services.html">Services</a>
             <a href="#">Knowledge Hub</a>
@@ -181,7 +243,7 @@
                 </p>
 
                 <div class="esop-cta-wrapper">
-                    <a href="#" class="esop-cta-button all-btns">
+                    <a href="introduction.html" class="esop-cta-button all-btns">
                         <span>Learn More About Us</span>
                         <img src="./assets/arrow-right.svg" alt="">
                     </a>
@@ -529,10 +591,11 @@
                         to execution with ease and efficiency.
                     </p>
 
-                    <button class="bottom__explore-button">
+                    <a href="management.html" class="bottom__explore-button">
                         Explore
                         <img src="./assets/arrow-right.svg" alt="Arrow" />
-                    </button>
+                    </a>
+
                 </div>
             </header>
 
@@ -626,134 +689,178 @@
             <rect width="1200" height="4" fill="url(#thinGlow)" />
         </svg>
     </div>
-    <!-- </section> -->
-    <section class="comparison">
-        <div class="comparison-container">
-            <header class="comparison-header">
-                <div class="comparison-header-tag-container header-tag-container">
-                    <span class="header-tag-text">Comparison</span>
+    <section class="questions-section why-choose-us-section">
+        <div class="questions-section__wrapper">
+            <header class="questions-header">
+                <div class="questions-header-tag-container header-tag-container">
+                    <span class="questions-header-tag-text">Why Choose Us </span>
                 </div>
-                <h3 class="comparison-header-title">
+                <h3 class="questions-header-title">
                     Why Choose Us
                 </h3>
-                <p class="comparison-header-subtitle">
+                <p class="questions-header-subtitle">
                     Discover how our performance and growth stack up against the competition.
                 </p>
             </header>
 
-            <div class="comparison-cards">
-                <div class="comparison-card positive">
-                    <div class="card-title">
-                        <img src="./assets/logo1.svg" alt="">
-                    </div>
-                    <ul class="card-list">
-                        <li><span class="icon check"><svg class="point-icon" width="22" height="22" viewBox="0 0 22 22">
-                                    <g clip-path="url(#checkClip)">
-                                        <path
-                                            d="M4 11.4467L8.79421 16.2501L18 7.05337L16.6784 5.75L8.79421 13.625L5.30334 10.1341L4 11.4467Z"
-                                            fill="white" />
-                                    </g>
-                                </svg>
-                            </span>Fast and seamless onboarding & setup</li>
-                        <li><span class="icon check"><svg class="point-icon" width="22" height="22" viewBox="0 0 22 22">
-                                    <g clip-path="url(#checkClip)">
-                                        <path
-                                            d="M4 11.4467L8.79421 16.2501L18 7.05337L16.6784 5.75L8.79421 13.625L5.30334 10.1341L4 11.4467Z"
-                                            fill="white" />
-                                    </g>
-                                </svg></span>Built to scale with your company’s growth</li>
-                        <li><span class="icon check"><svg class="point-icon" width="22" height="22" viewBox="0 0 22 22">
-                                    <g clip-path="url(#checkClip)">
-                                        <path
-                                            d="M4 11.4467L8.79421 16.2501L18 7.05337L16.6784 5.75L8.79421 13.625L5.30334 10.1341L4 11.4467Z"
-                                            fill="white" />
-                                    </g>
-                                </svg></span>Real-time analytics & equity insights</li>
-                        <li><span class="icon check"><svg class="point-icon" width="22" height="22" viewBox="0 0 22 22">
-                                    <g clip-path="url(#checkClip)">
-                                        <path
-                                            d="M4 11.4467L8.79421 16.2501L18 7.05337L16.6784 5.75L8.79421 13.625L5.30334 10.1341L4 11.4467Z"
-                                            fill="white" />
-                                    </g>
-                                </svg></span>Automated compliance & reporting</li>
-                        <li><span class="icon check"><svg class="point-icon" width="22" height="22" viewBox="0 0 22 22">
-                                    <g clip-path="url(#checkClip)">
-                                        <path
-                                            d="M4 11.4467L8.79421 16.2501L18 7.05337L16.6784 5.75L8.79421 13.625L5.30334 10.1341L4 11.4467Z"
-                                            fill="white" />
-                                    </g>
-                                </svg></span>Expert guidance & premium support</li>
+            <div class="questions-section__accordion" id="accordion">
 
-                    </ul>
+                <div class="accordion-item is-open">
+                    <div class="accordion-item__container">
+                        <div class="accordion-item__header" role="button" aria-expanded="true" tabindex="0">
+                            <span class="header__question-text">Comprehensive 360° ESOP Support</span>
+                            <span class="header__icon icon--minus">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19 13H5v-2h14v2z" />
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="accordion-item__content" style="max-height: 300px;">
+                            <p class="content__text">
+                                With extensive experience in designing and implementing ESOP Schemes, equity
+                                compensation plans, and employee ownership programs across diverse industries, we offer
+                                true end-to-end support—right from plan design to implementation, automation,
+                                compliance, and ongoing management. Our advisory + technology model delivers "From
+                                Design to Delivery and Beyond", giving you a single, reliable partner for all
+                                equity-based compensation programs.
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="comparison-card negative">
-                    <div class="card-title">
-                        <svg width="110" height="38" viewBox="0 0 110 38" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M3 23.5L12 28.75L21 23.5" stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M3 19L12 24.25L21 19" stroke="white" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M3 14.5L12 19.75L21 14.5L12 9.25L3 14.5Z" stroke="white" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                            <path
-                                d="M42.3906 27.12C41.1586 27.12 40.0466 26.88 39.0546 26.4C38.0626 25.92 37.2066 25.272 36.4866 24.456C35.7666 23.624 35.2066 22.696 34.8066 21.672C34.4226 20.632 34.2306 19.568 34.2306 18.48C34.2306 17.344 34.4386 16.264 34.8546 15.24C35.2706 14.2 35.8466 13.28 36.5826 12.48C37.3186 11.664 38.1826 11.024 39.1746 10.56C40.1826 10.08 41.2706 9.84 42.4386 9.84C43.6546 9.84 44.7586 10.088 45.7506 10.584C46.7586 11.08 47.6146 11.744 48.3186 12.576C49.0386 13.408 49.5906 14.336 49.9746 15.36C50.3746 16.384 50.5746 17.432 50.5746 18.504C50.5746 19.64 50.3666 20.728 49.9506 21.768C49.5506 22.792 48.9826 23.712 48.2466 24.528C47.5106 25.328 46.6386 25.96 45.6306 26.424C44.6386 26.888 43.5586 27.12 42.3906 27.12ZM36.9666 18.48C36.9666 19.28 37.0946 20.056 37.3506 20.808C37.6066 21.56 37.9666 22.232 38.4306 22.824C38.9106 23.4 39.4866 23.856 40.1586 24.192C40.8306 24.528 41.5826 24.696 42.4146 24.696C43.2786 24.696 44.0466 24.52 44.7186 24.168C45.3906 23.816 45.9506 23.344 46.3986 22.752C46.8626 22.144 47.2146 21.472 47.4546 20.736C47.6946 19.984 47.8146 19.232 47.8146 18.48C47.8146 17.68 47.6866 16.912 47.4306 16.176C47.1906 15.424 46.8306 14.76 46.3506 14.184C45.8706 13.592 45.2946 13.128 44.6226 12.792C43.9666 12.456 43.2306 12.288 42.4146 12.288C41.5506 12.288 40.7826 12.464 40.1106 12.816C39.4386 13.168 38.8706 13.64 38.4066 14.232C37.9426 14.824 37.5826 15.488 37.3266 16.224C37.0866 16.96 36.9666 17.712 36.9666 18.48ZM60.0055 26.352C59.7815 26.464 59.5015 26.584 59.1655 26.712C58.8295 26.84 58.4455 26.952 58.0135 27.048C57.5975 27.144 57.1655 27.192 56.7175 27.192C56.1735 27.192 55.6695 27.096 55.2055 26.904C54.7415 26.712 54.3655 26.408 54.0775 25.992C53.8055 25.56 53.6695 25.008 53.6695 24.336V16.488H52.0135V14.448H53.6695V10.32H56.3095V14.448H59.0455V16.488H56.3095V23.496C56.3415 23.928 56.4775 24.248 56.7175 24.456C56.9735 24.664 57.2855 24.768 57.6535 24.768C58.0215 24.768 58.3735 24.704 58.7095 24.576C59.0455 24.448 59.2935 24.344 59.4535 24.264L60.0055 26.352ZM73.09 27H70.45V19.968C70.45 18.832 70.242 17.984 69.826 17.424C69.41 16.864 68.826 16.584 68.074 16.584C67.61 16.584 67.13 16.712 66.634 16.968C66.138 17.224 65.698 17.576 65.314 18.024C64.93 18.456 64.65 18.96 64.474 19.536V27H61.834V9.48H64.474V16.968C64.954 16.12 65.61 15.456 66.442 14.976C67.274 14.48 68.17 14.232 69.13 14.232C69.914 14.232 70.562 14.368 71.074 14.64C71.586 14.912 71.986 15.288 72.274 15.768C72.578 16.232 72.786 16.776 72.898 17.4C73.026 18.008 73.09 18.656 73.09 19.344V27ZM81.8423 27.24C80.8663 27.24 79.9783 27.072 79.1783 26.736C78.3943 26.384 77.7143 25.912 77.1383 25.32C76.5623 24.712 76.1143 24.024 75.7943 23.256C75.4903 22.472 75.3383 21.64 75.3383 20.76C75.3383 19.576 75.6103 18.496 76.1543 17.52C76.6983 16.528 77.4583 15.736 78.4343 15.144C79.4103 14.536 80.5543 14.232 81.8663 14.232C83.1783 14.232 84.3063 14.536 85.2503 15.144C86.2103 15.736 86.9543 16.52 87.4823 17.496C88.0103 18.472 88.2743 19.52 88.2743 20.64C88.2743 20.832 88.2663 21.016 88.2503 21.192C88.2343 21.352 88.2183 21.488 88.2023 21.6H78.1463C78.1943 22.336 78.3943 22.984 78.7463 23.544C79.1143 24.088 79.5783 24.52 80.1383 24.84C80.6983 25.144 81.2983 25.296 81.9383 25.296C82.6423 25.296 83.3063 25.12 83.9303 24.768C84.5703 24.416 85.0023 23.952 85.2263 23.376L87.4823 24.024C87.2103 24.632 86.7943 25.184 86.2343 25.68C85.6903 26.16 85.0423 26.544 84.2903 26.832C83.5383 27.104 82.7223 27.24 81.8423 27.24ZM78.0743 19.848H85.6583C85.6103 19.128 85.4023 18.496 85.0343 17.952C84.6823 17.392 84.2263 16.96 83.6663 16.656C83.1223 16.336 82.5143 16.176 81.8423 16.176C81.1863 16.176 80.5783 16.336 80.0183 16.656C79.4743 16.96 79.0263 17.392 78.6743 17.952C78.3223 18.496 78.1223 19.128 78.0743 19.848ZM97.4838 16.728C96.4598 16.744 95.5478 16.976 94.7478 17.424C93.9638 17.872 93.4038 18.504 93.0678 19.32V27H90.4277V14.448H92.8758V17.256C93.3078 16.392 93.8758 15.704 94.5798 15.192C95.2838 14.664 96.0278 14.376 96.8118 14.328C96.9718 14.328 97.0998 14.328 97.1958 14.328C97.3078 14.328 97.4038 14.336 97.4838 14.352V16.728ZM103.868 27.24C102.812 27.24 101.812 27.072 100.868 26.736C99.9243 26.384 99.1163 25.864 98.4443 25.176L99.4283 23.4C100.148 24.04 100.868 24.504 101.588 24.792C102.324 25.08 103.052 25.224 103.772 25.224C104.508 25.224 105.108 25.088 105.572 24.816C106.036 24.528 106.268 24.112 106.268 23.568C106.268 23.168 106.148 22.872 105.908 22.68C105.668 22.488 105.316 22.32 104.852 22.176C104.404 22.032 103.86 21.872 103.22 21.696C102.324 21.424 101.572 21.144 100.964 20.856C100.356 20.552 99.9003 20.184 99.5963 19.752C99.2923 19.32 99.1403 18.768 99.1403 18.096C99.1403 17.28 99.3483 16.584 99.7643 16.008C100.18 15.432 100.756 14.992 101.492 14.688C102.244 14.384 103.108 14.232 104.084 14.232C104.996 14.232 105.836 14.376 106.604 14.664C107.388 14.936 108.076 15.368 108.668 15.96L107.54 17.712C106.98 17.2 106.404 16.824 105.812 16.584C105.236 16.344 104.612 16.224 103.94 16.224C103.556 16.224 103.188 16.272 102.836 16.368C102.484 16.448 102.188 16.608 101.948 16.848C101.724 17.072 101.612 17.392 101.612 17.808C101.612 18.144 101.708 18.416 101.9 18.624C102.092 18.832 102.38 19.008 102.764 19.152C103.148 19.296 103.62 19.456 104.18 19.632C105.156 19.92 105.988 20.208 106.676 20.496C107.364 20.768 107.892 21.128 108.26 21.576C108.644 22.008 108.836 22.608 108.836 23.376C108.836 24.592 108.38 25.544 107.468 26.232C106.572 26.904 105.372 27.24 103.868 27.24Z"
-                                fill="url(#paint0_linear_253_4937)" />
-                            <defs>
-                                <linearGradient id="paint0_linear_253_4937" x1="44.0347" y1="-4.72919" x2="84.4152"
-                                    y2="52.9207" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0.38" stop-color="#D5DBE6" />
-                                    <stop offset="1" stop-color="#04070D" />
-                                </linearGradient>
-                            </defs>
-                        </svg>
-
+                <div class="accordion-item">
+                    <div class="accordion-item__container">
+                        <div class="accordion-item__header" role="button" aria-expanded="false" tabindex="0">
+                            <span class="header__question-text">
+                                Multidisciplinary ESOP Expertise</span>
+                            <span class="header__icon icon--plus">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="accordion-item__content">
+                            <p class="content__text">Our in-house team of CAs, CSs, lawyers, valuation experts, and MBAs
+                                ensures flawless execution of every legal, financial, tax, and regulatory requirement
+                                across ESOPs, RSUs, Phantom Stocks, SARs, and global equity incentive plans. You get
+                                complete, specialized ESOP expertise—without coordinating multiple advisors.</p>
+                        </div>
                     </div>
-                    <ul class="card-list">
-                        <li><span class="icon cross"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-item__container">
+                        <div class="accordion-item__header" role="button" aria-expanded="false" tabindex="0">
+                            <span class="header__question-text">Trusted by Leading Companies for Over a Decade</span>
+                            <span class="header__icon icon--plus">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M16.6 6.8027L15.1972 5.3999L11 9.5971L6.80282 5.3999L5.40002 6.8027L9.59722 10.9999L5.40002 15.1971L6.80282 16.5999L11 12.4027L15.1972 16.5999L16.6 15.1971L12.4028 10.9999L16.6 6.8027Z"
-                                        fill="white" />
+                                    <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                                 </svg>
-                            </span>Slow, manual, and complex onboarding</li>
-                        <li><span class="icon cross"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                            </span>
+                        </div>
+                        <div class="accordion-item__content">
+                            <p class="content__text">With over a decade of proven reliability, we are trusted by leading
+                                businesses—from high-growth startups to established corporates—for accurate, timely, and
+                                fully compliant ESOP advisory, ESOP administration, equity plan governance, and employee
+                                stock option management solutions. Our long-standing track record reflects our
+                                consistency, credibility, and commitment.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-item__container">
+                        <div class="accordion-item__header" role="button" aria-expanded="false" tabindex="0">
+                            <span class="header__question-text">Pan-India Presence with a Global Outlook</span>
+                            <span class="header__icon icon--plus">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M16.6 6.8027L15.1972 5.3999L11 9.5971L6.80282 5.3999L5.40002 6.8027L9.59722 10.9999L5.40002 15.1971L6.80282 16.5999L11 12.4027L15.1972 16.5999L16.6 15.1971L12.4028 10.9999L16.6 6.8027Z"
-                                        fill="white" />
+                                    <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                                 </svg>
-                            </span>Requires frequent manual updates as you scale</li>
-                        <li><span class="icon cross"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                            </span>
+                        </div>
+                        <div class="accordion-item__content">
+                            <p class="content__text">From Indian unicorns to cross-border teams, we have implemented
+                                ESOPs across industries, company sizes, and jurisdictions—domestic, listed, unlisted,
+                                and global. Whether you're scaling within India and expanding internationally, we bring
+                                deep practical insight and global best practices.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-item__container">
+                        <div class="accordion-item__header" role="button" aria-expanded="false" tabindex="0">
+                            <span class="header__question-text">Technology-Driven Efficiency Powered by ESOP
+                                Guardian</span>
+                            <span class="header__icon icon--plus">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M16.6 6.8027L15.1972 5.3999L11 9.5971L6.80282 5.3999L5.40002 6.8027L9.59722 10.9999L5.40002 15.1971L6.80282 16.5999L11 12.4027L15.1972 16.5999L16.6 15.1971L12.4028 10.9999L16.6 6.8027Z"
-                                        fill="white" />
+                                    <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                                 </svg>
-                            </span>Limited or delayed reporting</li>
-                        <li><span class="icon cross"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                            </span>
+                        </div>
+                        <div class="accordion-item__content">
+                            <p class="content__text">Our digital platform, ESOP Guardian, supports clients, including
+                                listed companies, enabling seamless automation for grants, vesting, exercises, and
+                                option tracking. Real-time dashboards, digital workflows, and end-to-end lifecycle
+                                automation reduce errors, save time, and provide clarity to both management and
+                                employees.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-item__container">
+                        <div class="accordion-item__header" role="button" aria-expanded="false" tabindex="0">
+                            <span class="header__question-text">Client-Centric & Relationship-Driven Approach</span>
+                            <span class="header__icon icon--plus">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M16.6 6.8027L15.1972 5.3999L11 9.5971L6.80282 5.3999L5.40002 6.8027L9.59722 10.9999L5.40002 15.1971L6.80282 16.5999L11 12.4027L15.1972 16.5999L16.6 15.1971L12.4028 10.9999L16.6 6.8027Z"
-                                        fill="white" />
+                                    <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                                 </svg>
-                            </span>High dependency on manual legal & finance teams</li>
-                        <li><span class="icon cross"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                            </span>
+                        </div>
+                        <div class="accordion-item__content">
+                            <p class="content__text">We offer tailored, jargon-free guidance for companies at every
+                                stage—from early startups to growth-stage companies and large corporations. Our focus is
+                                on long-term partnerships built on trust, transparency, and proactive support, ensuring
+                                your ESOP journey is smooth, compliant, and value driven.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-item__container">
+                        <div class="accordion-item__header" role="button" aria-expanded="false" tabindex="0">
+                            <span class="header__question-text">Pre-to-Post IPO Experience</span>
+                            <span class="header__icon icon--plus">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M16.6 6.8027L15.1972 5.3999L11 9.5971L6.80282 5.3999L5.40002 6.8027L9.59722 10.9999L5.40002 15.1971L6.80282 16.5999L11 12.4027L15.1972 16.5999L16.6 15.1971L12.4028 10.9999L16.6 6.8027Z"
-                                        fill="white" />
+                                    <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                                 </svg>
-                            </span>Generic or no dedicated support</li>
-                    </ul>
+                            </span>
+                        </div>
+                        <div class="accordion-item__content">
+                            <p class="content__text">We support companies throughout their growth cycle—right from
+                                early-stage equity rollout to pre-IPO ESOP structuring, DRHP support, post-IPO ESOP
+                                compliance, and employee liquidity/monetization planning. This makes us a strategic
+                                partner for organizations preparing for or navigating public markets.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
         <svg class="bg-shape" viewBox="0 0 1200 4" xmlns="http://www.w3.org/2000/svg">
             <rect width="1200" height="4" fill="url(#thinGlow)" />
         </svg>
     </section>
+
 
     <section class="testimonal-section">
         <div class="testimonal-wrapper">
@@ -1944,14 +2051,14 @@
                 <div class="footer-column-links col-2">
                     <h4 class="link-heading">Offerings</h4>
                     <ul class="links-list">
-                        <li><a href="#">Advanced ESOP Management Platform</a></li>
-                        <li><a href="#">Accounting Module (IND AS 102)</a></li>
-                        <li><a href="#">Cap Table Management</a></li>
+                        <li><a href="core_foundation.html">Advanced ESOP Management Platform</a></li>
+                        <li><a href="Accounting_Excellence.html">Accounting Module (IND AS 102)</a></li>
+                        <li><a href="Tax_Intelligence.html">Cap Table Management</a></li>
                         <li><a href="#">ESOP Valuation Services</a></li>
                         <li><a href="#">Online Valuation Calculator</a></li>
                         <li><a href="#">ESOP Benchmarking Solutions</a></li>
-                        <li><a href="#">Equity Tax & Capital Gain Calculator</a></li>
-                        <li><a href="#">ESOP Trust Formation & Trustee Services</a></li>
+                        <li><a href="Tax_&_Gain_Calculator.html">Equity Tax & Capital Gain Calculator</a></li>
+                        <li><a href="service5.html">ESOP Trust Formation & Trustee Services</a></li>
                         <li><a href="#">IPO ESOP Transaction Program</a></li>
                     </ul>
                 </div>
@@ -1971,7 +2078,12 @@
                         <h4 class="link-heading">Download</h4>
                         <ul class="links-list">
                             <li><a href="#"><img src="./assets/Frame(1).svg" alt="">Scheme Generator</a></li>
-                            <li><a href="#"><img src="./assets/Frame(1).svg" alt="">Brochure</a></li>
+                            <li>
+                                <a href="#" id="openModal2">
+                                    <img src="./assets/Frame(1).svg" alt="">
+                                    Brochure
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -1983,7 +2095,6 @@
                             <li><a href="#">Contact US</a></li>
                             <li><a href="#">Our Team</a></li>
                             <li><a href="#">Product Updates</a></li>
-                            <li><a href="#">ESOP Benchmarking Solutions</a></li>
                         </ul>
 
                     </div>
@@ -2177,10 +2288,136 @@
         </div>
     </div>
 
+    <div class="modal-overlay brochure-modal-overlay">
+        <div class="modal-container-1 brochure-modal-wrapper">
+            <div class="modal-container brochure-modal-container">
+
+                <div class="modal-header brochure-modal-header">
+                    <p class="brochure-modal-title">Book a Demo</p>
+                    <span class="close-btn brochure-close-btn">
+                        <img src="./assets/CloseIcon.svg" alt="">
+                    </span>
+                </div>
+
+                <p class="subtitle brochure-modal-subtitle">
+                    Fill out the form below and our team will get back to you shortly
+                </p>
+
+                <div class="type-selector brochure-type-selector">
+                    <button class="type-btn brochure-type-btn active" type="button">Individual</button>
+                    <button class="type-btn brochure-type-btn" type="button">Institute</button>
+                    <button class="type-btn brochure-type-btn" type="button">Organisation</button>
+                </div>
+
+                <div class="partnership-section brochure-partnership-section">
+                    <label class="brochure-partnership-label">Visit Partnership</label>
+                    <div class="radio-group brochure-radio-group">
+                        <label class="radio-container brochure-radio-container">
+                            <input type="radio" name="visit" checked>
+                            <span class="radio-mark brochure-radio-mark"></span> Walk-in
+                        </label>
+                        <label class="radio-container brochure-radio-container">
+                            <input type="radio" name="visit">
+                            <span class="radio-mark brochure-radio-mark"></span> Online
+                        </label>
+                    </div>
+                </div>
+                <div class="brochure-container">
+                    <h1 class="brochure-title">Choose a Brochure</h1>
+
+                    <div class="brochure-grid">
+
+                        <div class="brochure-card-wrapper active">
+                            <img src="./assets/brochure1.png" alt="Corporate Professionals Brochure" />
+                        </div>
+
+                        <div class="brochure-card-wrapper">
+                            <img src="./assets/brochure2.png" alt="ESOP Brochure" />
+                        </div>
+
+                        <div class="brochure-card-wrapper">
+                            <img src="./assets/brochure1.png" alt="Corporate Professionals Brochure" />
+                        </div>
+
+                    </div>
+                </div>
 
 
+                <!-- ===== FORM ===== -->
+                <form class="demo-form brochure-demo-form" novalidate>
 
+                    <div class="form-row brochure-form-row">
+                        <input class="brochure-input" type="text" placeholder="First name" required minlength="2">
+                        <input class="brochure-input" type="text" placeholder="Last name" required minlength="2">
+                    </div>
 
+                    <div class="form-row brochure-form-row">
+                        <input class="brochure-input" type="email" placeholder="Enter email address" required>
+
+                        <div class="phone-input brochure-phone-input">
+                            <div class="country-code brochure-country-code">
+                                <img src="https://flagcdn.com/w20/in.png" alt="India">
+                                <span>+91</span>
+                                <span class="arrow-down brochure-arrow-down">
+                                    <img src="./assets/Frame.svg" alt="">
+                                </span>
+                            </div>
+                            <input class="brochure-input" type="tel" placeholder="Phone number" required
+                                pattern="[6-9][0-9]{9}" title="Enter a valid 10-digit Indian mobile number">
+                        </div>
+                    </div>
+
+                    <div class="form-row brochure-form-row">
+                        <select class="brochure-select" required>
+                            <option value="" disabled selected>Select Country</option>
+                            <option value="india">India</option>
+                            <option value="usa">United States</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="canada">Canada</option>
+                            <option value="australia">Australia</option>
+                        </select>
+
+                        <select class="brochure-select" required>
+                            <option value="" disabled selected>Select State</option>
+                            <option value="up">Uttar Pradesh</option>
+                            <option value="mh">Maharashtra</option>
+                            <option value="dl">Delhi</option>
+                            <option value="ka">Karnataka</option>
+                            <option value="tn">Tamil Nadu</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row brochure-form-row">
+                        <select class="brochure-select" required>
+                            <option value="" disabled selected>Select Service</option>
+                            <option value="esop">ESOP Advisory</option>
+                            <option value="valuation">Company Valuation</option>
+                            <option value="compliance">Legal & Compliance</option>
+                            <option value="funding">Startup Funding</option>
+                            <option value="tax">Tax Planning</option>
+                        </select>
+
+                        <select class="brochure-select" required>
+                            <option value="" disabled selected>Select Service</option>
+                            <option value="demo">Product Demo</option>
+                            <option value="consultation">1-on-1 Consultation</option>
+                            <option value="onboarding">Platform Onboarding</option>
+                            <option value="support">Customer Support</option>
+                            <option value="training">Training Session</option>
+                        </select>
+                    </div>
+
+                    <textarea class="brochure-textarea" placeholder="Tell us how can we help you..."
+                        required></textarea>
+
+                    <button type="submit" class="submit-btn brochure-submit-btn" id="submit-btn">
+                        Book Demo <span><img src="./assets/arrow-right.svg" alt=""></span>
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
     <script src="final.js"></script>
 </body>
 

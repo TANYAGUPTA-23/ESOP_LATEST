@@ -156,35 +156,50 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const accordion = document.getElementById("accordion");
-  const items = accordion.querySelectorAll(".accordion-item");
+  const accordions = document.querySelectorAll(".questions-section__accordion");
 
-  function toggleContent(item, open) {
-    const content = item.querySelector(".accordion-item__content");
-    const iconSpan = item.querySelector(".header__icon");
+  accordions.forEach((accordion) => {
+    const items = accordion.querySelectorAll(".accordion-item");
 
-    if (open) {
-      item.classList.add("is-open");
-      content.style.maxHeight = content.scrollHeight + 44 + "px";
-      iconSpan.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13H5v-2h14v2z"/></svg>`;
-    } else {
-      item.classList.remove("is-open");
-      content.style.maxHeight = "0";
-      iconSpan.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>`;
+    function toggleContent(item, open) {
+      const content = item.querySelector(".accordion-item__content");
+      const iconSpan = item.querySelector(".header__icon");
+
+      if (open) {
+        item.classList.add("is-open");
+        content.style.maxHeight = content.scrollHeight + 44 + "px";
+        iconSpan.innerHTML = `
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 13H5v-2h14v2z"/>
+          </svg>`;
+      } else {
+        item.classList.remove("is-open");
+        content.style.maxHeight = "0";
+        iconSpan.innerHTML = `
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+          </svg>`;
+      }
     }
-  }
 
-  items.forEach((item) => {
-    const header = item.querySelector(".accordion-item__header");
-    header.addEventListener("click", () => {
-      const isOpen = item.classList.contains("is-open");
-      items.forEach((other) => toggleContent(other, false));
-      if (!isOpen) toggleContent(item, true);
+    items.forEach((item) => {
+      const header = item.querySelector(".accordion-item__header");
+
+      header.addEventListener("click", () => {
+        const isOpen = item.classList.contains("is-open");
+
+        items.forEach((other) => toggleContent(other, false));
+        if (!isOpen) toggleContent(item, true);
+      });
     });
-  });
 
-  toggleContent(items[0], true);
+    // Open first item of EACH accordion by default
+    if (items.length) {
+      toggleContent(items[0], true);
+    }
+  });
 });
+
 
 // Initialize testimonials marquee
 document.addEventListener("DOMContentLoaded", () => {
@@ -277,49 +292,70 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const openBtn = document.getElementById("openModal");
-  const modal = document.querySelector(".modal-overlay");
-  const closeBtn = document.querySelector(".close-btn");
-  const form = document.querySelector(".demo-form");
-  const successOverlay = document.getElementById("successOverlay");
+  function setupModal({
+    openBtnId,
+    modalSelector
+  }) {
+    const openBtn = document.getElementById(openBtnId);
+    const modal = document.querySelector(modalSelector);
 
-  /* ---------- OPEN MODAL ---------- */
-  openBtn?.addEventListener("click", () => {
-    modal.classList.add("active");
-    document.body.classList.add("no-scroll");
+    if (!openBtn || !modal) return;
+
+    const closeBtn = modal.querySelector(".close-btn");
+    const form = modal.querySelector(".demo-form");
+    const successOverlay = document.getElementById("successOverlay");
+
+    /* ---------- OPEN MODAL ---------- */
+    openBtn.addEventListener("click", () => {
+      modal.classList.add("active");
+      document.body.classList.add("no-scroll");
+    });
+
+    /* ---------- CLOSE MODAL ---------- */
+    closeBtn?.addEventListener("click", () => {
+      modal.classList.remove("active");
+      document.body.classList.remove("no-scroll");
+    });
+
+    /* ---------- FORM SUBMIT + VALIDATION ---------- */
+    form?.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      // 1️⃣ HTML5 validation
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      // 2️⃣ Extra phone validation
+      const phoneInput = form.querySelector('input[type="tel"]');
+      const phone = phoneInput?.value.trim();
+
+      if (phoneInput && !/^[6-9][0-9]{9}$/.test(phone)) {
+        alert("Please enter a valid 10-digit mobile number.");
+        phoneInput.focus();
+        return;
+      }
+
+      // ✅ ALL VALID
+      modal.classList.remove("active");
+      document.body.classList.remove("no-scroll");
+      successOverlay?.classList.add("active");
+
+      form.reset();
+    });
+  }
+
+  /* ===== INIT BOTH MODALS ===== */
+  setupModal({
+    openBtnId: "openModal",
+    modalSelector: ".modal-overlay"
   });
 
-  /* ---------- CLOSE MODAL ---------- */
-  closeBtn?.addEventListener("click", () => {
-    modal.classList.remove("active");
-    document.body.classList.remove("no-scroll");
-  });
-
-  /* ---------- FORM SUBMIT + VALIDATION ---------- */
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    // 1️⃣ HTML5 validation
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-
-    // 2️⃣ Extra phone validation
-    const phoneInput = form.querySelector('input[type="tel"]');
-    const phone = phoneInput.value.trim();
-
-    if (!/^[6-9][0-9]{9}$/.test(phone)) {
-      alert("Please enter a valid 10-digit mobile number.");
-      phoneInput.focus();
-      return;
-    }
-
-    // ✅ ALL VALID
-    modal.classList.remove("active");
-    document.body.classList.remove("no-scroll");
-    successOverlay.classList.add("active");
-
-    form.reset();
+  setupModal({
+    openBtnId: "openModal2",
+    modalSelector: ".brochure-modal-overlay"
   });
 });
+
+

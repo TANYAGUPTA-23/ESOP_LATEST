@@ -37,51 +37,119 @@
     </defs>
   </svg>
 
-  <!-- ================= NAVBAR ================= -->
-  <nav class="navbar">
-    <div class="navbar-wrapper">
+    <nav class="navbar">
+        <div class="navbar-wrapper">
 
-      <!-- Left Logo -->
-      <div class="nav-left">
-        <img src="./assets/logo1.svg" alt="Esop Guardian Logo" />
-      </div>
+            <!-- Logo -->
+            <div class="nav-left">
+                <a href="index.html">
+                    <img src="./assets/logo1.svg" alt="Esop Guardian Logo" />
+                </a>
+            </div>
 
-      <!-- Center Links -->
-      <div class="nav-center">
-        <a href="index.html" class="about-link">About Us <img src="./assets/Frame.svg" alt=""></a>
-        <a href="management.html" class="about-link">Management <img src="./assets/Frame.svg" alt=""></a>
-        <a href="services.html" class="about-link">Services <img src="./assets/Frame.svg" alt=""></a>
-        <a href="#" class="about-link">Knowledge Hub <img src="./assets/Frame.svg" alt=""></a>
-        <a href="contact.html">Contact Us</a>
-      </div>
+            <!-- Center Links -->
+            <div class="nav-center">
 
-      <!-- Right Section -->
-      <div class="nav-right">
-        <div class="nav-contact">
-          <img src="./assets/phone.svg" alt="Phone" />
-          <span>+91 9821174156</span>
+                <!-- ABOUT -->
+                <div class="nav-item dropdown" tabindex="0">
+                    <a class="about-link">
+                        About Us <img src="./assets/Frame.svg" alt="">
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="introduction.html">Introduction</a>
+                        <a href="team.html">Team</a>
+                        <a href="client.html">Clientele</a>
+                        <a href="partner.html">Partner with us</a>
+                    </div>
+                </div>
+
+                <!-- MANAGEMENT -->
+                <div class="nav-item dropdown" tabindex="0">
+                    <a class="about-link">
+                        Management <img src="./assets/Frame.svg" alt="">
+                    </a>
+
+                    <div class="dropdown-menu management-menu">
+
+                        <div class="offerings-wrapper">
+                            <h4 class="menu-title">Offerings</h4>
+
+                            <div class="menu-list">
+                                <a href="core_foundation.html">Stock Plan Management</a>
+                                <a href="Accounting_Excellence.html">Accounting Module (IND AS 102)</a>
+                                <a href="Tax_&_Gain_Calculator.html">Equity Tax & Capital Gain Calculator</a>
+                                <a href="Tax_Intelligence.html">Cap Table Management</a>
+                                <a href="Ultimate_Flexibility.html">Fully Customizable Processes</a>
+                                <a href="Security&Compliance.html">Compliance & Reporting</a>
+
+                            </div>
+                        </div>
+
+                        <a href="pricing.html" class="pricing-link">Pricing</a>
+
+                    </div>
+                </div>
+
+
+
+                <!-- SERVICES -->
+                <div class="nav-item dropdown" tabindex="0">
+                    <a class="about-link">
+                        Services <img src="./assets/Frame.svg" alt="">
+                    </a>
+                    <div class="dropdown-menu large">
+                        <a href="service1.html">Strategic Planning and Modelling Services</a>
+                        <a href="service2.html">ESOP Valuations & Accounting</a>
+                        <a href="service3.html">Regulatory & Legal Advisory Support</a>
+                        <a href="service4.html">ESOP Implementation & Rollout Support</a>
+                        <a href="service5.html">ESOP Trust Services</a>
+                        <a href="service6.html">ESOP Liquidity Planning</a>
+                        <a href="service7.html">ESOPs for Global Teams</a>
+                    </div>
+                </div>
+
+                <!-- KNOWLEDGE HUB -->
+                <div class="nav-item dropdown" tabindex="0">
+                    <a class="about-link">
+                        Knowledge Hub <img src="./assets/Frame.svg" alt="">
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="blogs.html">Blogs</a>
+                        <a href="articles.html">Articles</a>
+                        <a href="webinar.html">Webinar</a>
+                        <a href="updates.html">Regulatory Update</a>
+                    </div>
+                </div>
+
+                <!-- CONTACT -->
+                <a href="contact.html" class="contact-link">Contact Us</a>
+            </div>
+
+            <!-- Right -->
+            <div class="nav-right">
+                <div class="nav-contact">
+                    <img src="./assets/phone.svg" alt="">
+                    <span>+91 9821174156</span>
+                </div>
+                <button class="nav-button all-btns" id="openModal">
+                    <span>Book a Demo</span>
+                    <img src="./assets/arrow-right.svg" alt="Arrow">
+                </button>
+                <!-- Hamburger -->
+                <button id="hamburger-btn" class="hamburger-menu" aria-label="Toggle navigation menu">
+                    <span class="hamburger-icon"></span>
+                </button>
+            </div>
+
         </div>
-
-        <button class="nav-button all-btns" id="openModal">
-          <span>Book a Demo</span>
-          <img src="./assets/arrow-right.svg" alt="Arrow" />
-        </button>
-
-        <!-- Hamburger -->
-        <button id="hamburger-btn" class="hamburger-menu" aria-label="Toggle navigation menu">
-          <span class="hamburger-icon"></span>
-        </button>
-      </div>
-
-    </div>
-  </nav>
+    </nav>
 
   <!-- ================= MOBILE NAV ================= -->
   <div id="mobile-overlay" class="mobile-overlay"></div>
 
   <div id="mobile-nav" class="mobile-menu">
     <div class="mobile-links">
-      <a href="/index.html" class="active">About Us</a>
+      <a href="introduction.html" class="active">About Us</a>
       <a href="management.html">Management</a>
       <a href="services.html">Services</a>
       <a href="#">Knowledge Hub</a>
@@ -692,15 +760,15 @@
         <div class="footer-column-links col-2">
           <h4 class="link-heading">Offerings</h4>
           <ul class="links-list">
-            <li><a href="#">Advanced ESOP Management Platform</a></li>
-            <li><a href="#">Accounting Module (IND AS 102)</a></li>
-            <li><a href="#">Cap Table Management</a></li>
-            <li><a href="#">ESOP Valuation Services</a></li>
-            <li><a href="#">Online Valuation Calculator</a></li>
-            <li><a href="#">ESOP Benchmarking Solutions</a></li>
-            <li><a href="#">Equity Tax & Capital Gain Calculator</a></li>
-            <li><a href="#">ESOP Trust Formation & Trustee Services</a></li>
-            <li><a href="#">IPO ESOP Transaction Program</a></li>
+                        <li><a href="core_foundation.html">Advanced ESOP Management Platform</a></li>
+                        <li><a href="Accounting_Excellence.html">Accounting Module (IND AS 102)</a></li>
+                        <li><a href="Tax_Intelligence.html">Cap Table Management</a></li>
+                        <li><a href="#">ESOP Valuation Services</a></li>
+                        <li><a href="#">Online Valuation Calculator</a></li>
+                        <li><a href="#">ESOP Benchmarking Solutions</a></li>
+                        <li><a href="Tax_&_Gain_Calculator.html">Equity Tax & Capital Gain Calculator</a></li>
+                        <li><a href="service5.html">ESOP Trust Formation & Trustee Services</a></li>
+                        <li><a href="#">IPO ESOP Transaction Program</a></li>
           </ul>
         </div>
         <div class="two-links">
@@ -719,7 +787,10 @@
             <h4 class="link-heading">Download</h4>
             <ul class="links-list">
               <li><a href="#"><img src="./assets/Frame(1).svg" alt="">Scheme Generator</a></li>
-              <li><a href="#"><img src="./assets/Frame(1).svg" alt="">Brochure</a></li>
+                                              <a href="#" id="openModal2">
+                                    <img src="./assets/Frame(1).svg" alt="">
+                                    Brochure
+                                </a>
             </ul>
           </div>
         </div>
@@ -731,7 +802,6 @@
               <li><a href="#">Contact US</a></li>
               <li><a href="#">Our Team</a></li>
               <li><a href="#">Product Updates</a></li>
-              <li><a href="#">ESOP Benchmarking Solutions</a></li>
             </ul>
 
           </div>
@@ -925,7 +995,136 @@
     </div>
   </div>
 
+  <div class="modal-overlay brochure-modal-overlay">
+        <div class="modal-container-1 brochure-modal-wrapper">
+            <div class="modal-container brochure-modal-container">
 
+                <div class="modal-header brochure-modal-header">
+                    <p class="brochure-modal-title">Book a Demo</p>
+                    <span class="close-btn brochure-close-btn">
+                        <img src="./assets/CloseIcon.svg" alt="">
+                    </span>
+                </div>
+
+                <p class="subtitle brochure-modal-subtitle">
+                    Fill out the form below and our team will get back to you shortly
+                </p>
+
+                <div class="type-selector brochure-type-selector">
+                    <button class="type-btn brochure-type-btn active" type="button">Individual</button>
+                    <button class="type-btn brochure-type-btn" type="button">Institute</button>
+                    <button class="type-btn brochure-type-btn" type="button">Organisation</button>
+                </div>
+
+                <div class="partnership-section brochure-partnership-section">
+                    <label class="brochure-partnership-label">Visit Partnership</label>
+                    <div class="radio-group brochure-radio-group">
+                        <label class="radio-container brochure-radio-container">
+                            <input type="radio" name="visit" checked>
+                            <span class="radio-mark brochure-radio-mark"></span> Walk-in
+                        </label>
+                        <label class="radio-container brochure-radio-container">
+                            <input type="radio" name="visit">
+                            <span class="radio-mark brochure-radio-mark"></span> Online
+                        </label>
+                    </div>
+                </div>
+                <div class="brochure-container">
+                    <h1 class="brochure-title">Choose a Brochure</h1>
+
+                    <div class="brochure-grid">
+
+                        <div class="brochure-card-wrapper active">
+                            <img src="./assets/brochure1.png" alt="Corporate Professionals Brochure" />
+                        </div>
+
+                        <div class="brochure-card-wrapper">
+                            <img src="./assets/brochure2.png" alt="ESOP Brochure" />
+                        </div>
+
+                        <div class="brochure-card-wrapper">
+                            <img src="./assets/brochure1.png" alt="Corporate Professionals Brochure" />
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- ===== FORM ===== -->
+                <form class="demo-form brochure-demo-form" novalidate>
+
+                    <div class="form-row brochure-form-row">
+                        <input class="brochure-input" type="text" placeholder="First name" required minlength="2">
+                        <input class="brochure-input" type="text" placeholder="Last name" required minlength="2">
+                    </div>
+
+                    <div class="form-row brochure-form-row">
+                        <input class="brochure-input" type="email" placeholder="Enter email address" required>
+
+                        <div class="phone-input brochure-phone-input">
+                            <div class="country-code brochure-country-code">
+                                <img src="https://flagcdn.com/w20/in.png" alt="India">
+                                <span>+91</span>
+                                <span class="arrow-down brochure-arrow-down">
+                                    <img src="./assets/Frame.svg" alt="">
+                                </span>
+                            </div>
+                            <input class="brochure-input" type="tel" placeholder="Phone number" required
+                                pattern="[6-9][0-9]{9}" title="Enter a valid 10-digit Indian mobile number">
+                        </div>
+                    </div>
+
+                    <div class="form-row brochure-form-row">
+                        <select class="brochure-select" required>
+                            <option value="" disabled selected>Select Country</option>
+                            <option value="india">India</option>
+                            <option value="usa">United States</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="canada">Canada</option>
+                            <option value="australia">Australia</option>
+                        </select>
+
+                        <select class="brochure-select" required>
+                            <option value="" disabled selected>Select State</option>
+                            <option value="up">Uttar Pradesh</option>
+                            <option value="mh">Maharashtra</option>
+                            <option value="dl">Delhi</option>
+                            <option value="ka">Karnataka</option>
+                            <option value="tn">Tamil Nadu</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row brochure-form-row">
+                        <select class="brochure-select" required>
+                            <option value="" disabled selected>Select Service</option>
+                            <option value="esop">ESOP Advisory</option>
+                            <option value="valuation">Company Valuation</option>
+                            <option value="compliance">Legal & Compliance</option>
+                            <option value="funding">Startup Funding</option>
+                            <option value="tax">Tax Planning</option>
+                        </select>
+
+                        <select class="brochure-select" required>
+                            <option value="" disabled selected>Select Service</option>
+                            <option value="demo">Product Demo</option>
+                            <option value="consultation">1-on-1 Consultation</option>
+                            <option value="onboarding">Platform Onboarding</option>
+                            <option value="support">Customer Support</option>
+                            <option value="training">Training Session</option>
+                        </select>
+                    </div>
+
+                    <textarea class="brochure-textarea" placeholder="Tell us how can we help you..."
+                        required></textarea>
+
+                    <button type="submit" class="submit-btn brochure-submit-btn" id="submit-btn">
+                        Book Demo <span><img src="./assets/arrow-right.svg" alt=""></span>
+                    </button>
+
+                </form>
+            </div>
+        </div>
+  </div>
   <script src="final.js"></script>
 </body>
 
