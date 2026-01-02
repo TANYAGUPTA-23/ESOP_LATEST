@@ -62,6 +62,15 @@
   clip-path: inset(0 0 1px 0);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+.service-why-card:hover {
+    background: linear-gradient(
+    180deg,
+    #42699D 0%,
+    rgba(66, 105, 157, 0) 100%
+  );
+
+  box-shadow: inset 0 2px 1px rgba(255, 255, 255, 0.25);
+}
 
 .service-why-icon-svg svg {
   width: 24px;
@@ -153,9 +162,19 @@
 }
 
 .statutory-form-card:hover {
+    background: linear-gradient(
+    180deg,
+    #42699D 0%,
+    rgba(66, 105, 157, 0) 100%
+  );
+
+  box-shadow: inset 0 2px 1px rgba(255, 255, 255, 0.25);
+}
+
+/* .statutory-form-card:hover {
   transform: translateY(-5px);
   border-color: rgba(255, 255, 255, 0.2);
-}
+} */
 
 .statutory-form-card-header {
   display: flex;

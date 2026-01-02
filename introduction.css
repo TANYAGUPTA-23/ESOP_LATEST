@@ -992,8 +992,8 @@ h1 {
 }
 
 .esop-why-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(180deg, #42699D 0%, rgba(66, 105, 157, 0) 100%);
+  box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.2) inset;
 }
 
 .esop-why-icon {

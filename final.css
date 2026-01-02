@@ -1618,9 +1618,9 @@
 
 
 .video-frame-outer {
-  max-width: 1015px;
+  /* max-width: 1015px; */
   width: 100%;
-  margin: 60px auto 0;
+  /* margin: 60px auto 0; */
   position: relative;
   background: #1A3D6C;
   border-radius: 32px;
@@ -1632,11 +1632,11 @@
 
 }
 
-@media(min-width: 1250px) {
+/* @media(min-width: 1250px) {
   .video-frame-outer {
     transform: scale(1.2);
   }
-}
+} */
 
 @media(max-width: 1250px) {
   .video-section .wrapper {
@@ -4663,5 +4663,530 @@ body {
   .article-footer__button {
     width: 100%;
     max-width: 220px;
+  }
+}
+
+
+
+.team-section__cards-container .team-member-card.reveal:nth-child(1) {
+  transition-delay: 0.2s;
+}
+
+.team-section__cards-container .team-member-card.reveal:nth-child(2) {
+  transition-delay: 0.4s;
+}
+
+.team-section__cards-container .team-member-card.reveal:nth-child(3) {
+  transition-delay: 0.6s;
+}
+
+.article-grid .article-card:nth-child(1) {
+  transition-delay: 0.2s;
+}
+
+.article-grid .article-card:nth-child(2) {
+  transition-delay: 0.4s;
+}
+
+.article-grid .article-card:nth-child(3) {
+  transition-delay: 0.6s;
+}
+
+
+.below_hero {
+  width: 100%;
+  padding-top: 60px;
+  /* Space under subtitle */
+  position: relative;
+}
+
+.equity-interactive-layout {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.equity-main-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* Panel Styles */
+.equity-info-panel {
+  width: 360px;
+  padding: 24px;
+  background: linear-gradient(180deg, #1A3D6C 0%, rgba(26, 61, 108, 0) 100%);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.panel-body {
+  color: #a0aec0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* The Semi-Circle Viewport */
+.orbit-center-viewport {
+  position: absolute;
+  /* 700px diameter / 2 = 350px. 
+       Pushing it down by half its height hides the bottom half */
+  bottom: -800px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  height: 1200px;
+  pointer-events: none;
+  /* Allows clicking elements behind if needed */
+}
+
+.orbit-path-dotted {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 3.5px dotted rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  animation: rotateOrbitSystem 40s linear infinite;
+}
+
+
+.node-inner {
+  width: 100%;
+  height: 100%;
+  /* background: #051125; */
+  /* border: 1px solid rgba(255, 255, 255, 0.4); */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  animation: counterRotateNodes 40s linear infinite;
+  box-shadow:
+    /* top-left highlight */
+    inset -2.6px -2.6px 2.6px rgba(255, 255, 255, 0.1),
+
+    /* bottom-right highlight */
+    inset 2.6px 2.6px 2.6px rgba(255, 255, 255, 0.2);
+  /* background: rgba(255, 255, 255, 0.04); */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.node-inner img {
+  height: 30px;
+  width: 30px;
+}
+
+.node-inner h3 {
+  background: linear-gradient(84.86deg, #FFFFFF 51.14%, #E11F35 88.66%);
+  font-size: 14px;
+  font-weight: 600;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.node-inner h3 {
+  text-align: center;
+  max-width: 90%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.2;
+}
+
+
+/* Circular Distribution */
+.orbit-node-item {
+  --angle: 0deg;
+  --radius: 600px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+
+  transform:
+    translate(-50%, -50%) rotate(var(--angle)) translate(var(--radius)) rotate(calc(-1 * var(--angle)));
+}
+
+
+.n-0 {
+  --angle: 0deg;
+}
+
+.n-36 {
+  --angle: 36deg;
+}
+
+.n-72 {
+  --angle: 72deg;
+}
+
+.n-108 {
+  --angle: 108deg;
+}
+
+.n-144 {
+  --angle: 144deg;
+}
+
+.n-180 {
+  --angle: 180deg;
+}
+
+.n-216 {
+  --angle: 216deg;
+}
+
+.n-252 {
+  --angle: 252deg;
+}
+
+.n-288 {
+  --angle: 288deg;
+}
+
+.n-324 {
+  --angle: 324deg;
+}
+
+
+
+/* Center Image Swap */
+.orbit-core-identity {
+  position: absolute;
+  top: 19%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* 🔹 Glass bubble wrapper */
+.core-glass {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow:
+    inset -2.6px -2.6px 2.6px rgba(255, 255, 255, 0.1),
+    inset 2.6px 2.6px 2.6px rgba(255, 255, 255, 0.2);
+}
+
+/* 🔹 Image itself */
+.core-glass img {
+  width: 55%;
+  height: 55%;
+  object-fit: contain;
+}
+
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px dotted rgba(255, 255, 255, 0.4);
+  opacity: 0;
+  pointer-events: none;
+
+  animation: rippleRing 3.6s ease-in-out infinite;
+  animation-fill-mode: both;
+}
+
+/* stagger ONLY the start */
+.ring-1 {
+  inset: -30px;
+  animation-delay: 0.6s;
+}
+
+.ring-2 {
+  inset: -50px;
+  animation-delay: 1.2s;
+}
+
+.ring-3 {
+  inset: -70px;
+  animation-delay: 1.8s;
+}
+
+/* unified fade-out */
+@keyframes rippleRing {
+  0% {
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+
+
+
+
+/* Animations */
+@keyframes rotateOrbitSystem {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes counterRotateNodes {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes coreFadeCycle {
+
+  0%,
+  33.33% {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  38%,
+  61% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  66%,
+  100% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes counterRotateOrbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Responsiveness */
+
+
+.below_hero {
+  margin-top: 450px;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 0;
+}
+
+/* Hide side panels below 900px */
+@media (max-width: 1460px) {
+
+  /* Remove left & right content */
+  .equity-info-panel {
+    display: none;
+  }
+
+  /* Center the semi-circle properly */
+  .below_hero {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .equity-main-grid {
+    justify-content: center;
+  }
+
+  /* Reset semicircle positioning for small screens */
+  .orbit-center-viewport {
+    position: relative;
+    bottom: 0;
+    left: auto;
+    transform: none;
+    margin: 0 auto;
+  }
+
+  .orbit-core-identity {
+    top: 50%;
+  }
+
+  .below_hero {
+    margin-top: 30px;
+
+  }
+
+  .equity-interactive-layout {
+    height: max-content;
+    padding-bottom: 60px;
+  }
+
+  .orbit-center-viewport {
+    width: 520px;
+    height: 520px;
+  }
+
+  .orbit-path-dotted {
+    width: 520px;
+    height: 520px;
+  }
+
+  .orbit-node-item {
+    --radius: 260px;
+  }
+
+  .orbit-node-item {
+    width: 100px;
+    height: 100px;
+    /* margin: -20px; */
+  }
+
+  .node-inner h3 {
+    font-size: 12px;
+  }
+
+  .orbit-core-identity {
+    width: 160px;
+    height: 160px;
+  }
+
+}
+
+@media (max-width: 800px) {
+  .node-inner h3 {
+    display: none;
+  }
+
+  .node-inner img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .orbit-center-viewport {
+    width: 420px;
+    height: 420px;
+  }
+
+  .orbit-path-dotted {
+    width: 420px;
+    height: 420px;
+  }
+
+  .orbit-node-item {
+    --radius: 210px;
+    width: 50px;
+    height: 50px;
+    /* margin: -18px; */
+  }
+
+  .orbit-core-identity {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 650px) {
+
+  .node-inner img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .orbit-center-viewport {
+    width: 340px;
+    height: 340px;
+  }
+
+  .orbit-path-dotted {
+    width: 340px;
+    height: 340px;
+  }
+
+  .orbit-node-item {
+    --radius: 170px;
+    width: 50px;
+    height: 50px;
+    /* margin: -16px; */
+  }
+
+  .orbit-core-identity {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .node-inner img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .orbit-center-viewport {
+    width: 260px;
+    height: 260px;
+  }
+
+  .orbit-path-dotted {
+    width: 260px;
+    height: 260px;
+  }
+
+  .orbit-node-item {
+    --radius: 130px;
+    width: 26px;
+    height: 26px;
+    /* margin: -13px; */
+  }
+
+  .orbit-core-identity {
+    width: 50px;
+    height: 50px;
+  }
+
+  .ring-1 {
+    inset: -10px;
+    animation-delay: 0.6s;
+  }
+
+  .ring-2 {
+    inset: -30px;
+    animation-delay: 1.2s;
+  }
+
+  .ring-3 {
+    inset: -50px;
+    animation-delay: 1.8s;
   }
 }
