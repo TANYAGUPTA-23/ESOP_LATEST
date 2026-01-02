@@ -398,16 +398,78 @@ document.addEventListener("DOMContentLoaded", () => {
 
   reveals.forEach(el => observer.observe(el));
 
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* =========================
+     RIPPLE RINGS (SAFE)
+  ========================= */
+
   const rings = document.querySelectorAll('.core-ring');
 
-let step = 0;
+  if (rings.length > 0) {
+    let step = 0;
 
-setInterval(() => {
-  rings.forEach(r => r.style.opacity = 0);
+    setInterval(() => {
+      rings.forEach(r => r.style.opacity = 0);
 
-  if (step >= 1) rings[0].style.opacity = 1;
-  if (step >= 2) rings[1].style.opacity = 1;
-  if (step >= 3) rings[2].style.opacity = 1;
+      if (step >= 1 && rings[0]) rings[0].style.opacity = 1;
+      if (step >= 2 && rings[1]) rings[1].style.opacity = 1;
+      if (step >= 3 && rings[2]) rings[2].style.opacity = 1;
 
-  step = (step + 1) % 4;
-}, 900);
+      step = (step + 1) % 4;
+    }, 900);
+  }
+
+  /* =========================
+     COUNTRY CODE SELECT
+  ========================= */
+
+  const select = document.querySelector('.country-select');
+  const text = document.querySelector('.code-text');
+
+  if (select && text) {
+    text.textContent = select.value;
+
+    select.addEventListener('change', () => {
+      text.textContent = select.value;
+    });
+  }
+
+
+});
+
+document.addEventListener("click", (e) => {
+
+  /* ===== TYPE SELECTOR ===== */
+  const typeBtn = e.target.closest(".type-btn");
+  if (typeBtn) {
+    const group = typeBtn.closest(".type-selector");
+    if (!group) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    group.querySelectorAll(".type-btn")
+      .forEach(btn => btn.classList.remove("active"));
+
+    typeBtn.classList.add("active");
+    return; // stop here so tab logic doesn't run
+  }
+
+  /* ===== TAB GROUP ===== */
+  const tab = e.target.closest(".tab");
+  if (tab) {
+    const group = tab.closest(".tab-group");
+    if (!group) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    group.querySelectorAll(".tab")
+      .forEach(t => t.classList.remove("active"));
+
+    tab.classList.add("active");
+  }
+
+});
+

@@ -183,7 +183,7 @@ body {
 
 
 /* OPEN ON CLICK */
-.nav-item:focus-within .dropdown-menu {
+.nav-item:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -503,7 +503,7 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
     .navbar {
         padding: 0 20px;
     }
@@ -1431,9 +1431,10 @@ body {
 }
 
 .type-btn.active {
-    background: #42699D;
-    color: white;
+  background: #42699D !important;
+  color: white !important;
 }
+
 
 .partnership-section label {
     display: flex;
@@ -1572,6 +1573,13 @@ textarea {
     justify-content: center;
     align-items: flex-start;
     gap: 6px;
+}
+.modal-container {
+  pointer-events: auto;
+}
+
+.modal-overlay {
+  pointer-events: auto;
 }
 
 .success-overlay {

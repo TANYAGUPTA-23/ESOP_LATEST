@@ -233,16 +233,31 @@
               <input type="text" placeholder="First name">
               <input type="text" placeholder="Last name">
               <input type="email" placeholder="Enter email address">
-              <div class="phone-input">
-                <div class="country-code">
-                  🇮🇳
-                  <span>+91</span>
-                  <span class="arrow-down">
-                    <img src="./assets/Frame.svg" alt="">
-                  </span>
-                </div>
-                <input type="tel" placeholder="Phone number" required>
-              </div>
+<div class="phone-input">
+  <div class="country-code">
+
+    <span class="flag">🇮🇳</span>
+
+    <!-- visible selected value -->
+    <span class="code-text">+91</span>
+
+    <span class="arrow-down">
+      <img src="./assets/Frame.svg" alt="">
+    </span>
+
+    <!-- invisible select for interaction -->
+    <select class="country-select">
+      <option value="+91" selected>+91</option>
+      <option value="+1">+1</option>
+      <option value="+44">+44</option>
+      <option value="+61">+61</option>
+    </select>
+
+  </div>
+
+  <input type="tel" placeholder="Phone number" required>
+</div>
+
               <select>
                 <option>Select Country</option>
               </select>
