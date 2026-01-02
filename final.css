@@ -4735,7 +4735,7 @@ body {
   position: absolute;
   /* 700px diameter / 2 = 350px. 
        Pushing it down by half its height hides the bottom half */
-  bottom: -800px;
+  bottom: -750px;
   left: 50%;
   transform: translateX(-50%);
   width: 1200px;
@@ -4748,10 +4748,14 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  border: 3.5px dotted rgba(255, 255, 255, 0.25);
-  border-radius: 50%;
   animation: rotateOrbitSystem 40s linear infinite;
 }
+
+.orbit-dash-svg {
+  width: 100%;
+  height: 100%;
+}
+
 
 
 .node-inner {
@@ -4802,7 +4806,7 @@ body {
 /* Circular Distribution */
 .orbit-node-item {
   --angle: 0deg;
-  --radius: 600px;
+  --radius: 560px;
 
   position: absolute;
   top: 50%;
@@ -4860,7 +4864,7 @@ body {
 /* Center Image Swap */
 .orbit-core-identity {
   position: absolute;
-  top: 19%;
+  top: 23%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100px;
@@ -4870,7 +4874,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  animation: rippleClock 3.6s steps(1, end) infinite;
 }
+
+
 
 
 /* 🔹 Glass bubble wrapper */
@@ -4891,58 +4899,33 @@ body {
     inset 2.6px 2.6px 2.6px rgba(255, 255, 255, 0.2);
 }
 
-/* 🔹 Image itself */
 .core-glass img {
   width: 55%;
   height: 55%;
   object-fit: contain;
 }
 
-.ring {
+
+
+.core-ring {
   position: absolute;
-  border-radius: 50%;
-  border: 2px dotted rgba(255, 255, 255, 0.4);
+  inset: 0;
   opacity: 0;
-  pointer-events: none;
-
-  animation: rippleRing 3.6s ease-in-out infinite;
-  animation-fill-mode: both;
+  transition: opacity 0.25s ease;
 }
 
-/* stagger ONLY the start */
-.ring-1 {
-  inset: -30px;
-  animation-delay: 0.6s;
+.ring-1 { transform: scale(1.6); }
+.ring-2 { transform: scale(2.1); }
+.ring-3 { transform: scale(2.6); }
+
+.core-ring circle {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.45);
+  stroke-width: 1.5;
+  stroke-dasharray: 10 10;
+  stroke-linecap: round;
 }
 
-.ring-2 {
-  inset: -50px;
-  animation-delay: 1.2s;
-}
-
-.ring-3 {
-  inset: -70px;
-  animation-delay: 1.8s;
-}
-
-/* unified fade-out */
-@keyframes rippleRing {
-  0% {
-    opacity: 0;
-  }
-
-  15% {
-    opacity: 1;
-  }
-
-  85% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
 
 
 
@@ -5057,13 +5040,15 @@ body {
     height: 520px;
   }
 
+  
+
   .orbit-path-dotted {
     width: 520px;
     height: 520px;
   }
 
   .orbit-node-item {
-    --radius: 260px;
+    --radius: 240px;
   }
 
   .orbit-node-item {
@@ -5074,11 +5059,6 @@ body {
 
   .node-inner h3 {
     font-size: 12px;
-  }
-
-  .orbit-core-identity {
-    width: 160px;
-    height: 160px;
   }
 
 }
@@ -5104,16 +5084,16 @@ body {
   }
 
   .orbit-node-item {
-    --radius: 210px;
+    --radius: 200px;
     width: 50px;
     height: 50px;
     /* margin: -18px; */
   }
 
-  .orbit-core-identity {
+  /* .orbit-core-identity {
     width: 140px;
     height: 140px;
-  }
+  } */
 }
 
 @media (max-width: 650px) {
@@ -5134,15 +5114,15 @@ body {
   }
 
   .orbit-node-item {
-    --radius: 170px;
+    --radius: 160px;
     width: 50px;
     height: 50px;
     /* margin: -16px; */
   }
 
   .orbit-core-identity {
-    width: 120px;
-    height: 120px;
+    width: 60px;
+    height: 60px;
   }
 }
 
@@ -5164,7 +5144,7 @@ body {
   }
 
   .orbit-node-item {
-    --radius: 130px;
+    --radius: 125px;
     width: 26px;
     height: 26px;
     /* margin: -13px; */
@@ -5173,20 +5153,5 @@ body {
   .orbit-core-identity {
     width: 50px;
     height: 50px;
-  }
-
-  .ring-1 {
-    inset: -10px;
-    animation-delay: 0.6s;
-  }
-
-  .ring-2 {
-    inset: -30px;
-    animation-delay: 1.2s;
-  }
-
-  .ring-3 {
-    inset: -50px;
-    animation-delay: 1.8s;
   }
 }

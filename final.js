@@ -397,3 +397,17 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   reveals.forEach(el => observer.observe(el));
+
+  const rings = document.querySelectorAll('.core-ring');
+
+let step = 0;
+
+setInterval(() => {
+  rings.forEach(r => r.style.opacity = 0);
+
+  if (step >= 1) rings[0].style.opacity = 1;
+  if (step >= 2) rings[1].style.opacity = 1;
+  if (step >= 3) rings[2].style.opacity = 1;
+
+  step = (step + 1) % 4;
+}, 900);
