@@ -1,36 +1,4 @@
-// JavaScript for 2-bounce effect
-document.addEventListener("DOMContentLoaded", () => {
-  const button = document.querySelector(".esop-cta-button");
-  if (!button) return;
 
-  const span = button.querySelector("span");
-  const img = button.querySelector("img");
-
-  function bounce() {
-    span.classList.remove("bounce-text");
-    img.classList.remove("bounce-icon");
-
-    void span.offsetWidth; // restart animation
-    void img.offsetWidth;
-
-    span.classList.add("bounce-text");
-    img.classList.add("bounce-icon");
-  }
-
-  // First bounce on hover
-  button.addEventListener("mouseenter", () => bounce());
-
-  // Second bounce on hover out
-  button.addEventListener("mouseleave", () => bounce());
-
-  // Clean up classes after animation
-  span.addEventListener("animationend", () =>
-    span.classList.remove("bounce-text")
-  );
-  img.addEventListener("animationend", () =>
-    img.classList.remove("bounce-icon")
-  );
-});
 
 const tabss = document.querySelectorAll(".stakeholder-tab");
 const contentWrappers = document.querySelectorAll(".content-text-wrapper");
@@ -125,8 +93,22 @@ hamburgerBtn.addEventListener("click", () => {
 });
 
 document.querySelectorAll(".mobile-links a").forEach((link) => {
-  link.addEventListener("click", closeMenu);
+  link.addEventListener("click", (e) => {
+
+    // ❌ Do NOT close menu for accordion triggers
+    if (
+      link.classList.contains("mobile-main-link") || // level 1
+      link.closest(".mobile-subgroup") &&             // inside offerings
+      !link.classList.contains("mobile-submenu-highlight") // except Pricing
+    ) {
+      return;
+    }
+
+    closeMenu(); // ✅ only real navigation links
+  });
 });
+
+
 
 mobileOverlay.addEventListener("click", closeMenu);
 
@@ -469,6 +451,45 @@ document.addEventListener("click", (e) => {
       .forEach(t => t.classList.remove("active"));
 
     tab.classList.add("active");
+  }
+
+});
+
+
+document.addEventListener("click", (e) => {
+
+  /* ===== LEVEL 2: OFFERINGS ===== */
+  const subgroup = e.target.closest(".mobile-subgroup-title");
+  if (subgroup) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const wrapper = subgroup.closest(".mobile-subgroup");
+    if (!wrapper) return;
+
+    wrapper.classList.toggle("open");
+    return; // 🔥 stop here, do NOT touch parent
+  }
+
+  /* ===== LEVEL 1: MAIN MENU ===== */
+  const mainLink = e.target.closest(".mobile-main-link");
+  if (mainLink) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const currentItem = mainLink.closest(".mobile-item");
+    if (!currentItem) return;
+
+    const isOpen = currentItem.classList.contains("open");
+
+    // close other main menus
+    document.querySelectorAll(".mobile-item.open")
+      .forEach(item => item.classList.remove("open"));
+
+    // toggle current
+    if (!isOpen) {
+      currentItem.classList.add("open");
+    }
   }
 
 });

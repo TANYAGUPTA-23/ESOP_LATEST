@@ -3993,10 +3993,10 @@ body {
     font-size: 36px;
   }
 
-  .team-section__cards-container {
+  /* .team-section__cards-container {
     flex-direction: column;
     gap: 30px;
-  }
+  } */
 
   .team-member-card {
     width: 100%;
@@ -4037,28 +4037,6 @@ body {
 
   .header__title {
     font-size: 36px;
-  }
-
-  /* === HORIZONTAL SCROLL LAYOUT === */
-  .team-section__cards-container {
-    display: flex;
-    flex-direction: row;
-    /* ✅ ensure horizontal layout */
-    flex-wrap: nowrap;
-    /* don't wrap */
-    overflow-x: auto;
-    /* horizontal scroll */
-    overflow-y: hidden;
-    /* prevent vertical overflow */
-    scroll-snap-type: x mandatory;
-    /* snap to cards */
-    -webkit-overflow-scrolling: touch;
-    gap: 16px;
-    justify-content: flex-start;
-    align-items: stretch;
-    /* fix uneven height */
-    width: 100%;
-    padding-bottom: 16px;
   }
 
   /* === CARD STYLE === */
