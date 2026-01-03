@@ -100,7 +100,7 @@
   gap: 24px;
 }
 
-.section h3 {
+.section h3 , .section h2 {
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -176,7 +176,7 @@ p {
   border-radius: 50%;
 }
 
-.article-body h3 {
+.article-body h3 , .article-body h2{
   color: #ffffff;
 }
 
