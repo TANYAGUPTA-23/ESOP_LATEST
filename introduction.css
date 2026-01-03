@@ -1013,7 +1013,7 @@ h1 {
   color: #e2e8f0;
 }
 
-.esop-why-card h3 {
+.esop-why-card h3 , .esop-why-card h2{
   font-size: 1.25rem;
   margin-bottom: 15px;
   font-weight: 600;
@@ -1152,7 +1152,7 @@ h1 {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.eg-timeline-content h3 {
+.eg-timeline-content h3 , .eg-timeline-content h2 {
   font-size: 1.2rem;
   margin-bottom: 14px;
   display: inline-block;
@@ -1236,11 +1236,11 @@ h1 {
   margin-right: auto;
 }
 
-.eg-right .eg-timeline-content h3 {
+.eg-right .eg-timeline-content h3 , .eg-right .eg-timeline-content h2 {
   text-align: right;
 }
 
-.eg-left .eg-timeline-content h3 {
+.eg-left .eg-timeline-content h3 , .eg-left .eg-timeline-content h2 {
   max-width: fit-content;
 }
 

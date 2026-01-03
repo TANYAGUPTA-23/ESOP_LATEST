@@ -273,7 +273,7 @@
   max-width: fit-content;
 }
 
-.upd-update-card h3 {
+.upd-update-card h3 , .upd-update-card h2 {
   font-size: 1.15rem;
   font-weight: 500;
 }
