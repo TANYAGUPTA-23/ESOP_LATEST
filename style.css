@@ -5846,7 +5846,7 @@ body {
   width: 30px;
 }
 
-.node-inner h3 {
+.node-inner h2 {
   background: linear-gradient(84.86deg, #FFFFFF 51.14%, #E11F35 88.66%);
   font-size: 14px;
   font-weight: 600;
@@ -5854,7 +5854,7 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-.node-inner h3 {
+.node-inner h2 {
   text-align: center;
   max-width: 90%;
   word-wrap: break-word;
@@ -6136,7 +6136,7 @@ body {
     /* margin: -20px; */
   }
 
-  .node-inner h3 {
+  .node-inner h2 {
     font-size: 12px;
   }
 
@@ -6148,7 +6148,7 @@ body {
 }
 
 @media (max-width: 800px) {
-  .node-inner h3 {
+  .node-inner h2 {
     display: none;
   }
 
