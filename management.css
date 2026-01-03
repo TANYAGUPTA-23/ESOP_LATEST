@@ -431,3 +431,235 @@ h1 {
     font-size: 32px;
   }
 }
+
+
+.partner-section {
+  padding: 100px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.fade-container {
+  position: relative;
+  background: #041E42;
+  overflow: hidden;
+}
+
+.section-header {
+  max-width: 1280px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+  gap: 40px;
+}
+
+.section-header .gradient-text {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 48px;
+  line-height: 60px;
+  letter-spacing: -0.02em;
+  vertical-align: middle;
+  background: linear-gradient(100.18deg, #ffffff 51.66%, #e11f35 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  white-space: normal !important;
+  word-break: break-word !important;
+  text-align: center;
+  max-width: 850px;
+}
+
+.gradient-text span {
+  color: inherit;
+}
+
+.sub-text {
+  /* max-width: 990px; */
+  font-size: 1.125rem;
+  background: rgba(213, 219, 230, 1);
+    -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: linear-gradient(180deg, #1A3D6C 0%, rgba(26, 61, 108, 0) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  /* width: 302px; */
+  padding: 48px 24px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  opacity: 1;
+  background: linear-gradient(180deg, #1A3D6C 0%, rgba(26, 61, 108, 0) 100%);
+  border: 1px solid;
+  border-image-source: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.2) inset;
+  border-bottom: none;
+  background: radial-gradient(60% 60% at 93.7% 8.1%, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.08) 25%, rgba(255, 255, 255, 0) 60%), linear-gradient(180deg, #1A3D6C 0%, rgba(26, 61, 108, 0) 100%);
+
+}
+
+.card:hover {
+    background: linear-gradient(
+    180deg,
+    #42699D 0%,
+    rgba(66, 105, 157, 0) 100%
+  );
+
+  box-shadow: inset 0 2px 1px rgba(255, 255, 255, 0.25);
+}
+
+.icon-wrapper {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-wrapper img{
+  margin-right: 0;
+}
+
+.icon-wrapper svg {
+  width: 40px;
+  height: 40px;
+  color: #ffffff;
+}
+
+.icon-wrapper img {
+  width: 40px;
+  height: 40px;
+  color: #ffffff;
+}
+
+.card h3 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0;
+  text-align: center;
+  vertical-align: middle;
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 15px;
+}
+
+.card p {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0;
+  text-align: center;
+  color: rgba(213, 219, 230, 1);
+}
+
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .sub-text {
+    text-align: left;
+  }
+
+  .card {
+    width: 100%;
+    height: 320px;
+    padding: 32px 24px;
+  }
+
+  .icon-wrapper {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 20px;
+  }
+
+  .icon-wrapper svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .card h3 {
+    font-size: 18px;
+    line-height: 26px;
+    margin-bottom: 12px;
+  }
+
+  .card p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gradient-text {
+    font-size: 1.5rem;
+    width: 100%;
+  }
+
+  .section-header {
+    gap: 20px;
+  }
+
+  .esop-partner-section .sub-text {
+    font-size: 16px;
+  }
+
+  .card {
+    width: 100%;
+    height: 260px;
+    padding: 32px 24px;
+  }
+
+  .icon-wrapper {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 20px;
+  }
+
+  .icon-wrapper svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 8px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+}
