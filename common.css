@@ -159,6 +159,128 @@ body {
 }
 
 
+/* Inner elements */
+.all-btns span,
+.all-btns img {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* === Text loop animations === */
+@keyframes textLoopUpDown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  45% {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+
+  55% {
+    transform: translateY(120%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes textLoopDownUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  45% {
+    transform: translateY(120%);
+    opacity: 0;
+  }
+
+  55% {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* === Image loop + rotate animations === */
+@keyframes imgLoopUpDown {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+
+  45% {
+    transform: translateY(-120%) rotate(20deg);
+    opacity: 0;
+  }
+
+  55% {
+    transform: translateY(120%) rotate(45deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 1;
+  }
+}
+
+@keyframes imgLoopDownUp {
+  0% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 1;
+  }
+
+  45% {
+    transform: translateY(120%) rotate(25deg);
+    opacity: 0;
+  }
+
+  55% {
+    transform: translateY(-120%) rotate(0deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* === Hover effects === */
+
+/* Text only loops */
+.all-btns:hover span {
+  animation: textLoopUpDown 0.3s ease-in-out forwards;
+}
+
+/* Reset text when hover ends */
+.all-btns:not(:hover) span {
+  animation: textLoopDownUp 0.3s ease-in-out forwards;
+}
+
+/* Image loops + rotates */
+.all-btns:hover img {
+  animation: imgLoopUpDown 0.3s ease-in-out forwards;
+}
+
+/* Reset image when hover ends */
+.all-btns:not(:hover) img {
+  animation: imgLoopDownUp 0.3s ease-in-out forwards;
+}
+
+
 /* DROPDOWN MENU */
 .dropdown-menu {
   position: absolute;
@@ -230,6 +352,35 @@ body {
 .dropdown-menu a:hover::after {
   transform: scaleX(1);
 }
+
+.about-menu , .management-menu , .services-menu , .knowledge-menu{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 40px;
+  background: #eaf0fb;
+  /* align-items: center; */
+}
+
+.about-left , .management-left , .services-left , .knowledge-left{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about-right , .management-right , .services-right , .knowledge-right{
+  flex-shrink: 0;
+  width: 260px;
+}
+
+.about-right img , .management-right img , .services-right img , .knowledge-right img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
 
 
 /* RIGHT */

@@ -341,26 +341,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// const cards = document.querySelectorAll(".scroll-fade");
-
-// const observer = new IntersectionObserver(
-//   (entries) => {
-//     entries.forEach((entry) => {
-//       if (entry.isIntersecting) {
-//         const index = [...cards].indexOf(entry.target);
-
-//         setTimeout(() => {
-//           entry.target.classList.add("active");
-//         }, index * 200); // delay creates one-by-one effect
-
-//         observer.unobserve(entry.target);
-//       }
-//     });
-//   },
-//   {
-//     threshold: 0.3
-//   }
-// );
 
 // cards.forEach(card => observer.observe(card));
   const reveals = document.querySelectorAll(".reveal");
@@ -494,6 +474,8 @@ document.addEventListener("click", (e) => {
 
 });
 
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const section = document.querySelector(".right-side.reveal");
 
@@ -511,3 +493,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   observer.observe(section);
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const reveals = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          observer.unobserve(entry.target); // optional: run once
+        }
+      });
+    },
+    {
+      threshold: 0.2,
+    }
+  );
+
+  reveals.forEach((el) => observer.observe(el));
+});
+
