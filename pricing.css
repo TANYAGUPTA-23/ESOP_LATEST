@@ -226,21 +226,17 @@
 .btn-outline {
   border: 1px solid rgba(255, 255, 255, 0.4);
   color: white;
+  background: rgba(24, 58, 103, 1);
+
 }
 
-.btn-outline:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
 
 .btn-solid {
   background: rgba(225, 31, 53, 1);
   color: white;
 }
 
-.btn-solid:hover {
-  background: #ff3d4d;
-  box-shadow: 0 0 20px rgba(230, 46, 61, 0.4);
-}
+
 
 .features-section {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -257,10 +253,14 @@
 .features-list {
   list-style: none;
 }
+.features-list-text{
+  display: flex;
+  flex-direction: column;
+}
 
 .features-list li {
   position: relative;
-  margin-bottom: 15px;
+  margin-bottom: 6px;
   color: rgba(255, 255, 255, 1);
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
@@ -271,8 +271,14 @@
   vertical-align: middle;
   display: flex;
   gap: 12px;
+  font-weight: 600;
 }
-
+.features-list-text{
+  font-size: 14px;
+  padding-left: 32px;
+  padding-bottom: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
 .badge {
   position: absolute;
   top: 30px;

@@ -252,7 +252,7 @@
 .radio-group label {
   color: #ffffff;
   font-size: 0.9rem;
-  display: block;
+  /* display: block; */
   margin-bottom: 10px;
 }
 

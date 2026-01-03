@@ -514,3 +514,20 @@ document.addEventListener("DOMContentLoaded", () => {
   reveals.forEach((el) => observer.observe(el));
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const filterGroups = document.querySelectorAll(".upd-filter-group");
+
+  filterGroups.forEach(group => {
+    const buttons = group.querySelectorAll(".upd-filter-btn");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        // Remove active from all buttons in this group
+        buttons.forEach(btn => btn.classList.remove("active"));
+
+        // Add active to clicked button
+        button.classList.add("active");
+      });
+    });
+  });
+});
