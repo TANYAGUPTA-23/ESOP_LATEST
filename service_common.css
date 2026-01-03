@@ -961,7 +961,7 @@
   height: 36px;
 }
 
-.partner-card-4 h3 {
+.partner-card-4 h3 , .partner-card-4 h2 {
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
   font-size: 20px;
@@ -1079,7 +1079,7 @@
   padding: 12px;
 }
 
-.service-why-card h3 {
+.service-why-card h3 , .service-why-card h2 {
   font-size: 1.25rem;
   margin-bottom: 15px;
   font-weight: 600;
