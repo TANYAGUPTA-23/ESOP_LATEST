@@ -48,3 +48,58 @@
     max-width: 100%;
   }
 }
+
+.text-reveal {
+  opacity: 0;
+  transform: translateY(60px);
+}
+
+.text-reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.partner-card-4 {
+  opacity: 0;
+  transform: translateX(80px) scale(0.85);
+  transition:
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.9s ease;
+  will-change: transform, opacity;
+}
+
+/* Visible state */
+.partner-card-4.reveal {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+/* Stagger effect */
+.partner-card-4:nth-child(1) { transition-delay: 0.1s; }
+.partner-card-4:nth-child(2) { transition-delay: 0.25s; }
+.partner-card-4:nth-child(3) { transition-delay: 0.4s; }
+.partner-card-4:nth-child(4) { transition-delay: 0.55s; }
+
+/* Initial hidden state */
+.service-why-card {
+  opacity: 0;
+  transform: translateY(80px) scale(0.85);
+  transition:
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.9s ease;
+  will-change: transform, opacity;
+}
+
+/* Visible state */
+.service-why-card.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Optional stagger (if cards are in a list/grid) */
+/* .service-why-card:nth-child(1) { transition-delay: 0.1s; }
+.service-why-card:nth-child(2) { transition-delay: 0.25s; }
+.service-why-card:nth-child(3) { transition-delay: 0.4s; } */

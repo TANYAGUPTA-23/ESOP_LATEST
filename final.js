@@ -477,42 +477,24 @@ document.addEventListener("click", (e) => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  const section = document.querySelector(".right-side.reveal");
+  const reveals = document.querySelectorAll(".reveal");
+  if (!reveals.length) return;
 
   const observer = new IntersectionObserver(
-    (entries) => {
+    entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("active");
-          observer.unobserve(entry.target);
+          observer.unobserve(entry.target); // run once
         }
       });
     },
     { threshold: 0.3 }
   );
 
-  observer.observe(section);
+  reveals.forEach(el => observer.observe(el));
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const reveals = document.querySelectorAll(".reveal");
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-          observer.unobserve(entry.target); // optional: run once
-        }
-      });
-    },
-    {
-      threshold: 0.2,
-    }
-  );
-
-  reveals.forEach((el) => observer.observe(el));
-});
 
 document.addEventListener("DOMContentLoaded", () => {
   const filterGroups = document.querySelectorAll(".upd-filter-group");
@@ -531,3 +513,65 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+function revealOnScroll() {
+  const elements = document.querySelectorAll(".text-reveal");
+  const windowHeight = window.innerHeight;
+
+  elements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    const triggerPoint = windowHeight * 0.9;
+
+    if (rect.top <= triggerPoint && rect.bottom >= 0) {
+      // Element is visible
+      el.classList.add("show");
+    } else {
+      // Element is out of view → reset
+      el.classList.remove("show");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".partner-card-4");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("reveal");
+        } else {
+          entry.target.classList.remove("reveal");
+        }
+      });
+    },
+    {
+      threshold: 0.2,
+    }
+  );
+
+  cards.forEach((card) => observer.observe(card));
+});
+
+function revealServiceCards() {
+  const cards = document.querySelectorAll(".service-why-card");
+  const windowHeight = window.innerHeight;
+
+  cards.forEach(card => {
+    const rect = card.getBoundingClientRect();
+    const triggerPoint = windowHeight * 0.85;
+
+    if (rect.top <= triggerPoint && rect.bottom >= 0) {
+      card.classList.add("show");
+    } else {
+      card.classList.remove("show");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealServiceCards);
+window.addEventListener("load", revealServiceCards);
