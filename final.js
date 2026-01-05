@@ -342,23 +342,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// cards.forEach(card => observer.observe(card));
+document.addEventListener("DOMContentLoaded", () => {
   const reveals = document.querySelectorAll(".reveal");
 
   const observer = new IntersectionObserver(
-    (entries) => {
+    entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("active");
+        } else {
+          entry.target.classList.remove("active");
         }
       });
     },
     {
-      threshold: 0.2   // 20% visible = trigger
+      threshold: 0.2
     }
   );
 
   reveals.forEach(el => observer.observe(el));
+});
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -632,4 +636,38 @@ window.addEventListener("load", () => {
   setTimeout(() => {
     loader.remove();
   }, 600);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll(".questions-section");
+
+  const maxOffsetDesktop = 140;
+  const maxOffsetMobile = 60;
+
+  function onScroll() {
+    sections.forEach(section => {
+      const leftEl = section.querySelector(".reveal-left");
+      const rightEl = section.querySelector(".reveal-right");
+      if (!leftEl || !rightEl) return;
+
+      const rect = section.getBoundingClientRect();
+      const range = window.innerHeight * 0.8;
+
+      // progress: 0 (top aligned) → 1 (moving away)
+      let progress = rect.top / range;
+      progress = Math.min(Math.max(progress, 0), 1);
+
+      const maxOffset =
+        window.innerWidth < 768 ? maxOffsetMobile : maxOffsetDesktop;
+
+      const move = progress * maxOffset;
+      const scale = 1 - progress * 0.04;
+
+      leftEl.style.transform = `translateX(${-move}px) scale(${scale})`;
+      rightEl.style.transform = `translateX(${move}px) scale(${scale})`;
+    });
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll(); // initial position
 });
