@@ -514,26 +514,31 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function revealOnScroll() {
-  const elements = document.querySelectorAll(".text-reveal");
-  const windowHeight = window.innerHeight;
+document.addEventListener("DOMContentLoaded", () => {
 
-  elements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    const triggerPoint = windowHeight * 0.9;
+  function revealOnScroll() {
+    const elements = document.querySelectorAll(".text-reveal");
+    const windowHeight = window.innerHeight;
 
-    if (rect.top <= triggerPoint && rect.bottom >= 0) {
-      // Element is visible
-      el.classList.add("show");
-    } else {
-      // Element is out of view → reset
-      el.classList.remove("show");
-    }
-  });
-}
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const triggerPoint = windowHeight * 0.9;
 
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
+      if (rect.top <= triggerPoint && rect.bottom >= 0) {
+        el.classList.add("show");
+      } else {
+        el.classList.remove("show");
+      }
+    });
+  }
+
+  // Run on scroll
+  window.addEventListener("scroll", revealOnScroll);
+
+  // Run once on load (VERY IMPORTANT for deployed sites)
+  revealOnScroll();
+});
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -557,21 +562,28 @@ document.addEventListener("DOMContentLoaded", () => {
   cards.forEach((card) => observer.observe(card));
 });
 
-function revealServiceCards() {
-  const cards = document.querySelectorAll(".service-why-card");
-  const windowHeight = window.innerHeight;
+document.addEventListener("DOMContentLoaded", () => {
 
-  cards.forEach(card => {
-    const rect = card.getBoundingClientRect();
-    const triggerPoint = windowHeight * 0.85;
+  function revealServiceCards() {
+    const cards = document.querySelectorAll(".service-why-card");
+    const windowHeight = window.innerHeight;
 
-    if (rect.top <= triggerPoint && rect.bottom >= 0) {
-      card.classList.add("show");
-    } else {
-      card.classList.remove("show");
-    }
-  });
-}
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const triggerPoint = windowHeight * 0.85;
 
-window.addEventListener("scroll", revealServiceCards);
-window.addEventListener("load", revealServiceCards);
+      if (rect.top <= triggerPoint && rect.bottom >= 0) {
+        card.classList.add("show");
+      } else {
+        card.classList.remove("show");
+      }
+    });
+  }
+
+  // Run on scroll
+  window.addEventListener("scroll", revealServiceCards);
+
+  // Run once on load (CRITICAL for deployed sites)
+  revealServiceCards();
+});
+
