@@ -4776,8 +4776,6 @@ body {
 .node-inner {
   width: 100%;
   height: 100%;
-  /* background: #051125; */
-  /* border: 1px solid rgba(255, 255, 255, 0.4); */
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -4786,12 +4784,8 @@ body {
   gap: 4px;
   animation: counterRotateNodes 40s linear infinite;
   box-shadow:
-    /* top-left highlight */
     inset -2.6px -2.6px 2.6px rgba(255, 255, 255, 0.1),
-
-    /* bottom-right highlight */
     inset 2.6px 2.6px 2.6px rgba(255, 255, 255, 0.2);
-  /* background: rgba(255, 255, 255, 0.04); */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -5171,16 +5165,14 @@ body {
   }
 }
 
-/* Scroll-driven horizontal reveal */
-.reveal-horizontal {
+/* .reveal-horizontal {
   will-change: transform;
 }
 
-/* Initial visual offset (JS will override on scroll) */
 .reveal-left {
   transform: translateX(-140px) scale(0.96);
 }
 
 .reveal-right {
   transform: translateX(140px) scale(0.96);
-}
+} */

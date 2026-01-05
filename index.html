@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="hero_common.css">
     <link rel="stylesheet" href="final.css">
@@ -15,6 +16,18 @@
 </head>
 
 <body id="top">
+    <div id="page-loader">
+  <div class="loader-wrapper">
+    <div class="glow-dot"></div>
+
+    <div class="loading-text">
+      <span>L</span><span>o</span><span>a</span><span>d</span>
+      <span>i</span><span>n</span><span>g</span>
+      <span>.</span><span>.</span><span>.</span>
+    </div>
+  </div>
+</div>
+<div id="app-root">
     <!-- Global SVG definitions (define once) -->
     <svg width="0" height="0" style="position:absolute" aria-hidden="true">
         <defs>
@@ -320,7 +333,7 @@
             <h1 class="headline gradient-text1 text-reveal">
                 Your 360° ESOP Partner — From Design to Delivery and Beyond
             </h1>
-            <div class="below_hero reveal">
+            <div class="below_hero">
                 <div class="equity-interactive-layout">
                     <div class="equity-main-grid">
                         <div class="orbit-center-viewport">
@@ -823,9 +836,9 @@
         </svg>
     </div>
 
-    <section class="questions-section why-choose-us-section ">
+    <section class="questions-section why-choose-us-section reveal">
         <div class="questions-section__wrapper">
-            <header class="questions-header reveal-horizontal reveal-left">
+            <header class="questions-header">
                 <div class="questions-header-tag-container header-tag-container blur-rise">
                     <span class="questions-header-tag-text">Why Choose Us </span>
                 </div>
@@ -837,7 +850,7 @@
                 </p>
             </header>
 
-            <div class="questions-section__accordion reveal-horizontal reveal-right" >
+            <div class="questions-section__accordion" >
 
                 <div class="accordion-item is-open">
                     <div class="accordion-item__container">
@@ -1180,9 +1193,9 @@
         </svg>
     </section>
 
-    <section class="questions-section">
+    <section class="questions-section reveal">
         <div class="questions-section__wrapper">
-            <header class="questions-header  reveal-horizontal reveal-left">
+            <header class="questions-header">
                 <div class="questions-header-tag-container header-tag-container blur-rise">
                     <span class="questions-header-tag-text">FAQ'S</span>
                 </div>
@@ -1196,7 +1209,7 @@
                 </p>
             </header>
 
-            <div class="questions-section__accordion reveal-horizontal reveal-right">
+            <div class="questions-section__accordion">
 
                 <div class="accordion-item is-open">
                     <div class="accordion-item__container">
@@ -2116,7 +2129,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div></div>
     <script src="final.js"></script>
 
 </body>

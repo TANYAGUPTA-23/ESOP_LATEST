@@ -638,36 +638,36 @@ window.addEventListener("load", () => {
   }, 600);
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll(".questions-section");
+// document.addEventListener("DOMContentLoaded", () => {
+//   const sections = document.querySelectorAll(".questions-section");
 
-  const maxOffsetDesktop = 140;
-  const maxOffsetMobile = 60;
+//   const maxOffsetDesktop = 140;
+//   const maxOffsetMobile = 60;
 
-  function onScroll() {
-    sections.forEach(section => {
-      const leftEl = section.querySelector(".reveal-left");
-      const rightEl = section.querySelector(".reveal-right");
-      if (!leftEl || !rightEl) return;
+//   function onScroll() {
+//     sections.forEach(section => {
+//       const leftEl = section.querySelector(".reveal-left");
+//       const rightEl = section.querySelector(".reveal-right");
+//       if (!leftEl || !rightEl) return;
 
-      const rect = section.getBoundingClientRect();
-      const range = window.innerHeight * 0.8;
+//       const rect = section.getBoundingClientRect();
+//       const range = window.innerHeight * 0.8;
 
-      // progress: 0 (top aligned) → 1 (moving away)
-      let progress = rect.top / range;
-      progress = Math.min(Math.max(progress, 0), 1);
+//       // progress: 0 (top aligned) → 1 (moving away)
+//       let progress = rect.top / range;
+//       progress = Math.min(Math.max(progress, 0), 1);
 
-      const maxOffset =
-        window.innerWidth < 768 ? maxOffsetMobile : maxOffsetDesktop;
+//       const maxOffset =
+//         window.innerWidth < 768 ? maxOffsetMobile : maxOffsetDesktop;
 
-      const move = progress * maxOffset;
-      const scale = 1 - progress * 0.04;
+//       const move = progress * maxOffset;
+//       const scale = 1 - progress * 0.04;
 
-      leftEl.style.transform = `translateX(${-move}px) scale(${scale})`;
-      rightEl.style.transform = `translateX(${move}px) scale(${scale})`;
-    });
-  }
+//       leftEl.style.transform = `translateX(${-move}px) scale(${scale})`;
+//       rightEl.style.transform = `translateX(${move}px) scale(${scale})`;
+//     });
+//   }
 
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll(); // initial position
-});
+//   window.addEventListener("scroll", onScroll, { passive: true });
+//   onScroll(); 
+// });
