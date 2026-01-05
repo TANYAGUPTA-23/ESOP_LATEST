@@ -750,7 +750,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 16px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .management-section .upper-heading-container {

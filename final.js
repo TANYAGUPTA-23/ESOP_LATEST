@@ -475,27 +475,6 @@ document.addEventListener("click", (e) => {
 });
 
 
-
-document.addEventListener("DOMContentLoaded", () => {
-  const reveals = document.querySelectorAll(".reveal");
-  if (!reveals.length) return;
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-          observer.unobserve(entry.target); // run once
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
-
-  reveals.forEach(el => observer.observe(el));
-});
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const filterGroups = document.querySelectorAll(".upd-filter-group");
 
@@ -539,29 +518,6 @@ document.addEventListener("DOMContentLoaded", () => {
   revealOnScroll();
 });
 
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll(".partner-card-4");
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("reveal");
-        } else {
-          entry.target.classList.remove("reveal");
-        }
-      });
-    },
-    {
-      threshold: 0.2,
-    }
-  );
-
-  cards.forEach((card) => observer.observe(card));
-});
-
 document.addEventListener("DOMContentLoaded", () => {
 
   function revealServiceCards() {
@@ -587,3 +543,93 @@ document.addEventListener("DOMContentLoaded", () => {
   revealServiceCards();
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Select all elements
+  const runOnceEls = document.querySelectorAll(".reveal");
+  const partnerCards = document.querySelectorAll(".partner-card-4");
+  const sectionCards = document.querySelectorAll(".partner-section .card");
+
+  // Single observer
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        const el = entry.target;
+
+        /* ---------- RUN ONCE ELEMENTS ---------- */
+        if (el.classList.contains("reveal") && el.dataset.once === "true") {
+          if (entry.isIntersecting) {
+            el.classList.add("active");
+            observer.unobserve(el); // run once
+          }
+          return;
+        }
+
+        /* ---------- TOGGLE ELEMENTS ---------- */
+        if (entry.isIntersecting) {
+          el.classList.add("reveal");
+        } else {
+          el.classList.remove("reveal");
+        }
+      });
+    },
+    {
+      threshold: 0.25
+    }
+  );
+
+  /* ---------- OBSERVE RUN-ONCE SECTIONS ---------- */
+  runOnceEls.forEach(el => {
+    el.dataset.once = "true";
+    observer.observe(el);
+  });
+
+  /* ---------- OBSERVE TOGGLE CARDS ---------- */
+  partnerCards.forEach(card => observer.observe(card));
+  sectionCards.forEach(card => observer.observe(card));
+
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(".blur-rise");
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        } else {
+          entry.target.classList.remove("show");
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    }
+  );
+
+  elements.forEach(el => observer.observe(el));
+});
+
+window.addEventListener("load", () => {
+  const loader = document.getElementById("page-loader");
+  const app = document.getElementById("app-root");
+
+  if (!loader) return;
+
+  // Fade out loader
+  loader.style.transition = "opacity 0.6s ease";
+  loader.style.opacity = "0";
+
+  // Reveal app content smoothly
+  if (app) {
+    app.style.transition = "opacity 0.6s ease";
+    app.style.opacity = "1";
+  }
+
+  // Remove loader from DOM
+  setTimeout(() => {
+    loader.remove();
+  }, 600);
+});

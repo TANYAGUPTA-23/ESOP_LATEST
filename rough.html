@@ -1,118 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Reusable SVG Gradient Heading</title>
-
-  <style>
-    body {
-      background: #000;
-      margin: 0;
-      padding: 60px;
-      font-family: Inter, system-ui, sans-serif;
-    }
-
-    /* Wrapper for spacing */
-    .heading-wrapper {
-      margin-bottom: 80px;
-    }
-
-    svg.gradient-heading {
-      width: 900px;
-      overflow: visible;
-      display: block;
-    }
-
-    /* Individual letters */
-    .gradient-heading .letter {
-      opacity: 0;
-      transform: translateY(36px);
-      transition:
-        transform 1.4s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    /* Reveal state */
-    .gradient-heading.show .letter {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Loading Animation</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+<div id="page-loader">
+  <div class="loader-wrapper">
+    <div class="glow-dot"></div>
 
-  <!-- 🔹 Heading 1 -->
-  <div class="heading-wrapper">
-    <svg class="gradient-heading" viewBox="0 0 900 160" aria-label="ESOPs for Global Teams" role="img">
-      <defs>
-        <!-- Gradient is scoped to THIS SVG only -->
-        <linearGradient gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="900" y2="0">
-          <stop offset="51.66%" stop-color="#ffffff"></stop>
-          <stop offset="100%" stop-color="#e11f35"></stop>
-        </linearGradient>
-      </defs>
-
-      <text
-        class="gradient-text"
-        x="0"
-        y="120"
-        font-size="80"
-        font-weight="800"
-        fill="url(#)">
-        ESOPs for Global Teams
-      </text>
-    </svg>
+    <div class="loading-text">
+      <span>L</span><span>o</span><span>a</span><span>d</span>
+      <span>i</span><span>n</span><span>g</span>
+      <span>.</span><span>.</span><span>.</span>
+    </div>
   </div>
+</div>
 
-  <!-- 🔹 Heading 2 (reuse safely) -->
-  <div class="heading-wrapper">
-    <svg class="gradient-heading" viewBox="0 0 900 160" aria-label="Equity Without Borders" role="img">
-      <defs>
-        <linearGradient gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="900" y2="0">
-          <stop offset="51.66%" stop-color="#ffffff"></stop>
-          <stop offset="100%" stop-color="#e11f35"></stop>
-        </linearGradient>
-      </defs>
-
-      <text
-        class="gradient-text"
-        x="0"
-        y="120"
-        font-size="80"
-        font-weight="800"
-        fill="url(#)">
-        Equity Without Borders
-      </text>
-    </svg>
-  </div>
-
-<script>
-  document.querySelectorAll(".gradient-heading").forEach(svg => {
-    const textEl = svg.querySelector(".gradient-text");
-    const gradient = svg.querySelector("linearGradient");
-
-    /* Generate a unique gradient ID */
-    const gradientId = "grad-" + Math.random().toString(36).slice(2);
-    gradient.setAttribute("id", gradientId);
-    textEl.setAttribute("fill", `url(#${gradientId})`);
-
-    const text = textEl.textContent.trim();
-    textEl.textContent = "";
-
-    [...text].forEach((char, i) => {
-      const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-      tspan.textContent = char === " " ? "\u00A0" : char;
-      tspan.classList.add("letter");
-      tspan.style.transitionDelay = `${i * 0.1}s`;
-      textEl.appendChild(tspan);
-    });
-
-    /* Trigger animation */
-    requestAnimationFrame(() => {
-      svg.classList.add("show");
-    });
-  });
-</script>
+<div id="app-root">
+  <!-- your website -->
+</div>
 
 </body>
 </html>
