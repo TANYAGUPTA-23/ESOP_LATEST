@@ -17,7 +17,8 @@
   position: relative;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.7);
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  /* margin-bottom: 0; */
   line-height: 24px;
   max-width: 600px;
 }
@@ -27,6 +28,7 @@
   display: flex;
   justify-content: center;
   padding: 100px 20px;
+  padding-top: 70px;
   overflow-x: hidden;
   position: relative;
   background-color: #041E42 !important;

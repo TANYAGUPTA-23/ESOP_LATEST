@@ -614,7 +614,16 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   elements.forEach(el => observer.observe(el));
+
+  /* 🔥 FIX: handle elements already in viewport */
+  elements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      el.classList.add("show");
+    }
+  });
 });
+
 
 window.addEventListener("load", () => {
   const loader = document.getElementById("page-loader");
@@ -671,3 +680,102 @@ window.addEventListener("load", () => {
 //   window.addEventListener("scroll", onScroll, { passive: true });
 //   onScroll(); 
 // });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const gridCards = document.querySelectorAll(".grid .card");
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("reveal");
+        } else {
+          entry.target.classList.remove("reveal");
+        }
+      });
+    },
+    { threshold: 0.25 }
+  );
+
+  gridCards.forEach(card => observer.observe(card));
+});
+
+// document.addEventListener("DOMContentLoaded", () => {
+
+//   let hasRevealed = false;
+
+//   function revealFeatureCards() {
+//     if (hasRevealed) return;
+
+//     const grid = document.querySelector(".feature-showcase-grid");
+//     if (!grid) return;
+
+//     const rect = grid.getBoundingClientRect();
+//     const windowHeight = window.innerHeight;
+//     const triggerPoint = windowHeight * 0.85;
+
+//     if (rect.top <= triggerPoint) {
+//       const cards = grid.querySelectorAll(".feature-card-wrapper");
+
+//       cards.forEach(card => {
+//         card.classList.add("show");
+//       });
+
+//       hasRevealed = true; 
+//     }
+//   }
+
+//   window.addEventListener("scroll", revealFeatureCards, { passive: true });
+//   revealFeatureCards(); 
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  let lastScrollY = window.scrollY;
+
+  function toggleFeatureCards() {
+    const grid = document.querySelector(".feature-showcase-grid");
+    if (!grid) return;
+
+    const cards = Array.from(
+      grid.querySelectorAll(".feature-card-wrapper")
+    );
+
+    const rect = grid.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    const triggerPoint = windowHeight * 0.85;
+
+    const scrollingDown = window.scrollY > lastScrollY;
+    lastScrollY = window.scrollY;
+
+    if (rect.top <= triggerPoint && rect.bottom >= 0) {
+
+      // 🔽 Scroll DOWN → normal order
+      if (scrollingDown) {
+        cards.forEach(card => card.classList.add("show"));
+      }
+
+      // 🔼 Scroll UP → reverse order
+      else {
+        [...cards].reverse().forEach(card => card.classList.add("show"));
+      }
+
+    } else {
+
+      // 🔼 Scroll UP → hide bottom → top
+      if (!scrollingDown) {
+        [...cards].reverse().forEach(card => card.classList.remove("show"));
+      }
+
+      // 🔽 Scroll DOWN → hide top → bottom
+      else {
+        cards.forEach(card => card.classList.remove("show"));
+      }
+    }
+  }
+
+  window.addEventListener("scroll", toggleFeatureCards, { passive: true });
+  toggleFeatureCards(); // run once on load
+});

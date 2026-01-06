@@ -187,10 +187,10 @@
 }
 
 @media (max-width: 600px) {
-  .gradient-text {
+  /* .gradient-text {
     width: 150px;
     height: auto;
-  }
+  } */
 
   .headline {
     font-size: 40px;
@@ -211,10 +211,10 @@
 }
 
 @media (max-width: 480px) {
-  .gradient-text {
+  /* .gradient-text {
     width: 120px;
     height: 60px;
-  }
+  } */
 
   .headline {
     font-size: 32px;

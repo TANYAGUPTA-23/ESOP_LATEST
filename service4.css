@@ -67,9 +67,9 @@
   max-width: 640px;
 }
 
-.grid-1 {
+/* .grid-1 {
   grid-template-columns: repeat(3, 1fr);
-}
+} */
 
 .card {
   background: linear-gradient(180deg, #1A3D6C 0%, rgba(26, 61, 108, 0) 100%);

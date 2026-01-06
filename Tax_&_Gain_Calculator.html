@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ESOP Management</title>
+<link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="common.css">
 <link rel="stylesheet" href="management_common.css">
   <link rel="stylesheet" href="Tax_&_Gain_Calculator.css" />
@@ -14,7 +15,20 @@
 </head>
 
 <body id="top">
-  <!-- Global SVG definitions (define once) -->
+  <div id="page-loader">
+    <div class="loader-wrapper">
+      <div class="glow-dot"></div>
+
+      <div class="loading-text">
+        <span>L</span><span>o</span><span>a</span><span>d</span>
+        <span>i</span><span>n</span><span>g</span>
+        <span>.</span><span>.</span><span>.</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="app-root">
+    <!-- Global SVG definitions (define once) -->
   <!-- Global SVG definitions (define once) -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
@@ -292,18 +306,18 @@
 
   <!-- ================= HERO SECTION ================= -->
   <div class="hero-section">
-    <div class="container reveal">
+    <div class="container">
 
-      <div class="top-ad-banner all-banners">
+      <div class="top-ad-banner all-banners blur-rise">
         <img src="./assets/hero.svg" alt="">
         Accounting Module
       </div>
 
-      <h1 class="headline gradient-text1">
+      <h1 class="headline gradient-text1 text-reveal">
         ESOP Tax & Capital Gain Calculator
       </h1>
 
-      <p class="subtitle">
+      <p class="subtitle blur-rise">
         Manage equity taxation with confidence through an automated solution designed to meet legal, regulatory, and
         statutory requirements. The module calculates perquisite tax at exercise and capital gains at sale, applying
         built-in tax logic aligned with applicable laws.
@@ -315,15 +329,15 @@
 
 
   <div class="service-hero-section service-hero-section-last">
-    <div class="service-hero-container reveal">
-      <span class="service-why-badge top-ad-banner all-banners">
+    <div class="service-hero-container">
+      <span class="service-why-badge top-ad-banner all-banners blur-rise">
         <img src="./assets/hero.svg" alt=""> Core Capabilities
       </span>
-      <h1 class="service-hero-heading service-hero-gradient-text service-hero-gradient-text-4">
+      <h1 class="service-hero-heading text-reveal service-hero-gradient-text service-hero-gradient-text-4">
         Comprehensive Tax Management Features
       </h1>
 
-      <p class="service-hero-subtitle service-hero-subtitle-4">
+      <p class="service-hero-subtitle blur-rise service-hero-subtitle-4">
         Complete automation for perquisite tax and capital gains calculations with security and compliance
       </p>
       <div class="feature-showcase-grid">
@@ -461,12 +475,12 @@
 
 
   <div class="service-hero-section service-hero-section-last">
-    <div class="service-hero-container reveal">
-      <h1 class="service-hero-heading service-hero-gradient-text ">
+    <div class="service-hero-container">
+      <h1 class="service-hero-heading text-reveal service-hero-gradient-text ">
         Complete Tax Management Solution
       </h1>
 
-      <p class="service-hero-subtitle ">
+      <p class="service-hero-subtitle blur-rise ">
         From calculation to compliance, everything you need in one platform
       </p>
       <section class="partner-section partner-section--four">
@@ -505,15 +519,15 @@
                 </svg>
       </section>
 
-      <div class="four_grid reveal">
+      <div class="four_grid">
         <div class="service-why-grid service-why-section-2">
 
           <div class="trust_structure_heading">
-            <h1 class="service-hero-heading service-hero-gradient-text service-hero-gradient-text-4">
+            <h1 class="service-hero-heading text-reveal service-hero-gradient-text service-hero-gradient-text-4">
               How It Works
             </h1>
 
-            <p class="service-hero-subtitle service-hero-subtitle-3">
+            <p class="service-hero-subtitle blur-rise service-hero-subtitle-3">
               Comprehensive tax automation from calculation to reporting
             </p>
           </div>
@@ -640,15 +654,15 @@
   <section class="management-section">
     <div class="upper-wrapper reveal">
       <header class="questions-header">
-        <div class="upper-heading-container">
+        <div class="upper-heading-container blur-rise">
           <div class="stroke stroke-left"></div>
           <p class="middle-text">Reach out anytime</p>
           <div class="stroke stroke-right"></div>
         </div>
-        <h3 class="questions-header-title">
+        <h3 class="questions-header-title text-reveal">
           Optimize Your Equity Management
           </h3>
-          <p class="questions-header-subtitle">
+          <p class="questions-header-subtitle blur-rise">
             An all-inclusive platform designed to streamline and enhance the entire process of equity
             management, ensuring a seamless experience for users.</p>
       </header>
@@ -670,11 +684,11 @@
   </section>
 
   <section class="certified-section reveal">
-    <h2 class="certified-title">
+    <h2 class="certified-title text-reveal">
       Certified & Trusted
     </h2>
 
-    <div class="certified-cards">
+    <div class="certified-cards blur-rise">
       <div class="cert-card">
         <div class="icon-circle  bubble-div">
           <!-- Shield Icon(SVG – scalable & crisp) -->
@@ -1111,6 +1125,7 @@
         </div>
   </div>
 
+  </div>
   <script src="final.js"></script>
 </body>
 

@@ -19,6 +19,7 @@ body.no-scroll {
 html,
 body {
     overflow: visible;
+    overflow-x: hidden;
 }
 
 .navbar {
@@ -2260,4 +2261,8 @@ a {
   opacity: 1;
   transform: translateY(0) scale(1);
   filter: blur(0);
+}
+
+.color-text-width{
+  max-width: max-content;
 }

@@ -34,10 +34,55 @@
 }
 
 @media (max-width: 1400px) {
+  .hero-section {
+    padding: 60px 0 60px 0;
+    align-items: center;
+    background-position: center 0px;
+  }
+
   .spm-section:first-of-type {
     padding-top: 0;
   }
 }
+
+@media (max-width: 992px) {
+  .hero-section {
+    padding: 60px 0 60px 0;
+    background-position: center 0px;
+  }
+
+  .hero-section .subtitle {
+    font-size: 18px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-section {
+    padding: 60px 0 60px 0;
+    align-items: center;
+    background-position: center 0px;
+  }
+}
+
+@media (max-height: 900px) {
+  .hero-section {
+    background-position: center 0px;
+  }
+}
+
+@media (max-height: 700px) {
+  .hero-section {
+    background-position: center 0px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-section {
+    background-position: center 0px;
+  }
+}
+
 
 
 .spm-section {
@@ -179,6 +224,9 @@
   margin-bottom: 12px;
   font-size: 16px;
   color: #cbd5e1;
+}
+.spm-feature-list-2 li{
+  flex-wrap: nowrap;
 }
 
 .spm-check {
@@ -611,12 +659,13 @@ h1 {
 
   .section-header {
     flex-direction: column;
-    align-items: flex-start;
+    /* align-items: flex-start; */
     text-align: left;
   }
 
   .sub-text {
     text-align: left;
+    font-size: 1rem;
   }
 
   .card {
@@ -655,6 +704,9 @@ h1 {
   .gradient-text {
     font-size: 1.5rem;
     width: 100%;
+    height: auto;
+    line-height: normal;
+
   }
 
   .section-header {
@@ -771,3 +823,27 @@ h1 {
     transform: translateX(8px);
   }
 }
+
+
+
+/* INITIAL STATE — same as partner-card-4 */
+.grid .card {
+  opacity: 0;
+  transform: translateX(80px) scale(0.85);
+  transition:
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.9s ease;
+  will-change: transform, opacity;
+}
+
+/* VISIBLE STATE */
+.grid .card.reveal {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+/* STAGGER — exact timing */
+.grid .card:nth-child(1) { transition-delay: 0.1s; }
+.grid .card:nth-child(2) { transition-delay: 0.25s; }
+.grid .card:nth-child(3) { transition-delay: 0.4s; }
+.grid .card:nth-child(4) { transition-delay: 0.55s; }
