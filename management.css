@@ -715,3 +715,37 @@ h1 {
 .grid .card:nth-child(2) { transition-delay: 0.25s; }
 .grid .card:nth-child(3) { transition-delay: 0.4s; }
 .grid .card:nth-child(4) { transition-delay: 0.55s; }
+
+.bottom__explore-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: auto;
+  height: 48px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: #FFFFFF;
+  background: transparent;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.bottom__explore-button img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+.bottom__explore-button:hover img {
+  transform: rotate(45deg);
+}
+
+
+.bottom__explore-button:hover {
+  background-color: rgba(255, 255, 255, 0.154);
+}

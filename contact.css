@@ -249,6 +249,11 @@
   margin-bottom: 25px;
 }
 
+.radio-group-2 {
+  flex-direction: column !important;
+  gap: 4px;
+}
+
 .radio-group label {
   color: #ffffff;
   font-size: 0.9rem;

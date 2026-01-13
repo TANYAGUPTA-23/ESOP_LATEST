@@ -18,8 +18,15 @@ body.no-scroll {
 
 html,
 body {
-    overflow: visible;
     overflow-x: hidden;
+}
+
+html:has(.modal-overlay.active),
+body:has(.modal-overlay.active),
+html:has(.success-overlay.active),
+body:has(.success-overlay.active) {
+    overflow: hidden;
+    height: 100vh;
 }
 
 .navbar {
@@ -1640,9 +1647,10 @@ body {
 }
 
 .form-row {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 15px;
 }
 
 input,

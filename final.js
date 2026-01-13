@@ -1,74 +1,22 @@
+// Fades out the page loader and smoothly reveals the main app content on load
+window.addEventListener("load", () => {
+  const loader = document.getElementById("page-loader");
+  const app = document.getElementById("app-root");
 
-
-const tabss = document.querySelectorAll(".stakeholder-tab");
-const contentWrappers = document.querySelectorAll(".content-text-wrapper");
-
-tabss.forEach((tab, index) => {
-  tab.addEventListener("click", () => {
-    // Remove active class from all tabs and content
-    tabss.forEach((t) => t.classList.remove("active"));
-    contentWrappers.forEach((c) => c.classList.remove("active"));
-
-    // Add active class to clicked tab and corresponding content
-    tab.classList.add("active");
-    contentWrappers[index].classList.add("active");
-  });
-});
-
-const tabs = document.querySelectorAll(".stakeholder-tab");
-const images = document.querySelectorAll(".details-media-image");
-
-tabs.forEach((tab, index) => {
-  tab.addEventListener("click", () => {
-    // Active tab
-    tabs.forEach((t) => t.classList.remove("active"));
-    tab.classList.add("active");
-
-    // Active image
-    images.forEach((img) => img.classList.remove("active"));
-    images[index].classList.add("active");
-  });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const chooseContainer = document.querySelector(".choose-sticky-container");
-  const chooseSection = document.querySelector(".choose-section");
-  const benefitsSection = document.querySelector(".benefits-section");
-
-  if (!chooseContainer || !chooseSection || !benefitsSection) return;
-
-  // the original order declared in the HTML.
-  try {
-    if (chooseContainer.nextElementSibling !== benefitsSection) {
-      benefitsSection.parentNode.insertBefore(chooseContainer, benefitsSection);
-    }
-  } catch (e) {
-    // If insertion fails for any reason, continue — measuring will still run
-    // against whatever elements exist. This prevents throwing in older browsers.
-    console.warn("Could not re-order choose/benefits sections:", e);
+  if (!loader) return;
+  loader.style.transition = "opacity 0.6s ease";
+  loader.style.opacity = "0";
+  if (app) {
+    app.style.transition = "opacity 0.6s ease";
+    app.style.opacity = "1";
   }
 
-  function updateChooseOffset() {
-    // Round up to avoid sub-pixel gaps
-    const h = Math.ceil(chooseSection.getBoundingClientRect().height);
-    // expose CSS variable (used by CSS as fallback)
-    document.documentElement.style.setProperty("--choose-height", `${h}px`);
-    // apply explicit inline margin so layout reacts immediately
-    benefitsSection.style.marginTop = `-${h}px`;
-  }
-
-  // initial
-  updateChooseOffset();
-
-  // update on resize (debounced)
-  let resizeTimer = null;
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(updateChooseOffset, 120);
-  });
+  setTimeout(() => {
+    loader.remove();
+  }, 600);
 });
 
-// final.js
+// Controls opening and closing of the mobile navigation menu and overlay
 const hamburgerBtn = document.getElementById("hamburger-btn");
 const mobileNav = document.getElementById("mobile-nav");
 const mobileOverlay = document.getElementById("mobile-overlay");
@@ -92,23 +40,20 @@ hamburgerBtn.addEventListener("click", () => {
   }
 });
 
+// Closes the mobile menu when a valid navigation link is clicked
 document.querySelectorAll(".mobile-links a").forEach((link) => {
   link.addEventListener("click", (e) => {
-
-    // ❌ Do NOT close menu for accordion triggers
     if (
-      link.classList.contains("mobile-main-link") || // level 1
-      link.closest(".mobile-subgroup") &&             // inside offerings
-      !link.classList.contains("mobile-submenu-highlight") // except Pricing
+      link.classList.contains("mobile-main-link") ||
+      (link.closest(".mobile-subgroup") &&
+        !link.classList.contains("mobile-submenu-highlight"))
     ) {
       return;
     }
 
-    closeMenu(); // ✅ only real navigation links
+    closeMenu();
   });
 });
-
-
 
 mobileOverlay.addEventListener("click", closeMenu);
 
@@ -118,6 +63,101 @@ window.addEventListener("resize", () => {
   }
 });
 
+// Handles expand/collapse behavior for mobile main menu and nested submenu items
+document.addEventListener("click", (e) => {
+  /* ===== LEVEL 2: OFFERINGS ===== */
+  const subgroup = e.target.closest(".mobile-subgroup-title");
+  if (subgroup) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const wrapper = subgroup.closest(".mobile-subgroup");
+    if (!wrapper) return;
+
+    wrapper.classList.toggle("open");
+    return;
+  }
+
+  /* ===== LEVEL 1: MAIN MENU ===== */
+  const mainLink = e.target.closest(".mobile-main-link");
+  if (mainLink) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const currentItem = mainLink.closest(".mobile-item");
+    if (!currentItem) return;
+
+    const isOpen = currentItem.classList.contains("open");
+
+    document
+      .querySelectorAll(".mobile-item.open")
+      .forEach((item) => item.classList.remove("open"));
+
+    if (!isOpen) {
+      currentItem.classList.add("open");
+    }
+  }
+});
+
+// Animates core rings in sequence and updates country code text based on select input
+document.addEventListener("DOMContentLoaded", () => {
+  const rings = document.querySelectorAll(".core-ring");
+
+  if (rings.length > 0) {
+    let step = 0;
+
+    setInterval(() => {
+      rings.forEach((r) => (r.style.opacity = 0));
+
+      if (step >= 1 && rings[0]) rings[0].style.opacity = 1;
+      if (step >= 2 && rings[1]) rings[1].style.opacity = 1;
+      if (step >= 3 && rings[2]) rings[2].style.opacity = 1;
+
+      step = (step + 1) % 4;
+    }, 900);
+  }
+
+  const select = document.querySelector(".country-select");
+  const text = document.querySelector(".code-text");
+
+  if (select && text) {
+    text.textContent = select.value;
+
+    select.addEventListener("change", () => {
+      text.textContent = select.value;
+    });
+  }
+});
+
+// Handles tab switching between tabs and their corresponding content
+const tabss = document.querySelectorAll(".stakeholder-tab");
+const contentWrappers = document.querySelectorAll(".content-text-wrapper");
+
+tabss.forEach((tab, index) => {
+  tab.addEventListener("click", () => {
+    tabss.forEach((t) => t.classList.remove("active"));
+    contentWrappers.forEach((c) => c.classList.remove("active"));
+
+    tab.classList.add("active");
+    contentWrappers[index].classList.add("active");
+  });
+});
+
+// Syncs stakeholder tabs with their corresponding images on click
+const tabs = document.querySelectorAll(".stakeholder-tab");
+const images = document.querySelectorAll(".details-media-image");
+
+tabs.forEach((tab, index) => {
+  tab.addEventListener("click", () => {
+    tabs.forEach((t) => t.classList.remove("active"));
+    tab.classList.add("active");
+
+    images.forEach((img) => img.classList.remove("active"));
+    images[index].classList.add("active");
+  });
+});
+
+// Plays the YouTube video on button click and hides the overlay
 document.addEventListener("DOMContentLoaded", () => {
   const playButton = document.getElementById("playButton");
   const videoOverlay = document.getElementById("videoOverlay");
@@ -137,6 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// Handles accordion expand/collapse behavior and ensures only one item is open at a time
 document.addEventListener("DOMContentLoaded", () => {
   const accordions = document.querySelectorAll(".questions-section__accordion");
 
@@ -175,13 +216,11 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Open first item of EACH accordion by default
     if (items.length) {
       toggleContent(items[0], true);
     }
   });
 });
-
 
 // Initialize testimonials marquee
 document.addEventListener("DOMContentLoaded", () => {
@@ -274,10 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  function setupModal({
-    openBtnId,
-    modalSelector
-  }) {
+  function setupModal({ openBtnId, modalSelector }) {
     const openBtn = document.getElementById(openBtnId);
     const modal = document.querySelector(modalSelector);
 
@@ -303,13 +339,13 @@ document.addEventListener("DOMContentLoaded", () => {
     form?.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      // 1️⃣ HTML5 validation
+      // HTML5 validation
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
       }
 
-      // 2️⃣ Extra phone validation
+      // Extra phone validation
       const phoneInput = form.querySelector('input[type="tel"]');
       const phone = phoneInput?.value.trim();
 
@@ -331,82 +367,17 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===== INIT BOTH MODALS ===== */
   setupModal({
     openBtnId: "openModal",
-    modalSelector: ".modal-overlay"
+    modalSelector: ".modal-overlay",
   });
 
   setupModal({
     openBtnId: "openModal2",
-    modalSelector: ".brochure-modal-overlay"
+    modalSelector: ".brochure-modal-overlay",
   });
 });
 
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const reveals = document.querySelectorAll(".reveal");
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-        } else {
-          entry.target.classList.remove("active");
-        }
-      });
-    },
-    {
-      threshold: 0.2
-    }
-  );
-
-  reveals.forEach(el => observer.observe(el));
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-
-  /* =========================
-     RIPPLE RINGS (SAFE)
-  ========================= */
-
-  const rings = document.querySelectorAll('.core-ring');
-
-  if (rings.length > 0) {
-    let step = 0;
-
-    setInterval(() => {
-      rings.forEach(r => r.style.opacity = 0);
-
-      if (step >= 1 && rings[0]) rings[0].style.opacity = 1;
-      if (step >= 2 && rings[1]) rings[1].style.opacity = 1;
-      if (step >= 3 && rings[2]) rings[2].style.opacity = 1;
-
-      step = (step + 1) % 4;
-    }, 900);
-  }
-
-  /* =========================
-     COUNTRY CODE SELECT
-  ========================= */
-
-  const select = document.querySelector('.country-select');
-  const text = document.querySelector('.code-text');
-
-  if (select && text) {
-    text.textContent = select.value;
-
-    select.addEventListener('change', () => {
-      text.textContent = select.value;
-    });
-  }
-
-
-});
-
+// Manages active state for type selectors and tab groups using event delegation
 document.addEventListener("click", (e) => {
-
-  /* ===== TYPE SELECTOR ===== */
   const typeBtn = e.target.closest(".type-btn");
   if (typeBtn) {
     const group = typeBtn.closest(".type-selector");
@@ -415,14 +386,14 @@ document.addEventListener("click", (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    group.querySelectorAll(".type-btn")
-      .forEach(btn => btn.classList.remove("active"));
+    group
+      .querySelectorAll(".type-btn")
+      .forEach((btn) => btn.classList.remove("active"));
 
     typeBtn.classList.add("active");
-    return; // stop here so tab logic doesn't run
+    return;
   }
 
-  /* ===== TAB GROUP ===== */
   const tab = e.target.closest(".tab");
   if (tab) {
     const group = tab.closest(".tab-group");
@@ -431,351 +402,149 @@ document.addEventListener("click", (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    group.querySelectorAll(".tab")
-      .forEach(t => t.classList.remove("active"));
+    group.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
 
     tab.classList.add("active");
   }
-
 });
 
-
-document.addEventListener("click", (e) => {
-
-  /* ===== LEVEL 2: OFFERINGS ===== */
-  const subgroup = e.target.closest(".mobile-subgroup-title");
-  if (subgroup) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    const wrapper = subgroup.closest(".mobile-subgroup");
-    if (!wrapper) return;
-
-    wrapper.classList.toggle("open");
-    return; // 🔥 stop here, do NOT touch parent
-  }
-
-  /* ===== LEVEL 1: MAIN MENU ===== */
-  const mainLink = e.target.closest(".mobile-main-link");
-  if (mainLink) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    const currentItem = mainLink.closest(".mobile-item");
-    if (!currentItem) return;
-
-    const isOpen = currentItem.classList.contains("open");
-
-    // close other main menus
-    document.querySelectorAll(".mobile-item.open")
-      .forEach(item => item.classList.remove("open"));
-
-    // toggle current
-    if (!isOpen) {
-      currentItem.classList.add("open");
-    }
-  }
-
-});
-
-
+// Manages active state switching within each filter button group
 document.addEventListener("DOMContentLoaded", () => {
   const filterGroups = document.querySelectorAll(".upd-filter-group");
 
-  filterGroups.forEach(group => {
+  filterGroups.forEach((group) => {
     const buttons = group.querySelectorAll(".upd-filter-btn");
 
-    buttons.forEach(button => {
+    buttons.forEach((button) => {
       button.addEventListener("click", () => {
-        // Remove active from all buttons in this group
-        buttons.forEach(btn => btn.classList.remove("active"));
+        buttons.forEach((btn) => btn.classList.remove("active"));
 
-        // Add active to clicked button
         button.classList.add("active");
       });
     });
   });
 });
 
+// Handles all viewport-based reveal animations (run-once and toggle) using a single IntersectionObserver
 document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(
+    ".reveal, .blur-rise, .grid .card, .partner-card-4, .partner-section .card"
+  );
 
-  function revealOnScroll() {
-    const elements = document.querySelectorAll(".text-reveal");
-    const windowHeight = window.innerHeight;
-
-    elements.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      const triggerPoint = windowHeight * 0.9;
-
-      if (rect.top <= triggerPoint && rect.bottom >= 0) {
-        el.classList.add("show");
-      } else {
-        el.classList.remove("show");
-      }
-    });
-  }
-
-  // Run on scroll
-  window.addEventListener("scroll", revealOnScroll);
-
-  // Run once on load (VERY IMPORTANT for deployed sites)
-  revealOnScroll();
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  function revealServiceCards() {
-    const cards = document.querySelectorAll(".service-why-card");
-    const windowHeight = window.innerHeight;
-
-    cards.forEach(card => {
-      const rect = card.getBoundingClientRect();
-      const triggerPoint = windowHeight * 0.85;
-
-      if (rect.top <= triggerPoint && rect.bottom >= 0) {
-        card.classList.add("show");
-      } else {
-        card.classList.remove("show");
-      }
-    });
-  }
-
-  // Run on scroll
-  window.addEventListener("scroll", revealServiceCards);
-
-  // Run once on load (CRITICAL for deployed sites)
-  revealServiceCards();
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  // Select all elements
-  const runOnceEls = document.querySelectorAll(".reveal");
-  const partnerCards = document.querySelectorAll(".partner-card-4");
-  const sectionCards = document.querySelectorAll(".partner-section .card");
-
-  // Single observer
   const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
+    (entries) => {
+      entries.forEach((entry) => {
         const el = entry.target;
+        const isVisible = entry.isIntersecting;
 
-        /* ---------- RUN ONCE ELEMENTS ---------- */
-        if (el.classList.contains("reveal") && el.dataset.once === "true") {
-          if (entry.isIntersecting) {
-            el.classList.add("active");
-            observer.unobserve(el); // run once
+        // RUN-ONCE ELEMENTS
+        if (el.dataset.once === "true") {
+          if (isVisible) {
+            el.classList.add("active", "show", "reveal");
+            observer.unobserve(el);
           }
           return;
         }
 
-        /* ---------- TOGGLE ELEMENTS ---------- */
-        if (entry.isIntersecting) {
-          el.classList.add("reveal");
-        } else {
-          el.classList.remove("reveal");
+        // NORMAL TOGGLE ELEMENTS
+        if (el.classList.contains("blur-rise")) {
+          el.classList.toggle("show", isVisible);
+        }
+
+        if (el.classList.contains("reveal")) {
+          el.classList.toggle("active", isVisible);
+        }
+
+        if (
+          el.matches(".grid .card, .partner-card-4, .partner-section .card")
+        ) {
+          el.classList.toggle("reveal", isVisible);
         }
       });
     },
     {
-      threshold: 0.25
+      threshold: 0.2,
+      rootMargin: "0px 0px -50px 0px",
     }
   );
 
-  /* ---------- OBSERVE RUN-ONCE SECTIONS ---------- */
-  runOnceEls.forEach(el => {
-    el.dataset.once = "true";
-    observer.observe(el);
-  });
-
-  /* ---------- OBSERVE TOGGLE CARDS ---------- */
-  partnerCards.forEach(card => observer.observe(card));
-  sectionCards.forEach(card => observer.observe(card));
-
+  elements.forEach((el) => observer.observe(el));
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const elements = document.querySelectorAll(".blur-rise");
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        } else {
-          entry.target.classList.remove("show");
-        }
-      });
-    },
-    {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px"
-    }
-  );
-
-  elements.forEach(el => observer.observe(el));
-
-  /* 🔥 FIX: handle elements already in viewport */
-  elements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      el.classList.add("show");
-    }
-  });
-});
-
-
-window.addEventListener("load", () => {
-  const loader = document.getElementById("page-loader");
-  const app = document.getElementById("app-root");
-
-  if (!loader) return;
-
-  // Fade out loader
-  loader.style.transition = "opacity 0.6s ease";
-  loader.style.opacity = "0";
-
-  // Reveal app content smoothly
-  if (app) {
-    app.style.transition = "opacity 0.6s ease";
-    app.style.opacity = "1";
-  }
-
-  // Remove loader from DOM
-  setTimeout(() => {
-    loader.remove();
-  }, 600);
-});
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   const sections = document.querySelectorAll(".questions-section");
-
-//   const maxOffsetDesktop = 140;
-//   const maxOffsetMobile = 60;
-
-//   function onScroll() {
-//     sections.forEach(section => {
-//       const leftEl = section.querySelector(".reveal-left");
-//       const rightEl = section.querySelector(".reveal-right");
-//       if (!leftEl || !rightEl) return;
-
-//       const rect = section.getBoundingClientRect();
-//       const range = window.innerHeight * 0.8;
-
-//       // progress: 0 (top aligned) → 1 (moving away)
-//       let progress = rect.top / range;
-//       progress = Math.min(Math.max(progress, 0), 1);
-
-//       const maxOffset =
-//         window.innerWidth < 768 ? maxOffsetMobile : maxOffsetDesktop;
-
-//       const move = progress * maxOffset;
-//       const scale = 1 - progress * 0.04;
-
-//       leftEl.style.transform = `translateX(${-move}px) scale(${scale})`;
-//       rightEl.style.transform = `translateX(${move}px) scale(${scale})`;
-//     });
-//   }
-
-//   window.addEventListener("scroll", onScroll, { passive: true });
-//   onScroll(); 
-// });
-
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  const gridCards = document.querySelectorAll(".grid .card");
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("reveal");
-        } else {
-          entry.target.classList.remove("reveal");
-        }
-      });
-    },
-    { threshold: 0.25 }
-  );
-
-  gridCards.forEach(card => observer.observe(card));
-});
-
-// document.addEventListener("DOMContentLoaded", () => {
-
-//   let hasRevealed = false;
-
-//   function revealFeatureCards() {
-//     if (hasRevealed) return;
-
-//     const grid = document.querySelector(".feature-showcase-grid");
-//     if (!grid) return;
-
-//     const rect = grid.getBoundingClientRect();
-//     const windowHeight = window.innerHeight;
-//     const triggerPoint = windowHeight * 0.85;
-
-//     if (rect.top <= triggerPoint) {
-//       const cards = grid.querySelectorAll(".feature-card-wrapper");
-
-//       cards.forEach(card => {
-//         card.classList.add("show");
-//       });
-
-//       hasRevealed = true; 
-//     }
-//   }
-
-//   window.addEventListener("scroll", revealFeatureCards, { passive: true });
-//   revealFeatureCards(); 
-// });
-
-document.addEventListener("DOMContentLoaded", () => {
-
   let lastScrollY = window.scrollY;
+  let scrollAnimationsEnabled = false;
+  let ticking = false;
 
-  function toggleFeatureCards() {
-    const grid = document.querySelector(".feature-showcase-grid");
-    if (!grid) return;
+  // Cache DOM references ONCE
+  const featureGrid = document.querySelector(".feature-showcase-grid");
+  const featureCards = featureGrid
+    ? [...featureGrid.querySelectorAll(".feature-card-wrapper")]
+    : [];
 
-    const cards = Array.from(
-      grid.querySelectorAll(".feature-card-wrapper")
-    );
+  const textReveals = [...document.querySelectorAll(".text-reveal")];
+  const serviceCards = [...document.querySelectorAll(".service-why-card")];
 
-    const rect = grid.getBoundingClientRect();
+  function onScrollAnimations() {
+    if (!scrollAnimationsEnabled) return;
+
     const windowHeight = window.innerHeight;
-    const triggerPoint = windowHeight * 0.85;
+    const currentScrollY = window.scrollY;
+    const scrollingDown = currentScrollY > lastScrollY;
+    lastScrollY = currentScrollY;
 
-    const scrollingDown = window.scrollY > lastScrollY;
-    lastScrollY = window.scrollY;
+    /* ================= FEATURE SHOWCASE ================= */
+    if (featureGrid) {
+      const rect = featureGrid.getBoundingClientRect();
+      const triggerPoint = windowHeight * 0.85;
+      const cards = scrollingDown ? featureCards : [...featureCards].reverse();
 
-    if (rect.top <= triggerPoint && rect.bottom >= 0) {
-
-      // 🔽 Scroll DOWN → normal order
-      if (scrollingDown) {
-        cards.forEach(card => card.classList.add("show"));
-      }
-
-      // 🔼 Scroll UP → reverse order
-      else {
-        [...cards].reverse().forEach(card => card.classList.add("show"));
-      }
-
-    } else {
-
-      // 🔼 Scroll UP → hide bottom → top
-      if (!scrollingDown) {
-        [...cards].reverse().forEach(card => card.classList.remove("show"));
-      }
-
-      // 🔽 Scroll DOWN → hide top → bottom
-      else {
-        cards.forEach(card => card.classList.remove("show"));
+      if (rect.top <= triggerPoint && rect.bottom >= 0) {
+        cards.forEach((card) => card.classList.add("show"));
+      } else {
+        cards.forEach((card) => card.classList.remove("show"));
       }
     }
+
+    /* ================= TEXT REVEAL ================= */
+    textReveals.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      el.classList.toggle(
+        "show",
+        rect.top <= windowHeight * 0.9 && rect.bottom >= 0
+      );
+    });
+
+    /* ================= SERVICE CARDS ================= */
+    serviceCards.forEach((card) => {
+      const rect = card.getBoundingClientRect();
+      card.classList.toggle(
+        "show",
+        rect.top <= windowHeight * 0.85 && rect.bottom >= 0
+      );
+    });
   }
 
-  window.addEventListener("scroll", toggleFeatureCards, { passive: true });
-  toggleFeatureCards(); // run once on load
+  // rAF-throttled scroll listener
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          onScrollAnimations();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
+
+  //  Enable scroll animations AFTER first paint
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      scrollAnimationsEnabled = true;
+      onScrollAnimations(); 
+    });
+  });
 });
