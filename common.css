@@ -338,6 +338,7 @@ body:has(.success-overlay.active) {
 .nav-center a,
 .dropdown-menu a {
   position: relative;
+  width: fit-content;
 }
 
 

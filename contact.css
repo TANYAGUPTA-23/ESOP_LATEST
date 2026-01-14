@@ -349,7 +349,7 @@ select {
   background: #2E5180;
   padding: 12px;
   color: #fff;
-  font-family: "Raleway";
+  font-family: "Inter", sans-serif;
 }
 
 .phone-input input:focus {

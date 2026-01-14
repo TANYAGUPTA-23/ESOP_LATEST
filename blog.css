@@ -132,6 +132,13 @@ p {
   vertical-align: middle;
   color: rgba(255, 255, 255, 0.6);
 }
+.main-intro-text{
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0%;
+}
 
 .related-card {
   background: rgba(255, 255, 255, 0.05);

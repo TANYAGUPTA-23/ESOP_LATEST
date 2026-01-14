@@ -34,6 +34,10 @@
   max-width: 540px;
 }
 
+.service-hero-gradient-text-5{
+  max-width: 400px;
+}
+
 .service-hero-subtitle-2 {
   max-width: 390px;
 }
@@ -284,4 +288,8 @@
 
 .service-why-section-2 .service-button button:hover {
   background: rgba(255, 255, 255, 0.08);
+}
+
+.service-why-section-2 .service-button button:hover img {
+  transform: rotate(45deg);
 }

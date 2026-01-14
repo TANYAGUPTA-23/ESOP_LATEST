@@ -873,8 +873,17 @@
                 <span>+91</span>
 
               </div>
-              <input type="tel" placeholder="Phone number" required pattern="[6-9][0-9]{9}"
-                title="Enter a valid 10-digit Indian mobile number">
+              <input
+                type="tel"
+                placeholder="Phone number"
+                required
+                inputmode="numeric"
+                maxlength="10"
+                pattern="[6-9][0-9]{9}"
+                title="Enter a valid 10-digit Indian mobile number"
+                oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)"
+              >
+
             </div>
           </div>
 
@@ -1029,8 +1038,17 @@
                   <img src="./assets/Frame.svg" alt="">
                 </span> -->
                             </div>
-                            <input class="brochure-input" type="tel" placeholder="Phone number" required
-                                pattern="[6-9][0-9]{9}" title="Enter a valid 10-digit Indian mobile number">
+                          <input
+                            class="brochure-input"
+                            type="tel"
+                            placeholder="Phone number"
+                            required
+                            inputmode="numeric"
+                            maxlength="10"
+                            pattern="[6-9][0-9]{9}"
+                            title="Enter a valid 10-digit Indian mobile number"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)"
+                          >
                         </div>
                     </div>
 
