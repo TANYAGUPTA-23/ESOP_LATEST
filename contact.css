@@ -414,7 +414,7 @@ textarea::placeholder {
   cursor: pointer;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   gap: 6px;
 }
 
@@ -431,4 +431,25 @@ textarea::placeholder {
 
 .contact-link{
   color: rgba(225, 31, 53, 1) !important;
+}
+
+.success-overlay {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.success-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.no-scroll {
+  overflow: hidden;
 }

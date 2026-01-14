@@ -360,7 +360,8 @@
               <button class="tab">Organisation</button>
             </div>
 
-            <form>
+            <form id="contactForm">
+
               <div class="radio-group radio-group-2">
                 <label>Visit Partnership</label>
                 <div class="radio-options">
@@ -370,9 +371,9 @@
               </div>
 
               <div class="form-grid">
-                <input type="text" placeholder="First name">
-                <input type="text" placeholder="Last name">
-                <input type="email" placeholder="Enter email address">
+                <input type="text" placeholder="First name" required>
+                <input type="text" placeholder="Last name" required>
+                <input type="email" placeholder="Enter email address" required>
                 <div class="phone-input">
                   <div class="country-code">
 
@@ -392,25 +393,52 @@
 
                 </div>
 
-                <select>
-                  <option>Select Country</option>
+                <select required>
+                  <option value="" disabled selected hidden>Select Country</option>
+                  <option value="india">India</option>
+                  <option value="usa">United States</option>
+                  <option value="uk">United Kingdom</option>
+                  <option value="canada">Canada</option>
+                  <option value="australia">Australia</option>
                 </select>
-                <select>
-                  <option>Select State</option>
+
+                <select required>
+                  <option value="" disabled selected hidden>Select State</option>
+                  <option value="up">Uttar Pradesh</option>
+                  <option value="mh">Maharashtra</option>
+                  <option value="dl">Delhi</option>
+                  <option value="ka">Karnataka</option>
+                  <option value="tn">Tamil Nadu</option>
                 </select>
-                <select>
-                  <option>Select Service</option>
+
+                <select required>
+                  <option value="" disabled selected hidden>Select Service</option>
+                  <option value="esop">ESOP Advisory</option>
+                  <option value="valuation">Company Valuation</option>
+                  <option value="compliance">Legal & Compliance</option>
+                  <option value="funding">Startup Funding</option>
+                  <option value="tax">Tax Planning</option>
                 </select>
-                <select class="selected-option">
-                  <option>Select Service</option>
+
+                <select class="selected-option" required>
+                  <option value="" disabled selected hidden>Select Service</option>
+                  <option value="demo">Product Demo</option>
+                  <option value="consultation">1-on-1 Consultation</option>
+                  <option value="onboarding">Platform Onboarding</option>
+                  <option value="support">Customer Support</option>
+                  <option value="training">Training Session</option>
                 </select>
+
               </div>
 
-              <textarea placeholder="Tell us how can we help you..."></textarea>
+              <textarea placeholder="Tell us how can we help you..." required></textarea>
 
-              <button type="submit" class="submit-btn">
-                Send Message <span><img src="./assets/arrow-right.svg" alt=""></span>
-              </button>
+<button type="button" class="submit-btn" id="openContactSuccess">
+  Send Message <span><img src="./assets/arrow-right.svg" alt=""></span>
+</button>
+
+
+
             </form>
           </main>
 
@@ -1056,6 +1084,34 @@
         </div>
       </div>
     </div>
+    <!-- ===== SUCCESS OVERLAY ===== -->
+<div class="success-overlay success-ui" id="contactSuccess">
+  <div class="modal-container-1 success-ui">
+    <div class="success-card success-ui">
+                <div class="success-emoji">
+            <img src="./assets/4bcb1317adb6f19bee3e0df5abb31f0b5e7c18ec.png" alt="">
+          </div>
+
+          <h1 class="success-title">
+            Thank You, <span class="success-name">Dipanshu!</span>
+          </h1>
+
+          <p class="success-message">
+            Your demo request has been successfully submitted.
+            Our team will reach out shortly.
+          </p>
+
+          <a href="contact.html" class="success-btn">
+            Back to Home
+            <span class="success-btn-icon">
+              <img src="./assets/arrow-right.svg" alt="">
+            </span>
+          </a>
+
+    </div>
+  </div>
+</div>
+
   </div>
   <script src="final.js"></script>
 </body>

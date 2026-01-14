@@ -194,6 +194,11 @@
 .type-btn-articles {
   background: rgba(66, 105, 157, 1);
   box-shadow: 0px 1px 1px 0px rgba(207, 231, 255, 0.2) inset;
+  opacity: 0.6;
+}
+
+.type-btn.active {
+  opacity: 1;
 }
 
 /* --- Decoration --- */

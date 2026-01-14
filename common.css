@@ -21,6 +21,11 @@ body {
     overflow-x: hidden;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 html:has(.modal-overlay.active),
 body:has(.modal-overlay.active),
 html:has(.success-overlay.active),
@@ -1654,6 +1659,44 @@ body:has(.success-overlay.active) {
   margin-bottom: 15px;
 }
 
+/* Chrome / Edge / Safari autofill fix */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0 1000px rgba(46, 81, 128, 1) inset !important;
+  box-shadow: 0 0 0 1000px rgba(46, 81, 128, 1) inset !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* Focus (normal typing) */
+input:focus,
+select:focus,
+textarea:focus {
+  border: 1px solid #FFFFFF33;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Autofill focus (Chrome / Edge / Safari) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid #FFFFFF33 !important;
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0 1000px #2E5180 inset !important;
+  box-shadow: 0 0 0 1000px #2E5180 inset !important;
+  outline: none !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
 input,
 select,
 textarea {
@@ -1826,7 +1869,7 @@ textarea {
 
 .success-btn {
     display: inline-flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     text-decoration: none;
     color: #ffffff;
@@ -2275,3 +2318,4 @@ a {
 .color-text-width{
   max-width: max-content;
 }
+

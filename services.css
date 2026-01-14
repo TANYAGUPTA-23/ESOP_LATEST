@@ -104,7 +104,7 @@
 
 .spm-container {
   width: 100%;
-  max-width: 1560px;
+  max-width: 1600px;
 }
 
 .spm-wrapper {
@@ -279,7 +279,7 @@
 }
 
 .spm-image-area {
-  flex: 1;
+  /* flex: 1; */
   display: flex;
   justify-content: center;
   min-width: 320px;
@@ -296,7 +296,7 @@
 
 .spm-glass-frame img {
   width: 100%;
-  max-width: 650px;
+  max-width: 620px;
   border-radius: 12px;
   object-fit: cover;
   display: block;

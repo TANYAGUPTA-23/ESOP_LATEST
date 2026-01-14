@@ -548,3 +548,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("openContactSuccess");
+  const form = document.getElementById("contactForm");
+  const success = document.getElementById("contactSuccess");
+
+  btn.addEventListener("click", () => {
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const phoneInput = form.querySelector('input[type="tel"]');
+    if (!/^[0-9]{10}$/.test(phoneInput.value)) {
+      alert("Please enter a valid 10-digit phone number");
+      phoneInput.focus();
+      return;
+    }
+
+    success.classList.add("is-active");
+    document.body.classList.add("no-scroll");
+
+    form.reset();
+  });
+});
