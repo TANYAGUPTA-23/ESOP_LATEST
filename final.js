@@ -490,80 +490,98 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
 
   /* ===============================
-     HELPERS
+     COMMON HELPERS
   =============================== */
 
-  function lockScroll() {
-    document.body.classList.add("no-scroll");
-  }
+  const lockScroll = () => document.body.classList.add("no-scroll");
+  const unlockScroll = () => document.body.classList.remove("no-scroll");
 
-  function unlockScroll() {
-    document.body.classList.remove("no-scroll");
-  }
-
-  function closeAllModals() {
+  const closeAllModals = () => {
     document.querySelectorAll(".modal-overlay").forEach(m => {
       m.classList.remove("active");
     });
-  }
+  };
 
-  function closeAllSuccess() {
+  const closeAllSuccess = () => {
     document.querySelectorAll(".success-overlay").forEach(s => {
-      s.classList.remove("is-active");
+      s.classList.remove("active", "is-active");
     });
-  }
+  };
 
-  function validatePhone(form) {
-    const phoneInput = form.querySelector('input[type="tel"]');
-    if (!phoneInput) return true;
+  const validatePhone = (form) => {
+    const phone = form.querySelector('input[type="tel"]');
+    if (!phone) return true;
 
-    const phone = phoneInput.value.trim();
-    if (!/^[6-9][0-9]{9}$/.test(phone)) {
+    if (!/^[6-9][0-9]{9}$/.test(phone.value.trim())) {
       alert("Please enter a valid 10-digit mobile number");
-      phoneInput.focus();
+      phone.focus();
       return false;
     }
     return true;
-  }
-
-  function showSuccess(successId) {
-    closeAllModals();
-
-    setTimeout(() => {
-      closeAllSuccess();
-
-      const success = document.getElementById(successId);
-      if (!success) return;
-
-      success.classList.add("is-active");
-      lockScroll();
-    }, 20);
-  }
+  };
 
   /* ===============================
-     DEMO + BROCHURE MODALS
+     SUCCESS OPENERS (IMPORTANT)
   =============================== */
 
-  function setupModal({ openBtnId, modalSelector, successId }) {
-    const openBtn = document.getElementById(openBtnId);
-    const modal = document.querySelector(modalSelector);
-    if (!openBtn || !modal) return;
-
-    const closeBtn = modal.querySelector(".close-btn");
-    const form = modal.querySelector(".demo-form");
-
-    openBtn.addEventListener("click", () => {
+  const showDemoSuccess = () => {
+    closeAllModals();
+    setTimeout(() => {
       closeAllSuccess();
-      modal.classList.add("active");
+      const success = document.getElementById("successOverlay");
+      if (!success) return;
+      success.classList.add("active", "is-active");
       lockScroll();
-    });
+    }, 40);
+  };
 
-    closeBtn?.addEventListener("click", () => {
-      modal.classList.remove("active");
+  const showContactSuccess = () => {
+    closeAllModals();
+    setTimeout(() => {
+      closeAllSuccess();
+      const success = document.getElementById("contactSuccess");
+      if (!success) return;
+      success.classList.add("active", "is-active");
+      lockScroll();
+    }, 40);
+  };
+
+  /* ===============================
+     OPEN DEMO / BROCHURE MODALS
+  =============================== */
+
+  document.getElementById("openModal")?.addEventListener("click", () => {
+    document
+      .querySelector(".modal-overlay:not(.brochure-modal-overlay)")
+      ?.classList.add("active");
+    lockScroll();
+  });
+
+  document.getElementById("openModal2")?.addEventListener("click", () => {
+    document
+      .querySelector(".brochure-modal-overlay")
+      ?.classList.add("active");
+    lockScroll();
+  });
+
+  /* ===============================
+     CLOSE MODALS
+  =============================== */
+
+  document.querySelectorAll(".modal-overlay .close-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      closeAllModals();
       unlockScroll();
     });
+  });
 
-    form?.addEventListener("submit", (e) => {
+  /* ===============================
+     DEMO + BROCHURE FORMS
+     → DEMO SUCCESS ONLY
+  =============================== */
+
+  document.querySelectorAll(".demo-form").forEach(form => {
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
 
       if (!form.checkValidity()) {
@@ -574,24 +592,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!validatePhone(form)) return;
 
       form.reset();
-      showSuccess(successId);
+      showDemoSuccess(); // ✅ ONLY demo success
     });
-  }
-
-  setupModal({
-    openBtnId: "openModal",
-    modalSelector: ".modal-overlay:not(.brochure-modal-overlay)",
-    successId: "successOverlay",
-  });
-
-  setupModal({
-    openBtnId: "openModal2",
-    modalSelector: ".brochure-modal-overlay",
-    successId: "successOverlay",
   });
 
   /* ===============================
      CONTACT FORM
+     → CONTACT SUCCESS ONLY
   =============================== */
 
   const contactBtn = document.getElementById("openContactSuccess");
@@ -609,18 +616,18 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!validatePhone(contactForm)) return;
 
       contactForm.reset();
-      showSuccess("contactSuccess");
+      showContactSuccess(); // ✅ ONLY contact success
     });
   }
 
   /* ===============================
-     CLOSE SUCCESS ON BACKDROP CLICK
+     CLOSE SUCCESS OVERLAY
   =============================== */
 
   document.querySelectorAll(".success-overlay").forEach(overlay => {
     overlay.addEventListener("click", (e) => {
       if (e.target === overlay) {
-        overlay.classList.remove("is-active");
+        closeAllSuccess();
         unlockScroll();
       }
     });
