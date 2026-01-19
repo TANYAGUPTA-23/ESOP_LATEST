@@ -312,69 +312,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  function setupModal({ openBtnId, modalSelector }) {
-    const openBtn = document.getElementById(openBtnId);
-    const modal = document.querySelector(modalSelector);
 
-    if (!openBtn || !modal) return;
-
-    const closeBtn = modal.querySelector(".close-btn");
-    const form = modal.querySelector(".demo-form");
-    const successOverlay = document.getElementById("successOverlay");
-
-    /* ---------- OPEN MODAL ---------- */
-    openBtn.addEventListener("click", () => {
-      modal.classList.add("active");
-      document.body.classList.add("no-scroll");
-    });
-
-    /* ---------- CLOSE MODAL ---------- */
-    closeBtn?.addEventListener("click", () => {
-      modal.classList.remove("active");
-      document.body.classList.remove("no-scroll");
-    });
-
-    /* ---------- FORM SUBMIT + VALIDATION ---------- */
-    form?.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      // HTML5 validation
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      // Extra phone validation
-      const phoneInput = form.querySelector('input[type="tel"]');
-      const phone = phoneInput?.value.trim();
-
-      if (phoneInput && !/^[6-9][0-9]{9}$/.test(phone)) {
-        alert("Please enter a valid 10-digit mobile number.");
-        phoneInput.focus();
-        return;
-      }
-
-      // ✅ ALL VALID
-      modal.classList.remove("active");
-      document.body.classList.remove("no-scroll");
-      successOverlay?.classList.add("active");
-
-      form.reset();
-    });
-  }
-
-  /* ===== INIT BOTH MODALS ===== */
-  setupModal({
-    openBtnId: "openModal",
-    modalSelector: ".modal-overlay",
-  });
-
-  setupModal({
-    openBtnId: "openModal2",
-    modalSelector: ".brochure-modal-overlay",
-  });
-});
 
 // Manages active state for type selectors and tab groups using event delegation
 document.addEventListener("click", (e) => {
@@ -550,27 +488,142 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.getElementById("openContactSuccess");
-  const form = document.getElementById("contactForm");
-  const success = document.getElementById("contactSuccess");
 
-  btn.addEventListener("click", () => {
+  /* ===============================
+     HELPERS
+  =============================== */
 
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-
-    const phoneInput = form.querySelector('input[type="tel"]');
-    if (!/^[0-9]{10}$/.test(phoneInput.value)) {
-      alert("Please enter a valid 10-digit phone number");
-      phoneInput.focus();
-      return;
-    }
-
-    success.classList.add("is-active");
+  function lockScroll() {
     document.body.classList.add("no-scroll");
+  }
 
-    form.reset();
+  function unlockScroll() {
+    document.body.classList.remove("no-scroll");
+  }
+
+  function closeAllModals() {
+    document.querySelectorAll(".modal-overlay").forEach(m => {
+      m.classList.remove("active");
+    });
+  }
+
+  function closeAllSuccess() {
+    document.querySelectorAll(".success-overlay").forEach(s => {
+      s.classList.remove("is-active");
+    });
+  }
+
+  function validatePhone(form) {
+    const phoneInput = form.querySelector('input[type="tel"]');
+    if (!phoneInput) return true;
+
+    const phone = phoneInput.value.trim();
+    if (!/^[6-9][0-9]{9}$/.test(phone)) {
+      alert("Please enter a valid 10-digit mobile number");
+      phoneInput.focus();
+      return false;
+    }
+    return true;
+  }
+
+  function showSuccess(successId) {
+    closeAllModals();
+
+    setTimeout(() => {
+      closeAllSuccess();
+
+      const success = document.getElementById(successId);
+      if (!success) return;
+
+      success.classList.add("is-active");
+      lockScroll();
+    }, 20);
+  }
+
+  /* ===============================
+     DEMO + BROCHURE MODALS
+  =============================== */
+
+  function setupModal({ openBtnId, modalSelector, successId }) {
+    const openBtn = document.getElementById(openBtnId);
+    const modal = document.querySelector(modalSelector);
+    if (!openBtn || !modal) return;
+
+    const closeBtn = modal.querySelector(".close-btn");
+    const form = modal.querySelector(".demo-form");
+
+    openBtn.addEventListener("click", () => {
+      closeAllSuccess();
+      modal.classList.add("active");
+      lockScroll();
+    });
+
+    closeBtn?.addEventListener("click", () => {
+      modal.classList.remove("active");
+      unlockScroll();
+    });
+
+    form?.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      if (!validatePhone(form)) return;
+
+      form.reset();
+      showSuccess(successId);
+    });
+  }
+
+  setupModal({
+    openBtnId: "openModal",
+    modalSelector: ".modal-overlay:not(.brochure-modal-overlay)",
+    successId: "successOverlay",
   });
+
+  setupModal({
+    openBtnId: "openModal2",
+    modalSelector: ".brochure-modal-overlay",
+    successId: "successOverlay",
+  });
+
+  /* ===============================
+     CONTACT FORM
+  =============================== */
+
+  const contactBtn = document.getElementById("openContactSuccess");
+  const contactForm = document.getElementById("contactForm");
+
+  if (contactBtn && contactForm) {
+    contactBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
+
+      if (!validatePhone(contactForm)) return;
+
+      contactForm.reset();
+      showSuccess("contactSuccess");
+    });
+  }
+
+  /* ===============================
+     CLOSE SUCCESS ON BACKDROP CLICK
+  =============================== */
+
+  document.querySelectorAll(".success-overlay").forEach(overlay => {
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) {
+        overlay.classList.remove("is-active");
+        unlockScroll();
+      }
+    });
+  });
+
 });

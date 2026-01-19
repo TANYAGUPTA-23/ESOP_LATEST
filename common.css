@@ -26,14 +26,6 @@ html {
 }
 
 
-html:has(.modal-overlay.active),
-body:has(.modal-overlay.active),
-html:has(.success-overlay.active),
-body:has(.success-overlay.active) {
-    overflow: hidden;
-    height: 100vh;
-}
-
 .navbar {
     width: 100%;
     height: 96px;
