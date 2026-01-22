@@ -16,10 +16,10 @@ body.no-scroll {
     overflow: hidden;
 }
 
-html,
+/* html,
 body {
     overflow-x: hidden;
-}
+} */
 
 html {
   scroll-behavior: smooth;
@@ -2311,3 +2311,14 @@ a {
   max-width: max-content;
 }
 
+.sticky-heading{
+    position: sticky;
+    top: 180px;
+}
+
+@media (max-width: 900px) {
+    .sticky-heading{
+        position: static;
+        top: auto;
+    }
+}
