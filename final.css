@@ -4643,6 +4643,15 @@ body {
     max-width: 220px;
   }
 }
+.right-side {
+  position: relative;
+  overflow-x: clip;
+}
+
+.stat-card-outer {
+  contain: paint;
+}
+
 
 .right-side.reveal .stat-card-outer {
   opacity: 0;
