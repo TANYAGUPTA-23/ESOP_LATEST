@@ -2218,6 +2218,18 @@ a {
   filter: blur(0);
 }
 
+/* Specific footer reveal animation to prevent background image issues */
+.footer-section.reveal {
+  opacity: 0.98;
+  transform: translateY(0);
+  transition: all 0.9s ease-out;
+}
+
+.footer-section.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .mobile-item{
     width: 100%;
 }
@@ -2322,3 +2334,5 @@ a {
         top: auto;
     }
 }
+
+
